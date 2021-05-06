@@ -1,0 +1,6 @@
+# put this in s3 or ferrothorn, dummy
+*.tfstate
+**/.terraform.lock.hcl
+**/.terraform
+
+tfplan
