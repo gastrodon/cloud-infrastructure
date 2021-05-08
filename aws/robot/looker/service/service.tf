@@ -1,14 +1,11 @@
-locals {
-  robot_name = "looker-discord"
-}
-
 resource "aws_ecs_service" "looker" {
   name = "looker"
 
-  task_definition = aws_ecs_task_definition.looker.family
-  cluster         = data.terraform_remote_state.cluster.outputs.cluster_name
-  desired_count   = 1
-  launch_type     = "FARGATE"
+  task_definition      = data.terraform_remote_state.definition.outputs.task_definition_family
+  cluster              = data.terraform_remote_state.cluster.outputs.cluster_name
+  desired_count        = 1
+  launch_type          = "FARGATE"
+  force_new_deployment = true
 
   network_configuration {
     assign_public_ip = true

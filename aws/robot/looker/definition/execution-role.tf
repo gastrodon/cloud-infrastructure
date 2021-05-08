@@ -27,7 +27,7 @@ resource "aws_iam_role_policy_attachment" "get_containers" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
 
-resource "aws_iam_role_policy_attachment" "get_secrets" {
+resource "aws_iam_role_policy_attachment" "get_ssm_params" {
   role       = aws_iam_role.looker_execution.name
-  policy_arn = "arn:aws:iam::aws:policy/SecretsManagerReadWrite"
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess"
 }

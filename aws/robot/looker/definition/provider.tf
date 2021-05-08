@@ -8,7 +8,7 @@ terraform {
 
   backend "s3" {
     bucket  = "gastrodon-terraform"
-    key     = "robot-looker.tfstate"
+    key     = "robot-looker-definition.tfstate"
     region  = "us-east-1"
     profile = "gas"
   }

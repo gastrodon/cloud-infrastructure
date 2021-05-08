@@ -1,5 +1,5 @@
 resource "aws_ecs_task_definition" "looker" {
-  family                   = local.robot_name
+  family                   = "robot-looker"
   cpu                      = var.task_cpu
   memory                   = var.task_ram
   execution_role_arn       = aws_iam_role.looker_execution.arn
@@ -16,12 +16,11 @@ module "container" {
   container_name           = "looker"
   container_cpu            = var.task_cpu
   container_memory         = var.task_ram
+
   secrets = [
     {
       name      = "DISCORD_TOKEN"
-      valueFrom = data.aws_secretsmanager_secret.discord_token.arn
+      valueFrom = aws_ssm_parameter.discord_token.arn
     }
   ]
-
-  depends_on = [aws_secretsmanager_secret_version.discord_token]
 }

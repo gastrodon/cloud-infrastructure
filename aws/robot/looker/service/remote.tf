@@ -30,3 +30,14 @@ data "terraform_remote_state" "security" {
     profile = "gas"
   }
 }
+
+data "terraform_remote_state" "definition" {
+  backend = "s3"
+
+  config = {
+    bucket  = "gastrodon-terraform"
+    key     = "robot-looker-definition.tfstate"
+    region  = "us-east-1"
+    profile = "gas"
+  }
+}
