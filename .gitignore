@@ -1,6 +1,8 @@
 # put this in s3 or ferrothorn, dummy
-*.tfstate
-**/.terraform.lock.hcl
-**/.terraform
+.terraform.lock.hcl
 
+**/.terraform/**
+
+*.tfstate
+secret.tfvars
 tfplan
