@@ -4,8 +4,8 @@ resource "aws_ecs_task_definition" "looker" {
   memory                   = var.task_ram
   execution_role_arn       = data.terraform_remote_state.execution_role.outputs.task_execution_role_arn
   container_definitions    = module.container.json_map_encoded_list
-  network_mode             = "awsvpc"
-  requires_compatibilities = ["FARGATE"]
+  network_mode             = "bridge"
+  requires_compatibilities = ["EC2"]
 }
 
 module "container" {
