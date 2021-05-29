@@ -1,6 +1,3 @@
-# TODO this should be it's own thing
-# it should be used by any other robots I may deploy
-
 data "aws_iam_policy_document" "task_execution" {
   statement {
     actions = [
@@ -30,4 +27,9 @@ resource "aws_iam_role_policy_attachment" "get_containers" {
 resource "aws_iam_role_policy_attachment" "get_ssm_params" {
   role       = aws_iam_role.task_execution.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess"
+}
+
+resource "aws_iam_role_policy_attachment" "make_logs" {
+  role       = aws_iam_role.task_execution.name
+  policy_arn = "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess"
 }
