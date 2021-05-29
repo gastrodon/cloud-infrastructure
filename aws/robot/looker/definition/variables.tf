@@ -5,10 +5,10 @@ variable "discord_token" {
 
 variable "task_cpu" {
   type    = number
-  default = 256
+  default = 128
 }
 
 variable "task_ram" {
   type    = number
-  default = 512
+  default = 64
 }
