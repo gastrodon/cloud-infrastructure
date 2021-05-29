@@ -1,3 +1,8 @@
+resource "aws_security_group" "listener_database_ingress" {
+  name   = "listener-database-ingress"
+  vpc_id = data.terraform_remote_state.network.outputs.vpc_id
+}
+
 resource "aws_security_group" "robot" {
   name   = "robot-security-group"
   vpc_id = data.terraform_remote_state.network.outputs.vpc_id
