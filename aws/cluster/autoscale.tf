@@ -1,3 +1,5 @@
+data "aws_region" "current" {}
+
 data "aws_ssm_parameter" "cluster_node_ami" {
   name = "/aws/service/ecs/optimized-ami/amazon-linux-2/recommended"
 }
@@ -10,6 +12,14 @@ data "aws_iam_policy_document" "cluster_node" {
       type        = "Service"
       identifiers = ["ec2.amazonaws.com"]
     }
+  }
+}
+
+data "template_file" "node_user_data" {
+  template = file("${path.module}/documents/user_data.sh")
+  vars = {
+    cluster_name = aws_ecs_cluster.cluster.name,
+    region       = data.aws_region.current.name
   }
 }
 
@@ -36,7 +46,7 @@ resource "aws_key_pair" "cluster_node" {
 resource "aws_launch_configuration" "cluster_node" {
   image_id             = jsondecode(data.aws_ssm_parameter.cluster_node_ami.value)["image_id"]
   iam_instance_profile = aws_iam_instance_profile.cluster_node.name
-  user_data            = "#!/bin/bash\necho ECS_CLUSTER=${aws_ecs_cluster.cluster.name} >> /etc/ecs/ecs.config"
+  user_data            = data.template_file.node_user_data.rendered
   instance_type        = "t2.micro"
   key_name             = aws_key_pair.cluster_node.key_name
 
