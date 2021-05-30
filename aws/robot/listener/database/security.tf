@@ -12,15 +12,6 @@ resource "aws_security_group_rule" "database_mysql_inbound" {
   security_group_id        = aws_security_group.database.id
 }
 
-resource "aws_security_group_rule" "database_icmp_inbound" {
-  to_port                  = 0
-  from_port                = 0
-  protocol                 = "ICMP"
-  type                     = "ingress"
-  source_security_group_id = data.terraform_remote_state.security.outputs.group_listener_database_ingress
-  security_group_id        = aws_security_group.database.id
-}
-
 resource "aws_security_group_rule" "database_outbound" {
   to_port           = 0
   from_port         = 0
