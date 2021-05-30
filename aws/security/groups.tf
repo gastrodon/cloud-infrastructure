@@ -16,3 +16,12 @@ resource "aws_security_group_rule" "robot_outbound" {
   cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.robot.id
 }
+
+resource "aws_security_group_rule" "robot_ssh" {
+  to_port           = 22
+  from_port         = 22
+  protocol          = "TCP"
+  type              = "ingress"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.robot.id
+}

@@ -28,11 +28,17 @@ resource "aws_iam_instance_profile" "cluster_node" {
   role = aws_iam_role.cluster_node.name
 }
 
+resource "aws_key_pair" "cluster_node" {
+  key_name   = "cluster-node"
+  public_key = var.public_key
+}
+
 resource "aws_launch_configuration" "cluster_node" {
   image_id             = jsondecode(data.aws_ssm_parameter.cluster_node_ami.value)["image_id"]
   iam_instance_profile = aws_iam_instance_profile.cluster_node.name
   user_data            = "#!/bin/bash\necho ECS_CLUSTER=${aws_ecs_cluster.cluster.name} >> /etc/ecs/ecs.config"
   instance_type        = "t2.micro"
+  key_name             = aws_key_pair.cluster_node.key_name
 
   security_groups = [
     data.terraform_remote_state.security.outputs.group_robots_id,
