@@ -5,3 +5,7 @@ output "cluster_arn" {
 output "cluster_name" {
   value = aws_ecs_cluster.cluster.name
 }
+
+output "node_subnet" {
+  value = aws_autoscaling_group.cluster_node.vpc_zone_identifier
+}

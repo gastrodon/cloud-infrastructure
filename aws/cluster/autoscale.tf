@@ -58,7 +58,6 @@ resource "aws_launch_configuration" "cluster_node" {
 
 resource "aws_autoscaling_group" "cluster_node" {
   name                 = "robot-nodes"
-  vpc_zone_identifier  = [data.terraform_remote_state.network.outputs.subnet_ids[0]]
   launch_configuration = aws_launch_configuration.cluster_node.name
 
   desired_capacity          = 1
@@ -66,4 +65,9 @@ resource "aws_autoscaling_group" "cluster_node" {
   max_size                  = 2
   health_check_grace_period = 180
   health_check_type         = "EC2"
+
+  vpc_zone_identifier = [
+    data.terraform_remote_state.network.outputs.subnet_ids[0],
+    data.terraform_remote_state.network.outputs.subnet_ids[2],
+  ]
 }
