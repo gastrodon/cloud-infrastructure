@@ -3,8 +3,8 @@ MAAS_PORT = 5240
 
 Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/impish64"
-
   config.vm.hostname = "MAAS"
+
   config.vm.provider "virtualbox" do |box|
     box.name = "MAAS"
     box.memory = 1024 * 8
