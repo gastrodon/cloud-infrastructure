@@ -14,8 +14,8 @@ Vagrant.configure(2) do |config|
   config.vm.network "private_network", ip: IP_ADDRESS
 
   config.vm.provision "shell", inline: <<-SHELL
-    apt update
-    apt upgrade
+    apt update -y
+    apt upgrade -y
 
     sudo snap install maas-test-db
     sudo snap install maas --channel=3.0/stable
