@@ -1,6 +1,9 @@
 services:
     dashboard:
-        path: /home/zero/Documents/programming/cloud-infrastructure/kubernetes/dashboard
+        path: ./dashboard
+
+        backend-configs:
+            - backend/staging.tfvars
 
         var-files:
             - tfvars/variables.tfvars

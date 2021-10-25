@@ -5,6 +5,10 @@ terraform {
       version = "~>2"
     }
   }
+
+  backend "kubernetes" {
+    load_config_file = true
+  }
 }
 
 provider "kubernetes" {
