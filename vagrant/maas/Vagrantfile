@@ -1,0 +1,35 @@
+IP_ADDRESS = "10.0.10.10"
+MAAS_PORT = 5240
+
+Vagrant.configure(2) do |config|
+  config.vm.box = "ubuntu/impish64"
+
+  config.vm.hostname = "MAAS"
+  config.vm.provider "virtualbox" do |box|
+    box.name = "MAAS"
+    box.memory = 1024 * 8
+  end
+
+  config.vm.network "forwarded_port", guest: MAAS_PORT, host: MAAS_PORT
+  config.vm.network "private_network", ip: IP_ADDRESS
+
+  config.vm.provision "shell", inline: <<-SHELL
+    apt update
+    apt upgrade
+
+    sudo snap install maas-test-db
+    sudo snap install maas --channel=3.0/stable
+
+    sudo maas init region+rack \
+      --maas-url http://#{IP_ADDRESS}:#{MAAS_PORT}/MAAS \
+      --database-uri maas-test-db:///
+
+    sudo maas createadmin \
+      --username #{ENV['MAAS_ADMIN_USERNAME']} \
+      --password #{ENV['MAAS_ADMIN_PASSWORD']} \
+      --email #{ENV['MAAS_ADMIN_EMAIL']} \
+      --ssh-import lp:gastrodon
+
+    sudo maas apikey --username admin > ~ubuntu/admin-api-key
+  SHELL
+end
