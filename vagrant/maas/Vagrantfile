@@ -17,18 +17,18 @@ Vagrant.configure(2) do |config|
     apt update -y
     apt upgrade -y
 
-    sudo snap install maas-test-db
-    sudo snap install maas --channel=3.0/stable
+    snap install maas-test-db
+    snap install maas --channel=3.0/stable
 
-    sudo maas init region+rack \
+    maas init region+rack \
       --maas-url http://#{IP_ADDRESS}:#{MAAS_PORT}/MAAS \
       --database-uri maas-test-db:///
 
-    sudo maas createadmin \
+    maas createadmin \
       --username #{ENV['MAAS_ADMIN_USERNAME']} \
       --password #{ENV['MAAS_ADMIN_PASSWORD']} \
       --email #{ENV['MAAS_ADMIN_EMAIL']} \
-      --ssh-import lp:gastrodon
+      --ssh-import gh:gastrodon
 
     sudo maas apikey --username admin > ~ubuntu/admin-api-key
   SHELL
