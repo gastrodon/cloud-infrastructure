@@ -1,0 +1,6 @@
+services:
+    dashboard:
+        path: /home/zero/Documents/programming/cloud-infrastructure/kubernetes/dashboard
+
+        var-files:
+            - tfvars/variables.tfvars

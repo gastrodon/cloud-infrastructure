@@ -4,5 +4,7 @@
 **/.terraform/**
 
 *.tfstate
+*.tfstate.backup
 secret.tfvars
 tfplan
+terraform-compose-tfplan
