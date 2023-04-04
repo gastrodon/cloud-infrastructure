@@ -41,8 +41,8 @@ module "container" {
       valueFrom = aws_ssm_parameter.ifunny_admin.arn
     },
     {
-      name      = "IFUNNY_STATS_CONNECTION"
-      valueFrom = data.terraform_remote_state.looker_database.outputs.database_connection
+      name  = "IFUNNY_STATS_CONNECTION"
+      value = data.terraform_remote_state.looker_database.outputs.database_connection
     },
   ]
 }
