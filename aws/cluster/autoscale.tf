@@ -31,8 +31,8 @@ resource "aws_iam_instance_profile" "cluster_node" {
 }
 
 resource "aws_key_pair" "cluster_node" {
-  key_name   = "cluster-node"
-  public_key = var.public_key
+  key_name_prefix = "cluster-node-"
+  public_key      = var.public_key
   lifecycle {
     ignore_changes = [public_key]
   }
@@ -46,6 +46,7 @@ locals {
 }
 
 resource "aws_launch_configuration" "cluster_node" {
+  name_prefix          = "robot-nodes-"
   image_id             = jsondecode(data.aws_ssm_parameter.cluster_node_ami.value)["image_id"]
   iam_instance_profile = aws_iam_instance_profile.cluster_node.name
   user_data            = local.node_user_data
@@ -56,10 +57,12 @@ resource "aws_launch_configuration" "cluster_node" {
     data.terraform_remote_state.security.outputs.group_robots_id,
     data.terraform_remote_state.security.outputs.group_listener_database_ingress,
   ]
+
+  lifecycle { create_before_destroy = true }
 }
 
 resource "aws_autoscaling_group" "cluster_node" {
-  name                 = "robot-nodes"
+  name_prefix          = "robot-nodes-"
   launch_configuration = aws_launch_configuration.cluster_node.name
 
   desired_capacity          = 1
@@ -72,4 +75,6 @@ resource "aws_autoscaling_group" "cluster_node" {
     data.terraform_remote_state.network.outputs.subnet_ids[0],
     data.terraform_remote_state.network.outputs.subnet_ids[2],
   ]
+
+  lifecycle { create_before_destroy = true }
 }
