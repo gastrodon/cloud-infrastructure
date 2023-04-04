@@ -13,7 +13,6 @@ resource "aws_cloudwatch_log_group" "looker" {
   retention_in_days = 3
 }
 
-
 module "container" {
   source                   = "cloudposse/ecs-container-definition/aws"
   version                  = "~> 0"
