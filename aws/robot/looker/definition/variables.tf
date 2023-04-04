@@ -1,14 +1,19 @@
-variable "discord_token" {
+variable "ifunny_bearer" {
+  type      = string
+  sensitive = true
+}
+
+variable "ifunny_admin" {
   type      = string
   sensitive = true
 }
 
 variable "task_cpu" {
   type    = number
-  default = 128
+  default = 2048
 }
 
 variable "task_ram" {
   type    = number
-  default = 64
+  default = 1942
 }
