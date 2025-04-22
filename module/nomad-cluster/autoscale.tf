@@ -51,7 +51,7 @@ module "autoscaling_group" {
   instance_type      = each.value.instance_type
   instance_use_spot  = each.value.instance_use_spot
   availability_zones = try(each.value.availability_zones, null)
-  subnet_ids         = each.value.subnet_ids
+  subnet_ids         = try(each.value.subnet_ids, null)
 
   tags = merge(local.tags_all, each.value.server ? {
     nomad_mode         = try(each.value.mode, "")
