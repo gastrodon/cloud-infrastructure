@@ -4,6 +4,8 @@ locals {
 
   user_data = <<-EOF
   #!/bin/bash
+  set -x
+
   curl -L ${local.aviary_install} | AVIARY_NO_CRON=${var.no_cron} bash
 
   inventory="${local.inventory_root}/hosts/$(hostname)"
