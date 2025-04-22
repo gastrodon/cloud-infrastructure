@@ -7,12 +7,13 @@ locals {
   curl -L ${local.aviary_install} | AVIARY_NO_CRON=${var.no_cron} bash
 
   inventory="${local.inventory_root}/hosts/$(hostname)"
-  mkdir -p /opt/aviary "$inventory"
+  mkdir -p /opt/aviary
   git clone "${var.inventory_url}" /opt/aviary/inventory-repo
   git -C /opt/aviary/inventory-repo checkout "${var.inventory_branch}"
 
   ${join("\n", [for key, value in var.aviary_config : "echo \"${key}=${value}\" >> /var/lib/aviary/config"])}
 
+  mkdir -p "$inventory"
   cat <<AV > "$inventory/variables"
   ${join("\n", [for key, value in var.aviary_variables : "${key}='${value}'"])}
   AV
