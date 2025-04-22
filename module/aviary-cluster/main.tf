@@ -1,35 +1,31 @@
 locals {
+  aviary_install = try(var.aviary_install_url, "https://raw.githubusercontent.com/gastrodon/aviary.sh/refs/${var.aviary_ref}/install")
+  inventory_root = "/opt/aviary/inventory-repo/${var.inventory_path}"
+
   user_data = <<-EOF
   #!/bin/bash
-  config="/opt/aviary"
+  curl -L ${local.aviary_install} | AVIARY_NO_CRON=${var.no_cron} bash
 
-  curl -L https://raw.githubusercontent.com/gastrodon/aviary.sh/refs/${var.aviary_ref}/install \
-    | AVIARY_NO_CRON=${var.no_cron} bash
+  inventory="${local.inventory_root}/hosts/$(hostname)"
+  mkdir -p /opt/aviary "$inventory"
+  git clone "${var.inventory_url}" /opt/aviary/inventory-repo
+  git -C /opt/aviary/inventory-repo checkout "${var.inventory_branch}"
 
-  echo "inventory_git_url=${var.inventory_url}" >> /var/lib/aviary/config
-  echo "config_root=$config" >> /var/lib/aviary/config
   ${join("\n", [for key, value in var.aviary_config : "echo \"${key}=${value}\" >> /var/lib/aviary/config"])}
 
-  av fetch
-  mkdir -p "$config"
-  echo "hosts/$(hostname)" >> /var/lib/aviary/inventory/.git/info/exclude
-
-  git -C /var/lib/aviary/inventory fetch
-  git -C /var/lib/aviary/inventory checkout ${var.inventory_branch}
-
-  cat <<AV > "$config/variables"
+  cat <<AV > "$inventory/variables"
   ${join("\n", [for key, value in var.aviary_variables : "${key}='${value}'"])}
   AV
 
-  cat <<AV > "$config/roles"
+  cat <<AV > "$inventory/roles"
   ${join("\n", var.aviary_roles)}
   AV
 
-  cat <<AV > "$config/modules"
+  cat <<AV > "$inventory/modules"
   ${join("\n", var.aviary_modules)}
   AV
 
-  av apply
+  av apply --inventory /opt/aviary/inventory-repo/${var.inventory_path}
   ${var.user_data != null ? var.user_data : ""}
   EOF
 }

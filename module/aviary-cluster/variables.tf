@@ -42,10 +42,22 @@ variable "inventory_url" {
   type        = string
 }
 
+variable "inventory_path" {
+  description = "Path relative to inventory_url's root where the inventory actually lives"
+  type        = string
+  default     = ""
+}
+
 variable "inventory_branch" {
   description = "Branch to checkout once inventory_url is cloned"
   type        = string
   default     = "master"
+}
+
+variable "aviary_install_url" {
+  description = "URL pointing to an aviary install script. Overrides construction from var.aviary_ref"
+  type        = string
+  default     = null
 }
 
 variable "aviary_ref" {
