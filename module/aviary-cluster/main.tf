@@ -1,5 +1,5 @@
 locals {
-  aviary_install = try(var.aviary_install_url, "https://raw.githubusercontent.com/gastrodon/aviary.sh/refs/${var.aviary_ref}/install")
+  aviary_install = var.aviary_install_url != null ? var.aviary_install_url : "https://raw.githubusercontent.com/gastrodon/aviary.sh/refs/${var.aviary_ref}/install"
   inventory_root = "/opt/aviary/inventory-repo/${var.inventory_path}"
 
   user_data = <<-EOF
