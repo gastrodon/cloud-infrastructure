@@ -51,7 +51,7 @@ variable "inventory_path" {
 variable "inventory_branch" {
   description = "Branch to checkout once inventory_url is cloned"
   type        = string
-  default     = "master"
+  default     = "main"
 }
 
 variable "aviary_install_url" {
