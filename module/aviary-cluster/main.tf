@@ -28,7 +28,7 @@ locals {
   ${join("\n", var.aviary_modules)}
   AV
 
-  av apply --inventory /opt/aviary/inventory-repo/${var.inventory_path}
+  av apply --inventory ${local.inventory_root}
   ${var.user_data != null ? var.user_data : ""}
   EOF
 }
