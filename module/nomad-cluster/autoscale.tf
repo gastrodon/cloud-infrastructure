@@ -63,12 +63,10 @@ module "autoscaling_group" {
   security_groups  = [aws_security_group.crosstalk[each.value.vpc_id].id]
   target_groups    = each.value.server ? local.target_groups : []
 
-  no_cron       = true
-  inventory_url = "https://github.com/gastrodon/cloud-infrastructure"
-  aviary_config = {
-    inventory_dir = "$aviary_root/aviary-inventory/inventory"
-  }
-  aviary_roles = var.aviary_roles
+  no_cron        = true
+  inventory_url  = "https://github.com/gastrodon/cloud-infrastructure"
+  inventory_path = "aviary-inventory"
+  aviary_roles   = var.aviary_roles
   aviary_variables = {
     server                      = each.value.server
     nomad_datacenter            = each.value.datacenter
