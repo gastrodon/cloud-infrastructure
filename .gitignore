@@ -6,3 +6,5 @@
 *.tfstate
 secret.tfvars
 tfplan
+
+aviary-inventory/hosts/**
