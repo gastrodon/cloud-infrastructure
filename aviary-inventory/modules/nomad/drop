@@ -1,0 +1,4 @@
+systemctl stop nomad
+systemctl disable nomad
+
+apt-get -y remove nomad

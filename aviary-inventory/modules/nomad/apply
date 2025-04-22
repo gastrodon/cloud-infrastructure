@@ -1,0 +1,114 @@
+. "$(dirname $0)/../../hosts/$(hostname)/variables"
+
+if [[ ! $nomad_version == "$(dpkg -s nomad | grep -Po '(?<=Version: ).+')" ]]; then
+  if test ! -f /usr/share/keyrings/hashicorp-archive-keyring.gpg; then
+    curl -o- https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+  fi
+
+  if test ! -f /etc/apt/sources.list.d/hashicorp.list; then
+    echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" \
+      > /etc/apt/sources.list.d/hashicorp.list
+  fi
+
+  apt-get -y update
+  apt-get -y install nomad="$nomad_version"
+fi
+
+sudo mkdir -p /opt/cni/bin /etc/sysctl.d /etc/nomad.d
+
+arch="$( [ $(uname -m) = aarch64 ] && echo arm64 || echo amd64)"
+curl -L -o /tmp/cni-plugins.tgz \
+  "https://github.com/containernetworking/plugins/releases/download/v$containernetworking_version/cni-plugins-linux-$arch-v$containernetworking_version.tgz"
+
+tar -C /opt/cni/bin -xzf /tmp/cni-plugins.tgz
+
+echo 1 > /proc/sys/net/bridge/bridge-nf-call-arptables
+echo 1 > /proc/sys/net/bridge/bridge-nf-call-ip6tables
+echo 1 > /proc/sys/net/bridge/bridge-nf-call-iptables
+
+cat <<CONF > /etc/sysctl.d/bridge.conf
+net.bridge.bridge-nf-call-arptables = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+CONF
+
+
+if [ "$nomad_cluster_key" ]; then
+  tag_key="nomad_cluster_key"
+else
+  nomad_cluster_key="$mode"
+  tag_key="nomad_mode"
+fi
+
+cat <<HCL > /etc/nomad.d/nomad.hcl
+datacenter = "$nomad_datacenter"
+data_dir   = "/opt/nomad/data"
+bind_addr  = "0.0.0.0"
+
+server {
+  enabled          = $server
+  bootstrap_expect = 3
+  server_join {
+    retry_join = [ "provider=aws tag_key=$tag_key tag_value=$nomad_cluster_key" ]
+    retry_max      = 0
+    retry_interval = "15s"
+  }
+}
+
+client {
+  enabled = true
+  server_join {
+    retry_join = [ "provider=aws tag_key=$tag_key tag_value=$nomad_cluster_key" ]
+    retry_max      = 0
+    retry_interval = "15s"
+  }
+
+  artifact {
+    decompression_file_count_limit = 0
+  }
+}
+
+plugin "docker" {
+  config {
+    allow_privileged = true
+    auth {
+      config = "/etc/docker-auth.json"
+    }
+    volumes {
+      enabled = true
+    }
+  }
+}
+
+plugin "raw_exec" {
+  config {
+    enabled = true
+  }
+}
+
+acl {
+  enabled = true
+}
+
+telemetry {
+  collection_interval = "1s"
+  disable_hostname = true
+  prometheus_metrics = true
+  publish_allocation_metrics = true
+  publish_node_metrics = true
+}
+
+consul {
+  address = "127.0.0.1:8500"
+  token   = "$consul_token"
+  server_auto_join = false
+  client_auto_join = false
+}
+
+limits {
+  http_max_conns_per_client = 0
+}
+HCL
+
+systemctl enable nomad
+systemctl restart nomad

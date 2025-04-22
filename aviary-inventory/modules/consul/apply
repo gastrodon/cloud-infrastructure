@@ -1,0 +1,79 @@
+. "$(dirname $0)/../../hosts/$(hostname)/variables"
+
+
+if [[ ! $consul_version == "$(dpkg -s consul | grep -Po '(?<=Version: ).+')" ]]; then
+  if test ! -f /usr/share/keyrings/hashicorp-archive-keyring.gpg; then
+    curl -o- https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+  fi
+
+  if test ! -f /etc/apt/sources.list.d/hashicorp.list; then
+    echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" \
+      > /etc/apt/sources.list.d/hashicorp.list
+  fi
+
+  apt-get -y update
+  apt-get -y install consul="$consul_version"
+fi
+
+if [ "$consul_cluster_key" ]; then
+  tag_key="consul_cluster_key"
+else
+  consul_cluster_key="$mode"
+  tag_key="nomad_mode"
+fi
+
+mkdir -p /etc/consul.d
+cat <<HCL > /etc/consul.d/consul.hcl
+datacenter = "$consul_datacenter"
+data_dir = "/opt/consul/data"
+log_level = "WARN"
+
+server = $server
+client_addr = "0.0.0.0"
+bind_addr = "{{ GetInterfaceIP \"ens5\" }}"
+retry_join = [ "provider=aws tag_key=$tag_key tag_value=$consul_cluster_key"]
+$( [ "$server" = "true" ] && echo "bootstrap_expect = $bootstrap_expect" )
+
+acl = {
+  enabled = true
+  default_policy = "deny"
+  enable_token_persistence = true
+  enable_token_replication = true
+  down_policy = "extend-cache"
+
+  tokens {
+    initial_management = "$consul_token"
+    agent              = "$consul_token"
+  }
+}
+
+service {
+  name = "consul"
+}
+
+ui_config {
+  enabled = true
+}
+
+ports {
+  grpc = 8502
+}
+HCL
+
+if [ ! -f "/etc/systemd/resolved.conf.d/consul.conf" ]; then
+  mkdir -p /etc/systemd/resolved.conf.d/
+  cat <<EOF > /etc/systemd/resolved.conf.d/consul.conf
+[Resolve]
+DNS=127.0.0.1:8600
+DNSSEC=false
+Domains=~consul
+EOF
+
+  systemctl restart systemd-resolved
+fi
+
+export CONSUL_HTTP_TOKEN="$consul_token"
+consul acl set-agent-token default "$consul_token"
+
+systemctl enable consul
+systemctl restart consul

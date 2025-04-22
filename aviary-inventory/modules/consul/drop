@@ -1,0 +1,4 @@
+systemctl stop consul
+systemctl disable consul
+
+apt-get -y remove consul
