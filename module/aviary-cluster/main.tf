@@ -8,6 +8,7 @@ locals {
 
   echo "inventory_git_url=${var.inventory_url}" >> /var/lib/aviary/config
   echo "config_root=$config" >> /var/lib/aviary/config
+  ${join("\n", [for key, value in var.aviary_config : "echo \"${key}=${value}\" >> /var/lib/aviary/config"])}
 
   av fetch
   mkdir -p "$config"

@@ -54,6 +54,12 @@ variable "aviary_ref" {
   default     = "tags/v1.5.1"
 }
 
+variable "aviary_config" {
+  description = "Aviary configuration values"
+  type        = map(string)
+  default     = {}
+}
+
 variable "aviary_roles" {
   description = "Aviary roles to assume"
   type        = set(string)
