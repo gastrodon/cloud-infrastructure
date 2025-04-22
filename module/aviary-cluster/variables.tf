@@ -43,7 +43,7 @@ variable "inventory_url" {
 }
 
 variable "inventory_path" {
-  description = "Path relative to inventory_url's root where the inventory actually lives"
+  description = "Path relative to inventory repo's root where aviary inventory actually lives"
   type        = string
   default     = null
 }
