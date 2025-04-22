@@ -58,6 +58,10 @@ ui_config {
 ports {
   grpc = 8502
 }
+
+connect {
+  enabled = true
+}
 HCL
 
 if [ ! -f "/etc/systemd/resolved.conf.d/consul.conf" ]; then
