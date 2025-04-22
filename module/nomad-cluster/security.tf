@@ -118,13 +118,3 @@ resource "aws_security_group_rule" "egress" {
   cidr_blocks       = ["0.0.0.0/0"]
 }
 
-resource "aws_security_group_rule" "jump_ssh" {
-  for_each = toset(["ingress", "egress"])
-
-  security_group_id = aws_security_group.jump_ssh.id
-  type              = each.value
-  from_port         = 22
-  to_port           = 22
-  protocol          = "tcp"
-  cidr_blocks       = ["0.0.0.0/0"]
-}

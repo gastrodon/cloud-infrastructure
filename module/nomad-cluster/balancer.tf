@@ -109,7 +109,7 @@ resource "aws_lb" "admin" {
   idle_timeout       = 4000
   load_balancer_type = "application"
   subnets            = var.lb_subnet_ids
-  security_groups    = [aws_security_group.crosstalk[var.vpc_id].id, aws_security_group.admin_public_alb.id]
+  security_groups    = [aws_security_group.crosstalk[var.vpc_id].id, aws_security_group.alb.id]
   tags               = local.tags_all
   lifecycle { ignore_changes = [name] }
 }

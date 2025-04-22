@@ -68,6 +68,10 @@ output "balancer_arn" {
   value = aws_lb.nomad.arn
 }
 
+output "balancer_host" {
+  value = var.domain
+}
+
 output "instance_role_id" {
   value = aws_iam_role.instance.id
 }
