@@ -1,0 +1,38 @@
+#!/bin/bash -ex
+if docker info &>/dev/null; then
+  echo "docker is already installed"
+  exit 0
+fi
+
+if [ ! -f "/etc/systemd/resolved.conf.d/docker.conf" ]; then
+  mkdir -p /etc/systemd/resolved.conf.d/
+  cat <<EOF > /etc/systemd/resolved.conf.d/docker.conf
+[Resolve]
+DNSStubListener=yes
+DNSStubListenerExtra=172.17.0.1
+EOF
+
+  systemctl restart systemd-resolved
+fi
+
+
+cat <<EOF > /etc/docker-auth.json
+{
+  "credHelpers": {
+    "617952939514.dkr.ecr.$aws_region.amazonaws.com": "ecr-login"
+  }
+}
+EOF
+
+apt-get update
+apt-get -y install ca-certificates curl gnupg lsb-release cron amazon-ecr-credential-helper jq git
+
+mkdir -m 0755 -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
+  > tee /etc/apt/sources.list.d/docker.list
+
+apt-get update 
+apt-get install -y docker docker-compose
+newgrp docker
+usermod -a -G docker ubuntu
