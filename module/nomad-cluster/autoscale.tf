@@ -30,7 +30,7 @@ resource "random_uuid" "consul_token" {
 
 module "autoscaling_group" {
   for_each = local.autoscale_iter
-  source   = "github.com/gastrodon/cloud-infrastructure//module/nomad-cluster"
+  source   = "github.com/gastrodon/cloud-infrastructure//module/aviary-cluster"
   depends_on = [
     aws_security_group_rule.crosstalk_in,
     aws_security_group_rule.crosstalk_out,
