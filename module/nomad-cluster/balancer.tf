@@ -150,7 +150,7 @@ resource "aws_lb_listener" "ssl_redirect_admin_public" {
   }
 }
 
-resource "aws_route53_record" "admin" {
+resource "aws_route53_record" "nomad_admin" {
   name    = "nomad.${var.domain}"
   zone_id = var.route53_zone
   type    = "CNAME"
@@ -158,7 +158,7 @@ resource "aws_route53_record" "admin" {
   records = [aws_lb.admin.dns_name]
 }
 
-resource "aws_route53_record" "consul_admin_public" {
+resource "aws_route53_record" "consul_admin" {
   name    = "consul.${var.domain}"
   zone_id = var.route53_zone
   type    = "CNAME"
