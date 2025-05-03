@@ -15,6 +15,41 @@ resource "aws_lb_target_group" "nginx" {
   }
 }
 
+resource "aws_lb_target_group" "traefik" {
+  tags     = merge({ Name = "${var.name}-traefik" }, local.tags_all)
+  port     = 8080
+  protocol = "HTTP"
+  vpc_id   = var.vpc_id
+
+  health_check {
+    port    = 8080
+    path    = "/dashborad/"
+    matcher = "200"
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+
+resource "aws_lb_listener_rule" "traefik" {
+  listener_arn = aws_lb_listener.ssl_admin_public.arn
+  tags         = merge({ Name = "traefik" }, local.tags_all)
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.traefik.arn
+  }
+
+  condition {
+    host_header {
+      values = ["traefik.${var.domain}"]
+    }
+  }
+}
+
+
 //public alb
 
 resource "aws_lb_target_group" "nomad" {

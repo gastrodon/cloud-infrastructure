@@ -165,3 +165,11 @@ resource "aws_route53_record" "consul_admin" {
   ttl     = 60
   records = [aws_lb.admin.dns_name]
 }
+
+resource "aws_route53_record" "traefik_admin" {
+  name    = "traefik.${var.domain}"
+  zone_id = var.route53_zone
+  type    = "CNAME"
+  ttl     = 60
+  records = [aws_lb.admin.dns_name]
+}
