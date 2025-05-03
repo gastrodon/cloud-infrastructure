@@ -5,8 +5,8 @@ resource "aws_lb_target_group" "reverse_proxy" {
   vpc_id   = var.vpc_id
 
   health_check {
-    port    = 12345
-    path    = "/healthcheck"
+    port    = 8080
+    path    = "/ping/"
     matcher = "200"
   }
 
@@ -23,7 +23,7 @@ resource "aws_lb_target_group" "traefik" {
 
   health_check {
     port    = 8080
-    path    = "/dashborad/"
+    path    = "/ping/"
     matcher = "200"
   }
 
