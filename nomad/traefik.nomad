@@ -23,9 +23,9 @@ job "traefik" {
     }
 
     service {
-      name = "traefik-http"
+      name     = "traefik-http"
       provider = "nomad"
-      port = "http"
+      port     = "http"
     }
 
     task "traefik_reverse_proxy" {
@@ -33,8 +33,8 @@ job "traefik" {
 
       driver = "docker"
       config {
-        image = "traefik:latest"
-        ports = ["admin", "http"]
+        image        = "traefik:latest"
+        ports        = ["admin", "http"]
         network_mode = "host"
 
         args = [
