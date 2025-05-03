@@ -84,10 +84,15 @@ resource "aws_security_group_rule" "ssh_out" {
 }
 
 resource "aws_security_group" "alb" {
-  name        = "${var.name}-alb"
+  name_prefix = "${var.name}-alb"
   description = "http traffic allowed into the load balancer"
   vpc_id      = var.vpc_id
   tags        = local.tags_all
+
+  lifecycle {
+    ignore_changes        = [name, name_prefix]
+    create_before_destroy = true
+  }
 }
 
 resource "aws_security_group_rule" "balancer_ingress" {
