@@ -68,14 +68,12 @@ module "autoscaling_group" {
   inventory_path = "aviary-inventory"
   aviary_roles   = var.aviary_roles
   aviary_variables = {
-    server                      = each.value.server
-    nomad_datacenter            = each.value.datacenter
-    aws_region                  = each.value.aws_region
-    nomad_cluster_key           = local.cluster_key
-    consul_datacenter           = "dc2"
-    consul_token                = random_uuid.consul_token.result
-    consul_cluster_key          = local.cluster_key
-    bootstrap_expect            = each.value.desired_capacity
-    containernetworking_version = "1.6.2"
+    server             = each.value.server
+    nomad_datacenter   = each.value.datacenter
+    aws_region         = each.value.aws_region
+    nomad_cluster_key  = local.cluster_key
+    consul_token       = random_uuid.consul_token.result
+    consul_cluster_key = local.cluster_key
+    bootstrap_expect   = each.value.desired_capacity
   }
 }

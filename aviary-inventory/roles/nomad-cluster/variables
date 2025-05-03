@@ -1,4 +1,6 @@
 nomad_version='1.10.*'
+consul_datacenter='dc2'
 consul_version='1.20.*'
 consul_template_version='0.40.*'
+containernetworking_version='1.6.2'
 vault_version='1.19.*'
