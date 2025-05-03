@@ -11,7 +11,7 @@ if [[ ! $nomad_version == "$(dpkg -s nomad | grep -Po '(?<=Version: ).+')" ]]; t
   fi
 
   apt-get -y update
-  apt-get -y install nomad="$nomad_version"
+  apt-get -y install nomad="$nomad_version" consul-cni="$consul_cni_version"
 fi
 
 sudo mkdir -p /opt/cni/bin /etc/sysctl.d /etc/nomad.d
@@ -57,6 +57,9 @@ server {
 
 client {
   enabled = true
+  cni_path = "/opt/cni/bin"
+  cni_config_dir = "/opt/cni/config"
+
   server_join {
     retry_join = [ "provider=aws tag_key=$tag_key tag_value=$nomad_cluster_key" ]
     retry_max      = 0
