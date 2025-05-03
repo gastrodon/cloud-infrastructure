@@ -30,8 +30,8 @@ job "traefik" {
 
     task "traefik_reverse_proxy" {
       kill_timeout = "30s"
+      driver       = "docker"
 
-      driver = "docker"
       config {
         image        = "traefik:latest"
         ports        = ["admin", "http"]
