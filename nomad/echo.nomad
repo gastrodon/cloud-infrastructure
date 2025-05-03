@@ -5,9 +5,27 @@ job "echo" {
   group "echo" {
     count = 1
 
-    network {
-      port "http" {
+    service {
+      name = "echo"
+      port = "http"
+
+      tags = [
+        "traefik.enable=true",
+        "traefik.http.routers.echo.rule=HostRegexp(`echo.*`)",
+      ]
+
+      connect {
+        sidecar_service {
+          proxy {
+            transparent_proxy {}
+          }
+        }
       }
+    }
+
+    network {
+      mode = "bridge"
+      port "http" {}
     }
 
     task "echo" {
@@ -17,16 +35,6 @@ job "echo" {
         image = "hashicorp/http-echo:latest"
         args  = ["-listen", ":${NOMAD_PORT_http}", "-text", "robot rock"]
         ports = ["http"]
-      }
-
-      service {
-        name = "echo"
-        port = "http"
-
-        tags = [
-          "traefik.enable=true",
-          "traefik.http.routers.echo.rule=HostRegexp(`echo.*`)",
-        ]
       }
     }
   }
