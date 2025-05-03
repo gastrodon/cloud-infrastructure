@@ -1,6 +1,5 @@
 . "$(dirname $0)/../../hosts/$(hostname)/variables"
 
-
 if [[ ! $consul_version == "$(dpkg -s consul | grep -Po '(?<=Version: ).+')" ]]; then
   if test ! -f /usr/share/keyrings/hashicorp-archive-keyring.gpg; then
     curl -o- https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
@@ -34,6 +33,8 @@ bind_addr = "{{ GetInterfaceIP \"ens5\" }}"
 retry_join = [ "provider=aws tag_key=$tag_key tag_value=$consul_cluster_key"]
 $( [ "$server" = "true" ] && echo "bootstrap_expect = $bootstrap_expect" )
 
+recursors = [ "1.1.1.1", "1.0.0.1", "8.8.8.8", "8.8.4.4" ]
+
 acl = {
   enabled = true
   default_policy = "deny"
@@ -63,6 +64,12 @@ connect {
   enabled = true
 }
 HCL
+
+# forward all dns traffic to consul on port 8600
+iptables -t nat -A PREROUTING -p udp -m udp --dport 53 -j REDIRECT --to-ports 8600
+iptables -t nat -A PREROUTING -p tcp -m tcp --dport 53 -j REDIRECT --to-ports 8600
+iptables -t nat -A OUTPUT -d localhost -p udp -m udp --dport 53 -j REDIRECT --to-ports 8600
+iptables -t nat -A OUTPUT -d localhost -p tcp -m tcp --dport 53 -j REDIRECT --to-ports 8600
 
 if [ ! -f "/etc/systemd/resolved.conf.d/consul.conf" ]; then
   mkdir -p /etc/systemd/resolved.conf.d/
