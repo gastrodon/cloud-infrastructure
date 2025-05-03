@@ -1,6 +1,6 @@
-variable "nomad_addr" {}
-
 variable "nomad_token" {}
+
+variable "consul_http_token" {}
 
 job "traefik" {
   datacenters = ["server"]
