@@ -16,7 +16,7 @@ locals {
   target_groups = [
     aws_lb_target_group.consul.arn,
     aws_lb_target_group.nomad.arn,
-    aws_lb_target_group.nginx.arn,
+    aws_lb_target_group.reverse_proxy.arn,
     aws_lb_target_group.traefik.arn,
     aws_lb_target_group.consul_private.arn,
     aws_lb_target_group.nomad_private.arn,

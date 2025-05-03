@@ -1,5 +1,5 @@
-resource "aws_lb_target_group" "nginx" {
-  tags     = merge({ Name = "${var.name}-nginx" }, local.tags_all)
+resource "aws_lb_target_group" "reverse_proxy" {
+  tags     = merge({ Name = "${var.name}-reverse-proxy" }, local.tags_all)
   port     = 80
   protocol = "HTTP"
   vpc_id   = var.vpc_id
