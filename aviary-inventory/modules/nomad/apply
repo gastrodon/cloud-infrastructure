@@ -113,5 +113,6 @@ limits {
 }
 HCL
 
+sudo modprobe bridge
 systemctl enable nomad
 systemctl restart nomad
