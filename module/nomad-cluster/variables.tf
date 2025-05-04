@@ -7,6 +7,30 @@ variable "name" {
   type        = string
 }
 
+variable "aviary_ref" {
+  description = "Aviary version to install"
+  type        = string
+  default     = "null"
+}
+
+
+variable "aviary_inventory_url" {
+  description = "Aviary inventory url"
+  type        = string
+}
+
+variable "aviary_inventory_path" {
+  description = "Path relative to inventory repo's root where aviary inventory actually lives"
+  type        = string
+  default     = null
+}
+
+variable "aviary_inventory_branch" {
+  description = "Branch to checkout once inventory_url is cloned"
+  type        = string
+  default     = "main"
+}
+
 variable "aviary_roles" {
   description = "Aviary roles to attach"
   type        = set(string)
