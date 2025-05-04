@@ -13,14 +13,6 @@ job "echo" {
         "traefik.enable=true",
         "traefik.http.routers.echo.rule=HostRegexp(`echo.*`)",
       ]
-
-      connect {
-        sidecar_service {
-          proxy {
-            transparent_proxy {}
-          }
-        }
-      }
     }
 
     network {
