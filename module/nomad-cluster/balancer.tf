@@ -22,7 +22,6 @@ resource "aws_lb_listener" "ssl" {
   protocol          = "HTTPS"
   certificate_arn   = aws_acm_certificate.wildcard.arn
   tags              = local.tags_all
-  lifecycle { ignore_changes = [certificate_arn] }
 
   default_action {
     type             = "forward"
