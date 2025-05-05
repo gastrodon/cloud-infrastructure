@@ -54,11 +54,6 @@ variable "domain_extra" {
   default     = []
 }
 
-variable "certificate_arn" {
-  description = "ARN pointing to an ACM certificate valid for var.domain"
-  type        = string
-}
-
 variable "route53_zone" {
   description = "Route53 zone to create dns records in"
   type        = string

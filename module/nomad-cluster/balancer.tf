@@ -20,7 +20,7 @@ resource "aws_lb_listener" "ssl" {
   load_balancer_arn = aws_lb.nomad.arn
   port              = 443
   protocol          = "HTTPS"
-  certificate_arn   = var.certificate_arn
+  certificate_arn   = aws_acm_certificate.wildcard.arn
   tags              = local.tags_all
   lifecycle { ignore_changes = [certificate_arn] }
 
@@ -77,7 +77,7 @@ resource "aws_route53_record" "nomad" {
   records = [aws_lb.nomad.dns_name]
 }
 
-resource "aws_acm_certificate" "nomad_admin" {
+resource "aws_acm_certificate" "wildcard" {
   domain_name       = "*.${var.domain}"
   validation_method = "DNS"
   tags              = local.tags_all
@@ -86,7 +86,7 @@ resource "aws_acm_certificate" "nomad_admin" {
 
 resource "aws_route53_record" "nomad_admin_cert_verify" {
   for_each = {
-    for option in aws_acm_certificate.nomad_admin.domain_validation_options : option.domain_name => {
+    for option in aws_acm_certificate.wildcard.domain_validation_options : option.domain_name => {
       name   = option.resource_record_name
       record = option.resource_record_value
       type   = option.resource_record_type
@@ -118,7 +118,7 @@ resource "aws_lb_listener" "ssl_admin_public" {
   load_balancer_arn = aws_lb.admin.arn
   port              = 443
   protocol          = "HTTPS"
-  certificate_arn   = aws_acm_certificate.nomad_admin.arn
+  certificate_arn   = aws_acm_certificate.wildcard.arn
   tags              = local.tags_all
 
   default_action {
