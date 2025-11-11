@@ -113,6 +113,52 @@ limits {
 }
 HCL
 
+# TODO test if I need this for non-sidecar consul dns to work
+# right now ( as of when I did the toontown takehome ) this is applied on nodes, and dns works.
+# Are facts those related?
+mkdir -p /opt/cni/config
+cat  <<JSON >  /opt/cni/config/intra.json{
+  "cniVersion": "1.0.0",
+  "name": "nomad",
+  "plugins": [
+    {
+      "type": "loopback"
+    },
+    {
+      "type": "bridge",
+      "bridge": "nomad",
+      "ipMasq": true,
+      "isGateway": true,
+      "forceAddress": true,
+      "hairpinMode": false,
+      "ipam": {
+        "type": "host-local",
+        "ranges": [
+          [
+            {
+              "subnet": "172.26.64.0/20"
+            }
+          ]
+        ],
+        "routes": [
+          { "dst": "0.0.0.0/0" }
+        ]
+      }
+    },
+    {
+      "type": "firewall",
+      "backend": "iptables",
+      "iptablesAdminChainName": "NOMAD-ADMIN"
+    },
+    {
+      "type": "portmap",
+      "capabilities": {"portMappings": true},
+      "snat": true
+    }
+  ]
+}
+JSON
+
 sudo modprobe bridge
 systemctl enable nomad
 systemctl restart nomad
