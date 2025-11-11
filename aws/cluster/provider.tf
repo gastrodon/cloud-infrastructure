@@ -2,20 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~>3"
+      version = "~>5"
     }
   }
-
-  backend "s3" {
-    bucket  = "gastrodon-terraform"
-    key     = "cluster.tfstate"
-    region  = "us-east-1"
-    profile = "gas"
-  }
-}
-
-provider "aws" {
-  allowed_account_ids = ["050883687565"] # gastrodon
-  region              = "us-east-1"
-  profile             = "gas"
 }

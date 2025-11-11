@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+output=$(terraform output -json)
+
+export NOMAD_ADDR="$(echo "$output" | jq -r '.nomad_cluster_url.value')"
+export NOMAD_TOKEN="$(echo "$output" | jq -r '.nomad_token.value')"
+export CONSUL_HTTP_ADDR="$(echo "$output" | jq -r '.consul_cluster_url.value')"
+export CONSUL_HTTP_TOKEN="$(echo "$output" | jq -r '.consul_token.value')"
+
+consul acl policy create -name anonymous-read -rules @../../consul/anonymous-read.hcl
+consul acl policy create -name anonymous-read -rules @../../consul/proxy-defaults.hcl
