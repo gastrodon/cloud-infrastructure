@@ -68,67 +68,67 @@ module "web_cluster" {
 
 ### Naming & Identification
 
-| Variable | Type | Required | Description |
-|----------|------|----------|-------------|
-| `name` | string | Yes | Base name for the autoscaling group and launch template. Used as-is in resource names. |
-| `server` | bool | No | Reserved for future use. Defaults to `false`. |
-| `tags` | map(string) | No | Additional tags to attach to instances. Applied at launch. Default: `{}` |
+| Variable | Type       | Required | Description                                                                           |
+|----------|------------|----------|-------------------------------------------------------------------------------------------|
+| `name`   | string     | Yes      | Base name for the autoscaling group and launch template. Used as-is in resource names. |
+| `server` | bool       | No       | Reserved for future use. Defaults to `false`.                                          |
+| `tags`   | map(string)| No       | Additional tags to attach to instances. Applied at launch. Default: `{}`                |
 
 ### AWS Infrastructure (Required)
 
-| Variable | Type | Description |
-|----------|------|-------------|
-| `image_id` | string | AMI ID for instances (e.g., `ami-0c55b159cbfafe1f0` for Amazon Linux 2). |
-| `instance_type` | string | EC2 instance type (e.g., `t3.medium`, `m5.large`). |
-| `instance_profile` | string | IAM instance profile name. Determines what AWS APIs instances can call. |
-| `key_name` | string | EC2 key pair name for SSH access. |
-| `subnet_ids` | set(string) | Subnets where instances will be placed. |
-| `security_groups` | set(string) | Security group IDs attached to instances. Default: `[]` |
+| Variable          | Type       | Description                                                                                  |
+|-------------------|------------|----------------------------------------------------------------------------------------------|
+| `image_id`        | string     | AMI ID for instances (e.g., `ami-0c55b159cbfafe1f0` for Amazon Linux 2).                    |
+| `instance_type`   | string     | EC2 instance type (e.g., `t3.medium`, `m5.large`).                                         |
+| `instance_profile`| string     | IAM instance profile name. Determines what AWS APIs instances can call.                     |
+| `key_name`        | string     | EC2 key pair name for SSH access.                                                           |
+| `subnet_ids`      | set(string)| Subnets where instances will be placed.                                                     |
+| `security_groups` | set(string)| Security group IDs attached to instances. Default: —                                     |
 
 ### Scaling
 
-| Variable | Type | Required | Description |
-|----------|------|----------|-------------|
-| `desired_capacity` | number | Yes | Target number of running instances. |
-| `min_capacity` | number | Yes | Minimum instances (autoscaling floor). |
-| `max_capacity` | number | Yes | Maximum instances (autoscaling ceiling). |
+| Variable           | Type   | Required | Description                                   |
+|--------------------|--------|----------|-----------------------------------------------|
+| `desired_capacity` | number | Yes      | Target number of running instances.           |
+| `min_capacity`     | number | Yes      | Minimum instances (autoscaling floor).        |
+| `max_capacity`     | number | Yes      | Maximum instances (autoscaling ceiling).      |
 
 ### Aviary Configuration (Affects Aviary Behavior)
 
-| Variable | Type | Description |
-|----------|------|-------------|
-| `inventory_url` | string | **Required.** Git URL of your Aviary inventory repository (e.g., `https://github.com/myorg/infra-inventory.git`). Cloned on each instance during bootstrap. |
-| `inventory_branch` | string | Git branch to checkout from `inventory_url`. Default: `main`. Used at instance startup. |
-| `inventory_path` | string | Subdirectory path within the inventory repo where Aviary inventory lives. If your repo layout is `infra/aviary/`, set this to `infra/aviary`. Default: repository root. Affects where instance looks for roles and modules. |
-| `aviary_ref` | string | **Affects Aviary behavior:** Version/ref of Aviary.sh to install. Format: `tags/v1.5.1` or `main`. Default: `tags/v1.5.1`. Determines which Aviary features are available. |
-| `aviary_install_url` | string | **Affects Aviary behavior:** Custom URL to Aviary install script. Overrides the default constructed from `aviary_ref`. Allows using a private or modified Aviary fork. |
-| `aviary_config` | map(string) | **Affects Aviary behavior:** Map of configuration values written to `/var/lib/aviary/config` on the instance. These become Aviary configuration knobs (e.g., `{"server" = "true"}`). Default: `{}` |
-| `aviary_roles` | set(string) | **Affects Aviary behavior:** Aviary roles to apply (e.g., `["base-node", "monitoring-agent"]`). Written to `hosts/$(hostname)/roles` during bootstrap. Each role must exist in your inventory repository. Default: `[]` |
-| `aviary_modules` | set(string) | **Affects Aviary behavior:** Aviary modules to apply (e.g., `["docker", "prometheus"]`). Written to `hosts/$(hostname)/modules` during bootstrap. Modules are applied after roles. Default: `[]` |
-| `aviary_variables` | map(any) | **Affects Aviary behavior:** Instance-specific variables for Aviary (e.g., `{"datacenter" = "us-east-1", "node_id" = "web-01"}`). Written to `hosts/$(hostname)/variables`. Accessible in your Aviary roles/modules. Default: `{}` |
-| `no_cron` | bool | **Affects Aviary behavior:** Disable Aviary's periodic cron job? If `true`, `av apply` only runs once at startup. Default: `false`. Set to `true` to prevent recurring Aviary runs. |
+| Variable               | Type       | Description                                                                                                                      |
+|------------------------|------------|----------------------------------------------------------------------------------------------------------------------------------|
+| `inventory_url`        | string     | **Required.** Git URL of your Aviary inventory repository (e.g., `https://github.com/myorg/infra-inventory.git`). Cloned on each instance. |
+| `inventory_branch`     | string     | Git branch to checkout from `inventory_url`. Default: `main`. Used at instance startup.                                         |
+| `inventory_path`       | string     | Subdirectory path within the inventory repo where Aviary inventory lives. If repo layout is `infra/aviary/`, set this to `infra/aviary`. Default: repository root. |
+| `aviary_install_url`   | string     | **Affects Aviary behavior:** Custom URL to Aviary install script. Overrides default from `aviary_ref`. Allows private/modified fork. |
+| `aviary_ref`           | string     | **Affects Aviary behavior:** Version/ref of Aviary.sh to install. Format: `tags/v1.5.1` or `main`. Default: `tags/v1.5.1`.     |
+| `aviary_config`        | map(string)| **Affects Aviary behavior:** Map of configuration values written to `/var/lib/aviary/config`. Default: —                   |
+| `aviary_roles`         | set(string)| **Affects Aviary behavior:** Aviary roles to apply (e.g., `["base-node", "monitoring-agent"]`). Default: —               |
+| `aviary_modules`       | set(string)| **Affects Aviary behavior:** Aviary modules to apply (e.g., `["docker", "prometheus"]`). Default: —                      |
+| `aviary_variables`     | map(any)   | **Affects Aviary behavior:** Instance-specific variables for Aviary. Written to `hosts/$(hostname)/variables`. Default: —  |
+| `no_cron`              | bool       | **Affects Aviary behavior:** Disable periodic cron job? If `true`, `av apply` only runs once at startup. Default: `false`.    |
 
 ### Storage & Instance Options
 
-| Variable | Type | Description |
-|----------|------|-------------|
-| `volume_size` | number | Root volume size in GB. Default: `30`. |
-| `instance_use_spot` | bool | Launch spot instances instead of on-demand? Default: `false`. Reduces cost but instances can be interrupted. |
-| `instance_allocation_strategy` | string | Spot allocation strategy when `instance_use_spot = true`. Default: `capacity-optimized`. |
-| `availability_zones` | set(string) | Specific AZ IDs to use. If not set, inferred from `subnet_ids`. |
+| Variable                      | Type       | Description                                                                              |
+|-------------------------------|------------|-------------------------------------------------------------------------------------------|
+| `availability_zones`          | set(string)| Specific AZ IDs to use. If not set, inferred from `subnet_ids`.                         |
+| `volume_size`                 | number     | Root volume size in GB. Default: `30`.                                                   |
+| `instance_use_spot`           | bool       | Launch spot instances instead of on-demand? Default: `false`. Reduces cost but can be interrupted. |
+| `instance_allocation_strategy`| string     | Spot allocation strategy when `instance_use_spot = true`. Default: `capacity-optimized`. |
 
 ### Advanced
 
-| Variable | Type | Description |
-|----------|------|-------------|
-| `user_data` | string | Additional shell commands to run **after** Aviary bootstrap completes. Appended to the user data script. Default: `null`. Useful for post-Aviary configuration. |
-| `target_groups` | set(string) | ALB/NLB target group ARNs to register instances with. Default: `[]`. |
+| Variable       | Type       | Description                                                                                                |
+|----------------|------------|------------------------------------------------------------------------------------------------------------|
+| `user_data`    | string     | Additional shell commands to run **after** Aviary bootstrap completes. Default: —                    |
+| `target_groups`| set(string)| ALB/NLB target group ARNs to register instances with. Default: —                                       |
 
 ## Outputs
 
-| Output | Description |
-|--------|-------------|
-| `asg_name` | Name of the created autoscaling group. Useful for referencing in other Terraform or for AWS CLI operations. |
+| Output     | Description                                                                                      |
+|------------|--------------------------------------------------------------------------------------------------|
+| `asg_name` | Name of the created autoscaling group. Useful for referencing in other Terraform or AWS CLI. |
 
 ## Advanced Examples
 
