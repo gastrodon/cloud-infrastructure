@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let
   # Forge 1.20.1-47.4.10 dedicated server (built by ./pack/forge-server.nix).
   # nix-minecraft launches it via `getExe`, with the working directory set to
@@ -136,4 +136,35 @@ in
       };
     };
   };
+
+  # --- Guard against nix-minecraft's non-idempotent config backup ----------
+  # nix-minecraft installs the writable `config` tree (files."config" above) by
+  # running `mv config config.bak` on every start before recopying it from the
+  # store — but it never clears a prior `config.bak`. If a start is interrupted
+  # between the recopy and its ".nix-minecraft-managed" bookkeeping (e.g. an AWS
+  # spot kill mid-boot), the next start finds BOTH `config` and `config.bak`
+  # present, tries to nest the move into `config.bak/config`, hits a name
+  # collision, and aborts under the start script's `set -o errexit`. On EFS that
+  # wedged state survives every replacement instance, so the server never starts
+  # again and no reboot clears it (this took the AWS server down on 2026-07-22).
+  #
+  # The config is recopied fresh from the store on every start, so the backup is
+  # disposable: delete any stale `config.bak` before nix-minecraft's start-pre
+  # runs. It's its own unit ordered *before* the server so it inherits the
+  # platform's world-storage ordering (aws.nix adds `after mount-minecraft`; on
+  # Hetzner the dir lives on the local root). `wantedBy` (not `requiredBy`) so a
+  # cleanup hiccup can never itself block the server from starting.
+  systemd.services."minecraft-glade-clear-stale-config-bak" =
+    let
+      serverDir = "${config.services.minecraft-servers.dataDir}/glade";
+    in
+    {
+      description = "Drop stale nix-minecraft config.bak so an interrupted restart can't wedge glade";
+      before = [ "minecraft-server-glade.service" ];
+      wantedBy = [ "minecraft-server-glade.service" ];
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = "${pkgs.coreutils}/bin/rm -rf ${serverDir}/config.bak";
+      };
+    };
 }

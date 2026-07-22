@@ -163,4 +163,11 @@ in
     # spot notice can finish inside the ~120s interruption budget.
     serviceConfig.TimeoutStopSec = lib.mkForce 110;
   };
+
+  # The shared config.bak cleanup (glade.nix) operates on the EFS-mounted world
+  # dir, so it must run after the mount — order it exactly like the server.
+  systemd.services."minecraft-glade-clear-stale-config-bak" = {
+    after = [ "mount-minecraft.service" ];
+    requires = [ "mount-minecraft.service" ];
+  };
 }
