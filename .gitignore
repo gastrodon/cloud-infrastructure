@@ -9,3 +9,8 @@ tfplan
 
 aviary-inventory/hosts/**
 .secret_*
+
+# nix build symlinks + the AMI-build metadata Terraform generates
+result
+result-*
+ami-image.json
