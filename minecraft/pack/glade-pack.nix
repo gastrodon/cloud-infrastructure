@@ -24,7 +24,7 @@
 let
   # --- S3 server artefact: change these two together if the key/contents change.
   url = "https://gastrodon-glade-pack.s3.amazonaws.com/glade-pack.zip";
-  hash = "sha256-cVam/JIOyQDkBw6dsg85hCU12U9OrhjOqge9LE1pUIY=";
+  hash = "sha256-5/AO3IwopCZ74x/YFx1oaplc8qZvytlK6/OBn1w0Kdk=";
 
   # Client-only jars to strip from the server mods dir. Globs (matched against
   # the copied mods/) so a version bump in the filename still matches.
@@ -33,8 +33,9 @@ let
   # each is verified to have ZERO mandatory dependents in the pack, so dropping
   # them cannot break another mod's load. Client-side libraries that ARE
   # mandatory dependencies (cloth-config, resourcefulconfig, patchouli, athena)
-  # are deliberately kept, and Plasmo Voice is kept because it ships a real
-  # server component (voice relay).
+  # are deliberately kept, and Simple Voice Chat (voicechat-forge-*) is kept
+  # because it ships a real server component (the voice server on UDP 24454 —
+  # see glade.nix / the cloud firewalls). It replaced Plasmo Voice in this pack.
   clientOnlyMods = [
     "oculus-*.jar"          # Iris/shaders port; loads client classes, crashes DEDICATED_SERVER
     "embeddium-*.jar"       # Sodium/Rubidium rendering optimiser; client-only

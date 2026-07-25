@@ -7,305 +7,16 @@
   },
   "source": {
     "s3Object": "glade-pack.zip",
-    "sha256": "sha256-cVam/JIOyQDkBw6dsg85hCU12U9OrhjOqge9LE1pUIY="
+    "sha256": "sha256-5/AO3IwopCZ74x/YFx1oaplc8qZvytlK6/OBn1w0Kdk="
   },
-  "note": "Server-only mod set. Purely client-side mods (shaders/rendering/GUI with no server function AND no mandatory dependents) are excluded: oculus, embeddium, DistantHorizons, jei. Client-side libraries that other mods require at load (cloth-config, resourcefulconfig, patchouli, athena) are kept, as is Plasmo Voice (ships a server-side voice relay). Forge does NOT reliably skip client mods, so exclusions are also enforced in pack/glade-pack.nix (clientOnlyMods).",
+  "note": "Auto-regenerated from the pack's actual jar contents. `side` resolved from Modrinth (client_side/server_side), then each jar's fabric.mod.json environment, then the prior manifest. `side` is advisory: the server build in pack/glade-pack.nix physically strips clientOnlyMods (Forge does not reliably skip client mods). Keep clientOnlyMods in sync with the side:client entries below that have no mandatory server dependents.",
   "mods": [
-    {
-      "name": "Origins: Anecdote",
-      "filename": "Anecdote-1.0.0+1.20-1.20.1.jar",
-      "side": "server",
-      "sha1": "b32414319102748cac6cc110f47ea7802539f921",
-      "curseforge": {
-        "projectId": 1552077,
-        "fileId": 8136084
-      }
-    },
-    {
-      "name": "CERBON's API",
-      "filename": "CerbonsAPI-Forge-1.20.1-1.1.0.jar",
-      "side": "both",
-      "sha1": "757e11d6bda175025b88688becd0e70fec8f00d50ee0861537968a79f1053853c4c8845ba62bb689b8734ec7f0c8c2f1029fb1daf897152337662bbc5b47c438",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
-      }
-    },
-    {
-      "name": "Sinytra Connector",
-      "filename": "Connector-1.0.0-beta.49+1.20.1.jar",
-      "side": "both",
-      "sha1": "c6f029b95bbb868a37eb3fe1dc71d696e7016584b10cadec36357b03c710f0f715d57c0bba5c467c0679bc32e6e5d8e366cf4edbb7d7b3edcf47f7794191e626",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
-      }
-    },
-    {
-      "name": "Connector Extras",
-      "filename": "ConnectorExtras-1.11.2+1.20.1.jar",
-      "side": "both",
-      "sha1": "a318841ce2c42e8ba2058d47ad323bcb8ca500515c391f3f31b6468e8d4d974a53effe8a0a801b7fafd60d9845be514696bd9b095a3cc5d014bde02ce531bada",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
-      }
-    },
-    {
-      "name": "Data Anchor",
-      "filename": "Data_Anchor-forge-1.20.1-1.0.0.20.jar",
-      "side": "both",
-      "sha1": "67bb96bba6fa5dee60bf3454c0a26335e17d3f99303ace3bd7835d0adc31c7c71b9d5ea3ac3e32ae178cb283bbbf9efbf7b840747f498e03f3f84cbd9fa692bd",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
-      }
-    },
-    {
-      "name": "Doggy Talents Next",
-      "filename": "DoggyTalentsNext-1.20.1-1.19.0.jar",
-      "side": "both",
-      "sha1": "e41bb7e6536e7837b9565320a0ff361c25d35cbd1186d9f8f5eeaee394fe9d102d4c907a90be2dcb56b93d7e196c67f51b5b3a226d987b2efd917b79796bee23",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
-      }
-    },
-    {
-      "name": "Farmer's Delight",
-      "filename": "FarmersDelight-1.20.1-1.3.2.jar",
-      "side": "both",
-      "sha1": "3260a78e5d670792923be4d41a7f449aa3f7b4e258f390d4c388d0400e059e2e511d4aa49d9e51d39738a1dbf5507969495c651c7d59736d5b42c3f9691dc3e5",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
-      }
-    },
-    {
-      "name": "FrostedLib",
-      "filename": "FrostedLib-1.2.0+1.20-1.20.1.jar",
-      "side": "server",
-      "sha1": "35575df9902d5e8d51b9b3505ea6823c51caabae",
-      "curseforge": {
-        "projectId": 1470576,
-        "fileId": 7750269
-      }
-    },
-    {
-      "name": "Hopo Better Ruined Portals",
-      "filename": "HopoBetterRuinedPortals-[1.20-1.20.2]-1.3.7c.jar",
-      "side": "both",
-      "sha1": "37b7ef1d8b8d6694f473889f181ab8e3574cc8a809ccffa68301e2a81a5476a7b604844652e6a6d24353e4388d956863d9b35d87216148e5be18835650e0bb31",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
-      }
-    },
-    {
-      "name": "Hopo Better Underwater Ruins",
-      "filename": "HopoBetterUnderwaterRuins-[1.20.1-1.20.4]-1.1.5b.jar",
-      "side": "both",
-      "sha1": "bddb2f89e86a552674608c1b389e4d54d971451cf33f7673e31859920aa340fa3de518939cca06c4b60528015c9bb2841bc1634f695a5efdb7264882f7f86e66",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
-      }
-    },
-    {
-      "name": "Icarus",
-      "filename": "Icarus-Forge-2.13.2.jar",
-      "side": "both",
-      "sha1": "c09e211c07579b2b25efeea126a9adc4b44773c3023633955e32ec94bd039196135b2a3f8cbf0c57ae5ee38037ed6250e527769b4a4ce26dd53be9b27f1b53f8",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
-      }
-    },
-    {
-      "name": "Just Another Rotten Flesh to Leather Mod",
-      "filename": "JRFTL-1.20.1-1.6.0.jar",
-      "side": "both",
-      "sha1": "d59e4ad527b59617aec6b49630c5b4b8cda385ad",
-      "curseforge": {
-        "projectId": 247136,
-        "fileId": 4594475
-      }
-    },
-    {
-      "name": "Lost Trinkets Renewed",
-      "filename": "LostTrinkets-20.1.3-mc1.20.1-forge.jar",
-      "side": "both",
-      "sha1": "a357c400bc580c67e606b71b3b36144c2059b7e14778704600d78933ab19e1098f56a5336d2ff63a981045b76419087c17f9e3ff70954801c4aa80815607c96a",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
-      }
-    },
-    {
-      "name": "Myths of The Sea",
-      "filename": "MOTS-Forge-1.20.1-1.3.0(1).jar",
-      "side": "both",
-      "sha1": "6c9f7ce13c227241d39d5c4c789cee0cd3fc3d5f034865167cc819a07a203c20ca1fa5f5987a6510352e1ef54f2f167c943ea4b08e1432eb569c454e097cdd02",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
-      }
-    },
-    {
-      "name": "Mantle",
-      "filename": "Mantle-1.20.1-1.11.104.jar",
-      "side": "both",
-      "sha1": "8a3f948f8c505ee92dae915ec0a1593594eb2667",
-      "curseforge": {
-        "projectId": 74924,
-        "fileId": 7563777
-      }
-    },
-    {
-      "name": "Metalborn",
-      "filename": "Metalborn-1.20.1-1.0.3.jar",
-      "side": "both",
-      "sha1": "e0a5bdbf863e016150b292284fa54fc061f6ed14493aba61604d74b414ec53ffd8b71aa88f633dfd9a3f565b9c64dd95cf65eee9262e87b7ed23fd5b3259866f",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
-      }
-    },
-    {
-      "name": "More Critters",
-      "filename": "More Critters 1.4.3.jar",
-      "side": "server",
-      "sha1": "cc578c961ee3fe5698a484698d902614e62e6648",
-      "curseforge": {
-        "projectId": 1322511,
-        "fileId": 8339429
-      }
-    },
-    {
-      "name": "Mutant Monsters",
-      "filename": "MutantMonsters-v8.0.8-1.20.1-Forge.jar",
-      "side": "both",
-      "sha1": "ff1b7de6461f37c1a12b96efd2e6d4eed3eb0099debecf9eb63eab85f1ce7d9d87c157d2d5da953b3d99642569ef3bc2b410623145fe7a671343d2aa471f6618",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
-      }
-    },
-    {
-      "name": "Origins",
-      "filename": "Origins-1.10.2+mc.1.20.x.jar",
-      "side": "both",
-      "sha1": "1d4031b11e1863cae909f3f5c81f06f3d59de495a696d0b32a028c2459084434c77b7bd1008f4c7097c97d66402d58f9e97df70b2ccd0c25680f859e26a82e6f",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
-      }
-    },
-    {
-      "name": "Patchouli",
-      "filename": "Patchouli-1.20.1-85-FORGE.jar",
-      "side": "both",
-      "sha1": "15aedda4efcc553d5e3c83aa867b62554bc2fab298b43f55ed324e10507a3605f0ec2c59c01476e6d80b2a49275ef080142e43a6e663f9463b62f520960fc203",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
-      }
-    },
-    {
-      "name": "Pehkui",
-      "filename": "Pehkui-3.8.2+1.20.1-forge.jar",
-      "side": "both",
-      "sha1": "e4660f0b5af6bfe2902ab39a6fbfa911856e0567bffc47842b482731da373afa4424b9e7cf47c61a0c2107445520475053709a6671d9eb4b7f4b55597729af3f",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
-      }
-    },
-    {
-      "name": "The Pure Suffering Mod",
-      "filename": "PureSuffering-1.20.1-1.6.8.5R-LTS1.jar",
-      "side": "server",
-      "sha1": "595a0fac96973d4a317837e5bbba84a965b0b42c",
-      "curseforge": {
-        "projectId": 504538,
-        "fileId": 6554981
-      }
-    },
-    {
-      "name": "Puzzles Lib",
-      "filename": "PuzzlesLib-v8.1.33-1.20.1-Forge.jar",
-      "side": "both",
-      "sha1": "4e0a6243f70a7f99bb631940bfeca49f31b13ec34f338d994fe129f0445e738ffd925e5c440f4e6bf822f9013bb8c2156de6dfcd62741d85c3ca3e8221d86a19",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
-      }
-    },
-    {
-      "name": "Roundabout",
-      "filename": "Roundabout-forge-1.20.1-3.0.4.jar",
-      "side": "both",
-      "sha1": "d6a707cefd09d1b1cbe77321f81d77be3403feb6",
-      "curseforge": {
-        "projectId": 1115305,
-        "fileId": 8409910
-      }
-    },
-    {
-      "name": "SmartBrainLib",
-      "filename": "SmartBrainLib-forge-1.20.1-1.15.jar",
-      "side": "server",
-      "sha1": "51754d743b86bf89da5c15a1c2b733f4b3713bf2aa7e6bd4d920cd36bc7923f2de316903fbe0d675a37f848929508c0e418dec1ecf7e87342f547fe32e75f8f4",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
-      }
-    },
-    {
-      "name": "Tinkers' Construct",
-      "filename": "TConstruct-1.20.1-3.11.2.166.jar",
-      "side": "both",
-      "sha1": "69da7399162b4de18b3eedf701f6013727ec4ae14b1b746265513bea6c4e88ad64ccb1187d3abca2387aafd37a91c21c56ce9b6fa7b0c26df17dfc1ac8d6a916",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
-      }
-    },
-    {
-      "name": "Terralith",
-      "filename": "Terralith_1.20.x_v2.5.4.jar",
-      "side": "both",
-      "sha1": "79e1409b8db4ce86df9d6d6730f09c4bd8860a30",
-      "curseforge": {
-        "projectId": 513688,
-        "fileId": 5512076
-      }
-    },
-    {
-      "name": "Tinkerborn",
-      "filename": "Tinkerborn-1.20.1-1.0.2.jar",
-      "side": "both",
-      "sha1": "881837e7c140bdb99bcd8476ac12c5613ec4db39",
-      "curseforge": {
-        "projectId": 1514611,
-        "fileId": 7947881
-      }
-    },
-    {
-      "name": "Tinkers' Delight",
-      "filename": "Tinkers-Delight-1.20.1FORGE-2.0.3.jar",
-      "side": "both",
-      "sha1": "d593e7332e81c1430759ff6cd79beb6dd48e903ed6761e2f6fe6066962d87739a28fed054a92164c5269d123ea266119918e81073fe8ae4bebf34df731bc6efe",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
-      }
-    },
     {
       "name": "Hybrid Aquatic",
       "filename": "[1.20.1-Forge] Hybrid Aquatic 1.6.7.jar",
       "side": "both",
-      "sha1": "6313b0e94424fc19b378090a4daf341d8cf16ce2eae40c04ca329c8548c0bbc56d48031aa58a3400ed85fa1773267f160db5132e7006284d72e220542d8c1fea",
+      "sha1": "d35e6253144347301ee58180073779eecab2ef4e",
+      "modrinth": "HH4FjUqN",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -315,7 +26,8 @@
       "name": "Hybrid Birds",
       "filename": "[1.20.1-Forge] Hybrid Birds 1.2.1.jar",
       "side": "both",
-      "sha1": "ac9a68602e1cac5aa57c1e5d636afd4931ed2d6af3883b04ab2cad4747e338d27dc63852f3b268dc4153374da43768e150b8f5124bee9fd380cb36cdac881ee4",
+      "sha1": "40af4e3af71978645b99a527e37eb4ff3cd19023",
+      "modrinth": "txgXquyE",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -326,6 +38,7 @@
       "filename": "accommodation_-1.1.0.jar",
       "side": "server",
       "sha1": "7083de5c09cdc006a631fbfce3a0a5b952c1957e",
+      "modrinth": null,
       "curseforge": {
         "projectId": 709080,
         "fileId": 5031000
@@ -335,7 +48,8 @@
       "name": "aleki's Nifty Ships",
       "filename": "alekiNiftyShips-FORGE-1.20.1-1.0.14.jar",
       "side": "both",
-      "sha1": "948dde522b1e0b95316db4105026bc8aa2488d709e133bd24a5cf20a17b3a7bb2e3ffa3b2cf038adc43ae768a6dc77ed9161518b8a3bc96475395c1f41b94096",
+      "sha1": "c42aaab43cd524c45c4065996cc06b9b48c5682a",
+      "modrinth": "vuNeeDyl",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -345,7 +59,8 @@
       "name": "Ambient Life",
       "filename": "ambient_life-1.0.0-forge-1.20.1.jar",
       "side": "both",
-      "sha1": "7ed00fb2c86934e7fef6ae93fadd29ffc31db83cd75be51fa79488cd508e4b9f5ec714417d6b1cf0c4d03642eb3060d32ce866120e2c7344652ac0d4ef15692d",
+      "sha1": "62a6dbb5402318437d9d5bb0b775027562390d40",
+      "modrinth": "AWgcj3jw",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -355,17 +70,30 @@
       "name": "Ambient Additions",
       "filename": "ambientadditions-1.20.1-1.1.2.jar",
       "side": "both",
-      "sha1": "f023faa63d1aac7bf37e7d6394bbe3791dcb23731091a8af036297e9c39ee9857dca9428cb2ccd722d5ff27cbbfb9fd954fad5593131df88cd75216c576c4ecb",
+      "sha1": "54cc1706b7d591ced432081420f2b3fcea344e3d",
+      "modrinth": "EdXRAo60",
       "curseforge": {
         "projectId": null,
         "fileId": null
       }
     },
     {
-      "name": "Aquamirae [Forge Edition]",
+      "name": "AppleSkin",
+      "filename": "appleskin-forge-mc1.20.1-2.5.1.jar",
+      "side": "both",
+      "sha1": "81919356f84eab14258db98924b66c3c38e372b1",
+      "modrinth": "EsAfCjCV",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Aquamirae",
       "filename": "aquamirae-forge-1.20.1-6.4.0.jar",
-      "side": "server",
+      "side": "both",
       "sha1": "f802327ab6c738ff3c29e4b39a28c224ee7b29fa",
+      "modrinth": "k23mNPhZ",
       "curseforge": {
         "projectId": 536254,
         "fileId": 7985699
@@ -375,7 +103,8 @@
       "name": "Architectury API",
       "filename": "architectury-9.2.14-forge.jar",
       "side": "both",
-      "sha1": "cf67f2050cafa00f0bee42e6d7bef77fdb808ac4f71742f7b4d6d5c1e6ffb49561a5a252f332d2b78a9767bdb5faa284611790dba303fbdc736ae36d794f61c7",
+      "sha1": "a52918a500ff421180a1cbd1a0cabee712134ec4",
+      "modrinth": "lhGA9TYQ",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -386,6 +115,7 @@
       "filename": "astikorcarts-1.20.1-1.1.8.jar",
       "side": "both",
       "sha1": "49a8ac1c23282fe86420f0b4527e522421f2f692",
+      "modrinth": "mnLFouB0",
       "curseforge": {
         "projectId": 916493,
         "fileId": 5574685
@@ -394,8 +124,9 @@
     {
       "name": "Athena",
       "filename": "athena-forge-1.20.1-3.1.2.jar",
-      "side": "both",
+      "side": "client",
       "sha1": "2acee24454af859988a691f0506271a465f68f7b",
+      "modrinth": "b1ZV3DIJ",
       "curseforge": {
         "projectId": 841890,
         "fileId": 5176879
@@ -405,7 +136,8 @@
       "name": "BaguetteLib",
       "filename": "baguettelib-1.20.1-Forge-1.1.6.jar",
       "side": "server",
-      "sha1": "ef0b00bfee28289e709ddc8f13eae5be0e67d95908b55e4ba2445e7282d1eb97a88ee36a3a92e3c3f15787424ae8f53bf0fab371282157195679f6349f73da31",
+      "sha1": "8d3c9551bbed4c2f2e8cb2b9a10d31bad4edb52d",
+      "modrinth": "OfKzpbRU",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -415,7 +147,8 @@
       "name": "Biolith",
       "filename": "biolith-forge-1.0.1-beta.1.jar",
       "side": "server",
-      "sha1": "734a6135d8dd7151b7aff735c91998c02c56c06f22f0ebf877a62df7ba13d82dbd64db24572023e710a30eab39d84ac152993a230bc268e0baa3bd09dc8167e1",
+      "sha1": "6545c60ac5a146c433a44256fea87b14e95cda44",
+      "modrinth": "iGEl6Crx",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -425,7 +158,8 @@
       "name": "Bits And Chisels",
       "filename": "bitsandchisels-2.7.3.jar",
       "side": "both",
-      "sha1": "434be17efcdb4e63a03927bfff0dd35937abb8cd846bcfdd9b350e517f7dd106d1e20a721084655ded130ad78447ae2a84cb42632788469b37c2124b8f9c3017",
+      "sha1": "67da7240e5948cd898725b95933466fd3776ad33",
+      "modrinth": "q8MC5tW2",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -435,7 +169,8 @@
       "name": "Caelus API",
       "filename": "caelus-forge-3.2.0+1.20.1.jar",
       "side": "both",
-      "sha1": "906baad404c33288d8daf8937bc6a85d3bcc03db67a4a68395b8f01eea57f773420ff97919aadb08a7618b62b0c6c3db72270f9c3af836b822385464f509cf78",
+      "sha1": "d14e8ee892d4d8764f523ad0e89bdcfc061fb007",
+      "modrinth": "40FYwb4z",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -446,6 +181,7 @@
       "filename": "callablehorses-1.20.1-1.3.0.1.jar",
       "side": "both",
       "sha1": "66ea4e6802e357cfd82fc5f4edb1e10b1ef2c176",
+      "modrinth": null,
       "curseforge": {
         "projectId": 331746,
         "fileId": 4730035
@@ -454,8 +190,9 @@
     {
       "name": "Canary",
       "filename": "canary-mc1.20.1-0.3.3.jar",
-      "side": "server",
+      "side": "both",
       "sha1": "898abd9e337ef1c677ce93f5589497a09c7e9850",
+      "modrinth": "qa2H4BS9",
       "curseforge": {
         "projectId": 665658,
         "fileId": 5089991
@@ -466,9 +203,21 @@
       "filename": "carryon-forge-1.20.1-2.1.2.7.jar",
       "side": "both",
       "sha1": "9999714ca3dd2f2401f0396ca44f3b27c3784c4f",
+      "modrinth": "joEfVgkn",
       "curseforge": {
         "projectId": 274259,
         "fileId": 4882500
+      }
+    },
+    {
+      "name": "CERBON's API",
+      "filename": "CerbonsAPI-Forge-1.20.1-1.1.0.jar",
+      "side": "both",
+      "sha1": "83cccb66e679d72345a5194e4ca520f647bc97e6",
+      "modrinth": "GkIc6rRo",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
       }
     },
     {
@@ -476,6 +225,7 @@
       "filename": "chipped-forge-1.20.1-3.0.7.jar",
       "side": "both",
       "sha1": "25ee2a0846059d8f21d28b94b7e0229b60cb5499",
+      "modrinth": "BAscRYKm",
       "curseforge": {
         "projectId": 456956,
         "fileId": 5813138
@@ -485,7 +235,8 @@
       "name": "Cloth Config API",
       "filename": "cloth-config-11.1.136-forge.jar",
       "side": "both",
-      "sha1": "137c4af99c53d77317cbfb1cc8c49fc2761708b49d1992f51fd846960df41dde3a83519c987e081508d4ed90c603566f3d5a6cb620ad9d85b8f4de59aa9115ef",
+      "sha1": "c65d07748acc57ceb45d53b3964368b84f34d54f",
+      "modrinth": "9s6osm5g",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -495,7 +246,8 @@
       "name": "Cobweb",
       "filename": "cobweb-forge-1.20.1-1.0.1.jar",
       "side": "both",
-      "sha1": "fc152db7f2f0a2676ab570033945c03b5547bee667788305899371b7d421e9103ebeda5e839a644d36e6ed9b6d7c1a2b4c0db7ceae1888559d7e34f35ee6bfdb",
+      "sha1": "607bbb82656d28ddfaa5ef2ec6e9c413859f5956",
+      "modrinth": "dQcfqGbl",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -505,7 +257,8 @@
       "name": "Collector's Caravan",
       "filename": "collectors_caravan-8.3.0-forge-1.20.1.jar",
       "side": "both",
-      "sha1": "404dd37433b5265560bd686062c5bc39d70f3f1f13f182c4efa0abd0327a7646ac0779ddb98ac4f29c3372369411586d427cbc375c2fd099f77bcc45529b4186",
+      "sha1": "6bf049bd8ece5b175a0c2784ce319f05f4f1d791",
+      "modrinth": "AF7VX19e",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -515,7 +268,8 @@
       "name": "Common Network",
       "filename": "common-networking-forge-1.0.6-1.20.1.jar",
       "side": "both",
-      "sha1": "91395315ec984af809036fd1ca39d98d0f0dca76a4a6f76876f0a818725965bba22c41f6fcb1fb5d4151c51eaa41e682f4eaae05c99ba1e210fc0ec4030a32a6",
+      "sha1": "68dae58372f8332d7b8596e908f85433c0e0cb0d",
+      "modrinth": "HIuqnQpi",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -525,7 +279,30 @@
       "name": "Companions!",
       "filename": "companions-forge-1.20.1-1.2.3.jar",
       "side": "both",
-      "sha1": "27b7fc845ce5dc65312d6ea3effb7b82a3c12f6325f47df2aa16151ef61377f7b151531f412a4e369ba9d8dce7035ce0d15991ffe3189041f6f9b8cd5d213d0c",
+      "sha1": "cc1460d8323af82c9c6087927dfd5e86d199f6c0",
+      "modrinth": "ArBFNu9T",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Sinytra Connector",
+      "filename": "Connector-1.0.0-beta.49+1.20.1.jar",
+      "side": "both",
+      "sha1": "2b167110353c0622939a674b80ae35b1ed6b5625",
+      "modrinth": "u58R1TMW",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Connector Extras",
+      "filename": "ConnectorExtras-1.11.2+1.20.1.jar",
+      "side": "both",
+      "sha1": "9336db4e6ce458bccf7724c039f0371e822397ae",
+      "modrinth": "FYpiwiBR",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -535,7 +312,8 @@
       "name": "Create",
       "filename": "create-1.20.1-6.0.8.jar",
       "side": "both",
-      "sha1": "5b51f5d31437d9bfbf221b67459abd87260d284874e1e23b7ed1d522b23a48059a3b1d2c1c541428da35dc6be15561b4f3c7f36aac6df3a0e8db6a278f6b0316",
+      "sha1": "b13d912b9247a38d66d11598c121442585a1c1e9",
+      "modrinth": "LNytGWDc",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -544,8 +322,9 @@
     {
       "name": "Create: Gunsmithing",
       "filename": "create-gunsmithing-1.20.1-1.4.4.jar",
-      "side": "server",
+      "side": "both",
       "sha1": "33f27e60d7b0c3b3689b6319ea44327f8ca97420",
+      "modrinth": "7KCNsGPM",
       "curseforge": {
         "projectId": 1194036,
         "fileId": 8371323
@@ -556,6 +335,7 @@
       "filename": "create_gunpowder-1.20.1.jar",
       "side": "both",
       "sha1": "551b2dc4ef1b02d1da2291f962bb06710aa09ec1",
+      "modrinth": null,
       "curseforge": {
         "projectId": 1336379,
         "fileId": 6936958
@@ -565,7 +345,8 @@
       "name": "Create: Structures Arise",
       "filename": "create_structures_arise-176.49.48 Forge 1.20.1.jar",
       "side": "both",
-      "sha1": "2036eec90725ac25b5f13104a32390d3b90236bd3dda66f74685aae673ead5acf5684793d2e9a5f438279df14c8fee92d0e70a8c87e7c9c9ca6b9e9fc2685841",
+      "sha1": "99d07d4eccc65b634ca3f11f87b7d47017f4d4df",
+      "modrinth": "9enMEvoc",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -575,7 +356,8 @@
       "name": "Create Cobblestone",
       "filename": "createcobblestone-1.4.11+forge-1.20.1-142.jar",
       "side": "both",
-      "sha1": "bedbcf28e3f69e4e9a2ee11cdbf8b3095b43e056ee163c780a07cb442eb7a2b08627c4e0c6952c1050de89df33fcbb4fc9437b8b213c8ccf5476bd5759bfc347",
+      "sha1": "348ee4e28efbe5f2858df0aeb272c57d9ceca216",
+      "modrinth": "ihpnEd80",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -585,37 +367,85 @@
       "name": "Critters Delight",
       "filename": "critters_delight-1.1.1.jar",
       "side": "both",
-      "sha1": "99f6e4efb3bf40981c3a446af39c68c32e9c3f3e56e378530cee11eb495808922b3bd732f279535d5765f2a988d190aac2476f5ef982f82a7843d46caaaed3a2",
+      "sha1": "cc71def6bfc0cc5d8b7e661f4f60086bc9a53f67",
+      "modrinth": "OqSo80l2",
       "curseforge": {
         "projectId": null,
         "fileId": null
       }
     },
     {
-      "name": "Curios API (Forge/NeoForge)",
+      "name": "Curios API",
       "filename": "curios-forge-5.14.1+1.20.1.jar",
       "side": "both",
       "sha1": "452175b95ad3db6ff58bb8968f6bf7a9d1e0f480",
+      "modrinth": "vvuO3ImH",
       "curseforge": {
         "projectId": 309927,
         "fileId": 6418456
       }
     },
     {
+      "name": "Data Anchor",
+      "filename": "Data_Anchor-forge-1.20.1-1.0.0.20.jar",
+      "side": "both",
+      "sha1": "f16089cc8af8e5dca8f5a14dc7bab11840d9b9a8",
+      "modrinth": "z2XEADmE",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Distant Horizons",
+      "filename": "DistantHorizons-3.2.0-b-1.20.1-fabric-forge.jar",
+      "side": "both",
+      "sha1": "5667440fdca4d4543c345c9ba6fda2dda64928ca",
+      "modrinth": "uCdwusMi",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Doggy Talents Next",
+      "filename": "DoggyTalentsNext-1.20.1-1.19.0.jar",
+      "side": "both",
+      "sha1": "8cd9d4a00ae63bffb1228aad4189ed52b602fabe",
+      "modrinth": "oXgmplvv",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
       "name": "Dungeons and Taverns",
       "filename": "dungeons-and-taverns-3.0.3.f[Forge].jar",
-      "side": "server",
+      "side": "both",
       "sha1": "3f324242f3daf4785a8b9338f228679418f4870a",
+      "modrinth": "tpehi7ww",
       "curseforge": {
         "projectId": 853794,
         "fileId": 5206484
       }
     },
     {
-      "name": "Enchanted",
+      "name": "Embeddium",
+      "filename": "embeddium-0.3.31+mc1.20.1.jar",
+      "side": "client",
+      "sha1": "bb2fa8f3e493af16af9160d049f96c614a1faf2f",
+      "modrinth": "sk9rgfiA",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Enchanted: Witchcraft",
       "filename": "enchanted-forge-1.20.1-3.1.14.jar",
       "side": "both",
-      "sha1": "17cf660d8439c85d5a1070d675b2f25ed8659bf46e34560d09ddf50ce6ff7da428483f76e19da2669db21dfbffa1ef3b0ede728c98cfde8956f88e81992c90bc",
+      "sha1": "d6bae5e6742d459c3aa3affa163d78281b78198b",
+      "modrinth": "HsbpdVo9",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -625,7 +455,8 @@
       "name": "Epic Knights: Shields Armor and Weapons",
       "filename": "epic-knights-1.20.1-forge-10.11.jar",
       "side": "both",
-      "sha1": "1932424160a6b61a459e729a042c7764a58cb8fc42737f1fa380f7b28cf757a47744cffc426e74bb670b78559f97d53cf38fbefc538d7b58984433c47ace05e3",
+      "sha1": "b76f56523dcde7ae30f4a3c299b1d104348b92eb",
+      "modrinth": "L6jvzao4",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -635,7 +466,8 @@
       "name": "Epic Knights: Addon",
       "filename": "epic-knights-addon-1.20.x-forge-2.6.jar",
       "side": "both",
-      "sha1": "c2f93c0905e3ab34c362c471981440bb9945b62ada19ef1453ac60ecbcd0337e00200c652e5cd00433a9da0f8fc4e4c9a46210c7e312583b329652f2f56314b9",
+      "sha1": "c5d284743d3d59a7ca4cdfdf42e4a01afb10e146",
+      "modrinth": "txMuoRai",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -645,7 +477,8 @@
       "name": "Epic Knights: Slavic Armory",
       "filename": "epic-knights-slavic-armory-1.20.x-forge-2.1.jar",
       "side": "both",
-      "sha1": "173141dcc0800b632fa88134112cd404ae3e1e100b5edb5f310b359be8a999918e77b940fab93f3855764e2e884adb7e3cb569d5746dd425d574e0c0cff00714",
+      "sha1": "e54539d7eee96e5441db89ac580bcb4fc3ae534a",
+      "modrinth": "tdA8M9rp",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -656,6 +489,7 @@
       "filename": "extraorigins-1.20-8.jar",
       "side": "both",
       "sha1": "fc82b9fc86ed9be11d6d47ae117e2d9c5bcd47b0",
+      "modrinth": "XWEESDPe",
       "curseforge": {
         "projectId": 398419,
         "fileId": 5230043
@@ -666,9 +500,21 @@
       "filename": "fabric-api-0.92.6+1.11.14+1.20.1.jar",
       "side": "both",
       "sha1": "285c22b2567b9fdf98ef9808eceb5557de9611d3",
+      "modrinth": "Aqlf1Shp",
       "curseforge": {
         "projectId": 889079,
         "fileId": 6885853
+      }
+    },
+    {
+      "name": "Farmer's Delight",
+      "filename": "FarmersDelight-1.20.1-1.3.2.jar",
+      "side": "both",
+      "sha1": "397763ae36dc2e0f526e0338c875850437580157",
+      "modrinth": "R2OftAxM",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
       }
     },
     {
@@ -676,16 +522,40 @@
       "filename": "framework-forge-1.20.1-0.8.0.jar",
       "side": "both",
       "sha1": "27347879f8760a7bc0b4bd71977abc50e498811c",
+      "modrinth": null,
       "curseforge": {
         "projectId": 549225,
         "fileId": 7573740
       }
     },
     {
-      "name": "GeckoLib 4",
+      "name": "FrostedLib",
+      "filename": "FrostedLib-1.2.0+1.20-1.20.1.jar",
+      "side": "both",
+      "sha1": "35575df9902d5e8d51b9b3505ea6823c51caabae",
+      "modrinth": "KbXiGxCZ",
+      "curseforge": {
+        "projectId": 1470576,
+        "fileId": 7750269
+      }
+    },
+    {
+      "name": "Geckolib",
       "filename": "geckolib-forge-1.20.1-4.8.4.jar",
       "side": "both",
-      "sha1": "443a321a293e3cb92fbbc3c97a38b179a45d1db703cd7bdb123270a9e04e7b7d67d5b06cd8e77a6d4d9139e033e901b9660cccf53ad5f9beaae6d06eae68febf",
+      "sha1": "50e1407869ef0e909e3bdda9328b8bd7db03fdc0",
+      "modrinth": "8BmcQJ2H",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Global Packs",
+      "filename": "globalpacks-forge-1.20.1-19.3.7.jar",
+      "side": "both",
+      "sha1": "46063649fa29df57c253072e10495c2e60579302",
+      "modrinth": "NRLPy2mk",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -695,7 +565,8 @@
       "name": "Golem Overhaul",
       "filename": "golemoverhaul-forge-1.20.1-1.1.0.jar",
       "side": "both",
-      "sha1": "ccbb43782906f5220ba825207840b66530a7f15b04c42b175677d532c432eeeac264a2dfaa884bc172f15a850be0a49a51c052f96e09923bfea57b5037d45622",
+      "sha1": "57a7c3c8b38744629ec491553625adb9a987530c",
+      "modrinth": "qEYs2G9A",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -706,6 +577,7 @@
       "filename": "grapplingHookMod-Reforged-1.2.jar",
       "side": "server",
       "sha1": "aa53625ab5e145c6aa196645335b062b37ae82da",
+      "modrinth": null,
       "curseforge": {
         "projectId": 1166811,
         "fileId": 7087090
@@ -715,7 +587,8 @@
       "name": "GraveStone Mod",
       "filename": "gravestone-forge-1.20.1-1.0.35.jar",
       "side": "both",
-      "sha1": "0f1b3f80ddb2fc76cfe64a52d9cc6a04b57151d592d4f85dd03f5714d6917a1e5e7c0fc1a572c9cf2e307e8008743f0a6872fd5875380995cccaccd3e5e084ab",
+      "sha1": "9ec9da5da2a5884b6abff5f74a763a4f3e54fa38",
+      "modrinth": "RYtXKJPr",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -725,7 +598,8 @@
       "name": "Gravestone x Curios API Compat",
       "filename": "gravestonecurioscompat-1.20.1-Forge-4.0.2.jar",
       "side": "server",
-      "sha1": "fc3b767dcc187f2e9d98e8cbe9434d2f56b19b5f38cc6ba1a9583f6669f4ab62cd72341bc977bcaf858b9fb8893191b6f5ac33c6c89eeb5e1454dba492bd9b57",
+      "sha1": "121710bff064bbbbe3b0bca3e58030b9254b046c",
+      "modrinth": "NaiL8bPN",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -735,7 +609,41 @@
       "name": "Hex Casting",
       "filename": "hexcasting-forge-1.20.1-0.11.3.jar",
       "side": "both",
-      "sha1": "369916970f8ffe053503810bdd5430c0af0fae5077cfcb5a5b138d4349e18d1f3712291179a43f907fc86734edb6682c3cb458ff7f6938e490c1b9e192b5e4bf",
+      "sha1": "7005974f352bae9f34d0d2492e69bf9437f945e0",
+      "modrinth": "nTW3yKrm",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Hopo Better Ruined Portals",
+      "filename": "HopoBetterRuinedPortals-[1.20-1.20.2]-1.3.7c.jar",
+      "side": "both",
+      "sha1": "73fc57472fea0195c55401f87cfff92b9a899f21",
+      "modrinth": "hIpLSyga",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Hopo Better Underwater Ruins",
+      "filename": "HopoBetterUnderwaterRuins-[1.20.1-1.20.4]-1.1.5b.jar",
+      "side": "both",
+      "sha1": "ef2a3bf07d771480bd3b0010bd8a20728919cd1c",
+      "modrinth": "BuWCQzqf",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Icarus",
+      "filename": "Icarus-Forge-2.13.2.jar",
+      "side": "both",
+      "sha1": "f211261762ee49289ba4e62134dc28e0d266dc05",
+      "modrinth": "Dw7M6XKW",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -745,7 +653,8 @@
       "name": "Immersive Portals for (Neo)Forge",
       "filename": "immersive-portals-3.0.7-all.jar",
       "side": "both",
-      "sha1": "5dbbc097b5ee9a4fba5ed45e2ec5f4d5db18496e155d721840cfe286584df8191cefd56894156e9d327d40309a219665bf2fc812a60f2b83aa4a95fc40194003",
+      "sha1": "b4a6d71ca7dc07a1da33e7272befabc6ce95057b",
+      "modrinth": "zf4Szzx2",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -755,7 +664,8 @@
       "name": "Inline",
       "filename": "inline-forge-1.20.1-1.2.2.jar",
       "side": "both",
-      "sha1": "ff631012ef59eb560999dab05b65325f9ab848f0f7253818c9202ab1b8ecfc0de3417c6d57c2b63573da00814c8b87cdc86bc0b35952d1f927b97983dde0a153",
+      "sha1": "f19ae88f41256a74eed7b08b434d5c4695aaa6dd",
+      "modrinth": "fin1PX4m",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -766,16 +676,40 @@
       "filename": "item_split_bug_fix-1.20.1-1.4.jar",
       "side": "both",
       "sha1": "200682cd4b74d9fd873cdb718a747616f3f79497",
+      "modrinth": "mLsg9Mng",
       "curseforge": {
         "projectId": 1119284,
         "fileId": 6675232
       }
     },
     {
+      "name": "Just Enough Items (JEI)",
+      "filename": "jei-1.20.1-forge-15.20.0.134.jar",
+      "side": "both",
+      "sha1": "1150671952108303b4b02d2b09f42877fe14b138",
+      "modrinth": "u6dRKJwZ",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Just Another Rotten Flesh to Leather Mod",
+      "filename": "JRFTL-1.20.1-1.6.0.jar",
+      "side": "both",
+      "sha1": "d59e4ad527b59617aec6b49630c5b4b8cda385ad",
+      "modrinth": "8nIicBYu",
+      "curseforge": {
+        "projectId": 247136,
+        "fileId": 4594475
+      }
+    },
+    {
       "name": "Knight Lib",
       "filename": "knightlib-forge-1.20.1-1.6.1.jar",
       "side": "both",
-      "sha1": "02ec2188484b2bcf9e3c79926b01ca104431c306c7f46245598961afd73a82dcae8a7eda6c581c20696baad251484a2a36497b886fa456171ab31f6d1659b67b",
+      "sha1": "db8e07d0dd7f229aa5976c0dde0f3108916e4044",
+      "modrinth": "hAnl9nbm",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -785,7 +719,8 @@
       "name": "Kotlin for Forge",
       "filename": "kotlinforforge-4.12.0-all.jar",
       "side": "both",
-      "sha1": "767f40030ed4b370a3838fa65ae1b79974f31979342fff7cc834a0d5f39eb28612642519352ff2a1dd5226ce1f745f8b3156ee3625ffde01219137d064c1ee40",
+      "sha1": "962fdb760409d6d71cbf079235f1ca94e3863a22",
+      "modrinth": "ordsPcFz",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -795,7 +730,8 @@
       "name": "Lithostitched",
       "filename": "lithostitched-forge-1.20.1-1.4.11.jar",
       "side": "server",
-      "sha1": "4e50a0fb4f054b429803cb20fc0820011b12098ebca1f17b1b0634cab832369e08446901d5e97fd35b01e99cf6066d20a16cc673c5b7bc8196568b3db67128c2",
+      "sha1": "d1a755de84ee5d8910ff1e65e815473056e93ece",
+      "modrinth": "XaDC71GB",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -806,16 +742,40 @@
       "filename": "longtimenosword-1.2.1-HOTFIX.jar",
       "side": "both",
       "sha1": "06957f13dc9dfec07cefcf418cb132470957d840",
+      "modrinth": "qHu8L3KO",
       "curseforge": {
         "projectId": 1537728,
         "fileId": 8109712
       }
     },
     {
+      "name": "Lost Trinkets Renewed",
+      "filename": "LostTrinkets-20.1.3-mc1.20.1-forge.jar",
+      "side": "both",
+      "sha1": "e052bc84e60460371236ad5f4302d01152a92159",
+      "modrinth": "YXvTD5Ha",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Mantle",
+      "filename": "Mantle-1.20.1-1.11.104.jar",
+      "side": "both",
+      "sha1": "8a3f948f8c505ee92dae915ec0a1593594eb2667",
+      "modrinth": "Cg6Uc79H",
+      "curseforge": {
+        "projectId": 74924,
+        "fileId": 7563777
+      }
+    },
+    {
       "name": "Medieval Paintings",
       "filename": "medieval_paintings-1.20-7.0.jar",
       "side": "both",
-      "sha1": "c28de430d477cf7c4e8a5a3a87eef55d5ee78cd7235033509c60da01c5a279f4e99a991fdfb6944d92410024be4fb5987d3457fff50eb424ee7b446f4f189e32",
+      "sha1": "1d470358bc0e13a0f40caef6b528ce7efa28a520",
+      "modrinth": "mfHP09ru",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -825,7 +785,19 @@
       "name": "Medieval Origins Revival",
       "filename": "medievalorigins-forge-1.20.1-6.7.9.jar",
       "side": "both",
-      "sha1": "3b844b0555d7e4b409ac68078333c01b21ff49dfb567a15e2ca779e0516e17574c34020fd2106f1008d80ac0c55b447fbf8db280e1ee579a2a4498f2d1e5c19b",
+      "sha1": "0877ef5a84bcadd2145fc72aa485ddbec7e3be4e",
+      "modrinth": "3FJ8AhW0",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Metalborn",
+      "filename": "Metalborn-1.20.1-1.0.3.jar",
+      "side": "both",
+      "sha1": "faab4a69eb5d7fddc157ddc62742e72348ee85e6",
+      "modrinth": "eRES8nGN",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -836,6 +808,7 @@
       "filename": "metus_oblita-1.1.6(alpha)-forge-1.20.1.jar",
       "side": "both",
       "sha1": "caac48ec86bdb7bf4aaefab9cdb173fa14ce1f3f",
+      "modrinth": null,
       "curseforge": {
         "projectId": 1507439,
         "fileId": 8128146
@@ -845,7 +818,8 @@
       "name": "MidnightLib",
       "filename": "midnightlib-forge-1.9.2+1.20.1.jar",
       "side": "both",
-      "sha1": "a4f50d46ad30de0f5622fd6aa8415a949889d114a1dc051b2d8d15ff505273aff80f8b40d61193ca71112567a3be396899e96d0ff1c26af31e77a9c68f70e896",
+      "sha1": "ff01aa718b71249012c41d9926d3fd2982809fdb",
+      "modrinth": "codAaoxh",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -855,7 +829,52 @@
       "name": "Moonlight Lib",
       "filename": "moonlight-1.20-2.16.34-forge.jar",
       "side": "both",
-      "sha1": "a83c960d783314f1d423a16225f92835429e1276ae0549698cf3560afae8ba05a0c54694e048d3fc05188216414fb268838992e480648e1e568e58c29eb995da",
+      "sha1": "5e20f2f0ce56a534accb32f80853d5a246599a4d",
+      "modrinth": "twkfQtEc",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "More Critters",
+      "filename": "More Critters 1.4.3.jar",
+      "side": "both",
+      "sha1": "cc578c961ee3fe5698a484698d902614e62e6648",
+      "modrinth": "iRZ6t3qQ",
+      "curseforge": {
+        "projectId": 1322511,
+        "fileId": 8339429
+      }
+    },
+    {
+      "name": "Myths of The Sea",
+      "filename": "MOTS-Forge-1.20.1-1.3.0(1).jar",
+      "side": "both",
+      "sha1": "3a36e72cb47f476df5530ac16f8aefcf030f8eef",
+      "modrinth": "WaCchT6K",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Mouse Tweaks",
+      "filename": "MouseTweaks-forge-mc1.20.1-2.25.1.jar",
+      "side": "client",
+      "sha1": "d751153e722a4e014691c83f39f5b07c6ec5333c",
+      "modrinth": "aC3cM3Vq",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Mutant Monsters",
+      "filename": "MutantMonsters-v8.0.8-1.20.1-Forge.jar",
+      "side": "both",
+      "sha1": "31bf95aa119e284e211b3242e92e01dfc72875e0",
+      "modrinth": "derP0ten",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -865,7 +884,8 @@
       "name": "Mutant More",
       "filename": "mutantmore-1.20.1-early_access-2.0.0.jar",
       "side": "both",
-      "sha1": "90dfd410da5766e927deb6974859b818ae2ae14839e79154721cdeb37ea2f8a5e2f6d682bca12308f1ff0df6c6697d4fd7ffb1e7e1b3bd80412844986c68414f",
+      "sha1": "a024cb6dc81f14dcfe1c02b67f61857916d4da5f",
+      "modrinth": "GmuH0lCA",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -875,47 +895,96 @@
       "name": "mutil",
       "filename": "mutil-1.20.1-6.3.0.jar",
       "side": "both",
-      "sha1": "c66851d7a1b8ae8faed39fb2974e126433db3ca107ead21edae99788cd335700073812920648bcc2b0d30ef1712697ded050c2e0c314484c6f420d5150a0bdeb",
+      "sha1": "29a233bbe5b156f16bfe67e402681a490c843062",
+      "modrinth": "HWHl8Evb",
       "curseforge": {
         "projectId": null,
         "fileId": null
       }
     },
     {
-      "name": "NukaTeam's Gun Lib",
+      "name": "[NTGL] NukaTeam's Gun Lib",
       "filename": "ntgl-1.20.1-3.1.2.jar",
-      "side": "server",
+      "side": "both",
       "sha1": "184dbd36ea2e71be030fa20ecca8b5512fa2fea0",
+      "modrinth": "5m2kV8xK",
       "curseforge": {
         "projectId": 998474,
         "fileId": 8371299
       }
     },
     {
-      "name": "Obscure API [Forge Edition]",
+      "name": "Obscure API",
       "filename": "obscure_api-18.jar",
-      "side": "server",
+      "side": "both",
       "sha1": "d395153341a9a732fc80463c475b202d78675e28",
+      "modrinth": "fU7jbFHc",
       "curseforge": {
         "projectId": 638417,
         "fileId": 7171906
       }
     },
     {
-      "name": "OneKeyMiner(Neo)Forge  and Fabric| Vein Miner | Chain Vein",
+      "name": "Oculus",
+      "filename": "oculus-mc1.20.1-1.8.0.jar",
+      "side": "client",
+      "sha1": "984f774e71790deaec674c7587bd24e0711871b2",
+      "modrinth": "GchcoXML",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "OneKeyMiner",
       "filename": "onekeyminer-1.6.6-1.20.1.jar",
       "side": "both",
       "sha1": "c9bd0b55fe01bd3e19cc70e14debfc06a34c2699",
+      "modrinth": "LZu4H9cp",
       "curseforge": {
         "projectId": 1078620,
         "fileId": 8083058
       }
     },
     {
+      "name": "Origins",
+      "filename": "Origins-1.10.2+mc.1.20.x.jar",
+      "side": "both",
+      "sha1": "aeb2b6e0d69b7ceee9971c90fcf9aa6713a3c298",
+      "modrinth": "3BeIrqZR",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
       "name": "Origins: Revised",
       "filename": "origins-revised-1.0.2.jar",
       "side": "both",
-      "sha1": "638358ffeb5aac6dd9a40dffcdc687be4c44d11c283f32b966f62f2d318ae5af46b614f16ad7d231a5383ff5ca3db2a0722cb80b04907d0fc2fffb16b51e979b",
+      "sha1": "7e5523eac59b730bfb54c86a21cf7204f1509d01",
+      "modrinth": "ybH3Wcel",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Origins: Umbrellas",
+      "filename": "originsumbrellas-1.6.1.jar",
+      "side": "both",
+      "sha1": "8d342c524941659ad8d8e09f7dd8a875cd187cd8",
+      "modrinth": "nKWFvKt2",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Patchouli",
+      "filename": "Patchouli-1.20.1-85-FORGE.jar",
+      "side": "both",
+      "sha1": "d4614507d6e4c7cb464bba5eca891978272062ef",
+      "modrinth": "nU0bVIaL",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -925,17 +994,19 @@
       "name": "PAUCAL",
       "filename": "paucal-0.6.0+1.20.1-forge.jar",
       "side": "both",
-      "sha1": "c970d419650a54fbf90319d5a2187228ab634ada8b9a2b381f8365066718e006203f0769217b47c9a875eb296751eadfa5fb79788deb36d7c07ca258e9d3e249",
+      "sha1": "360a748d33bc23674399781992489e10e613e5ea",
+      "modrinth": "TZo2wHFe",
       "curseforge": {
         "projectId": null,
         "fileId": null
       }
     },
     {
-      "name": "Plasmo Voice",
-      "filename": "plasmovoice-forge-1.20.1-2.1.13.jar",
+      "name": "Pehkui",
+      "filename": "Pehkui-3.8.2+1.20.1-forge.jar",
       "side": "both",
-      "sha1": "a9aae97b01a796d8a1f9d70ee2fa692835b90226a09719a4da21b252dc365338a895626f54a2e6b59d23c37a3b19a17f9c0ba466ab591c7e80462580c274da2c",
+      "sha1": "4bc816efdd8e5e2a97423313674401351710e403",
+      "modrinth": "t5W7Jfwy",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -945,7 +1016,8 @@
       "name": "playerAnimator",
       "filename": "player-animation-lib-forge-1.0.2-rc1+1.20.jar",
       "side": "both",
-      "sha1": "cb9f6a3aaa943823a85fdd716ddb3c7623af2b3520926c3a98d170c52d31908894808fb61c52bea39bae622dbab59d50b4bad56f7ca0533a9c3350d412c33729",
+      "sha1": "16808f94a41d45d8e986b4e4ea6b02ba57fa058a",
+      "modrinth": "gedNE4y2",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -955,7 +1027,8 @@
       "name": "Polymorph",
       "filename": "polymorph-forge-0.49.10+1.20.1.jar",
       "side": "both",
-      "sha1": "c36b4c3b893fa01619cf03750878913f37b59854282cd25ff61a8a81da59f0d8f0cb42da8da1e2ab20d0d86f8e0ad6e9bdf69925d1336a03fd23dbf9b232fe87",
+      "sha1": "e4afd6f512cc06311320357ed974cee586e031c3",
+      "modrinth": "tagwiZkJ",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -965,7 +1038,30 @@
       "name": "Private Area",
       "filename": "private_area-0.8.0-forge-1.20.1.jar",
       "side": "both",
-      "sha1": "81d5421ae9dc6092961500bbbbf42c00b2addb0cf39aa7f64be830c867bbb7a498b4f6df91fdd708b18fd84f14512b9e709468093b504ed01bedfd0c6bc4cffb",
+      "sha1": "e5bccb33c995ab0ab2a4751fc3d4cdd1d8f5a7b8",
+      "modrinth": "20TqyaP0",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "The Pure Suffering Mod",
+      "filename": "PureSuffering-1.20.1-1.6.8.5R-LTS1.jar",
+      "side": "server",
+      "sha1": "595a0fac96973d4a317837e5bbba84a965b0b42c",
+      "modrinth": null,
+      "curseforge": {
+        "projectId": 504538,
+        "fileId": 6554981
+      }
+    },
+    {
+      "name": "Puzzles Lib",
+      "filename": "PuzzlesLib-v8.1.33-1.20.1-Forge.jar",
+      "side": "both",
+      "sha1": "285b7c7616971338ccbe0022c9ea0f8ad3036aaf",
+      "modrinth": "QAGBst4M",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -975,17 +1071,19 @@
       "name": "PVP Flagging",
       "filename": "pvp_flagging-1.20.1-1.1.2.jar",
       "side": "both",
-      "sha1": "262f2758c124e9079c377ff721ed5de712342ac96429b0ca90f0cfe430cf7c6248afd712d46117983b4d2f9acbbd448b2712f167576e313611cbb414e386a45a",
+      "sha1": "d2cf699cc70dfa3f0bb0639fb016b76bbe37e550",
+      "modrinth": "kGSrY7gn",
       "curseforge": {
         "projectId": null,
         "fileId": null
       }
     },
     {
-      "name": "Villager Recruits Mod",
+      "name": "Villager Recruits",
       "filename": "recruits-1.20.1-1.15.2.jar",
-      "side": "server",
+      "side": "both",
       "sha1": "8d2ed3f0ab18c67a1d9394526bcae47b3ec162ab",
+      "modrinth": "WOg9lm4u",
       "curseforge": {
         "projectId": 523860,
         "fileId": 8339846
@@ -995,7 +1093,8 @@
       "name": "Resourceful Config",
       "filename": "resourcefulconfig-forge-1.20.1-2.1.3.jar",
       "side": "both",
-      "sha1": "2e05fe27529d00d7808a83dbe0c475a0fb96a20ebfd5c9767f4cc8dcd9a865e20a18de41fb9ed710e5cd2e0211c30303b43c1f22702af1d50ee7212ad83a54d3",
+      "sha1": "597d40920dcc935f963842c817dcc4901862ab14",
+      "modrinth": "M1953qlQ",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -1005,17 +1104,30 @@
       "name": "Resourceful Lib",
       "filename": "resourcefullib-forge-1.20.1-2.1.29.jar",
       "side": "both",
-      "sha1": "8dbe951d431545a7d18081a8b11a52a248e6d8ff9862ae6462b0f5a6f57ff523af12704c3adb071ae99a7c5c1dd895bd7875dea59f9c4956c1597a668b6e8820",
+      "sha1": "6fc590a7c56a720fec57e290cbb0a106efbb3ffa",
+      "modrinth": "G1hIVOrD",
       "curseforge": {
         "projectId": null,
         "fileId": null
       }
     },
     {
+      "name": "Roundabout: The JoJo Mod",
+      "filename": "Roundabout-forge-1.20.1-3.0.4.jar",
+      "side": "both",
+      "sha1": "d6a707cefd09d1b1cbe77321f81d77be3403feb6",
+      "modrinth": "IDI5Ie1o",
+      "curseforge": {
+        "projectId": 1115305,
+        "fileId": 8409910
+      }
+    },
+    {
       "name": "Saint's Dragons",
       "filename": "saintsdragons-0.8.2+forge-1.20.1-alpha.jar",
       "side": "both",
-      "sha1": "8529ba8a4536cdc68bd74ab422288c2172a078fced9fdecc669b4207a91f5e3be5b6e71c85ae75af6cd9d4c0d83914c505ead9a94d4257a7d18f3888dcc2b447",
+      "sha1": "bf93d2c5be8380bd30ed7791b4d9f1a5a04125b2",
+      "modrinth": "rjcsjwEU",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -1024,8 +1136,9 @@
     {
       "name": "Sculk Horde",
       "filename": "sculkhorde-1.20.1-0.12.6.jar",
-      "side": "server",
+      "side": "both",
       "sha1": "2580d65f7540093b2c524941b6d663b8c4018218",
+      "modrinth": "tBbdvEJc",
       "curseforge": {
         "projectId": 501766,
         "fileId": 8306537
@@ -1036,16 +1149,40 @@
       "filename": "skarrier_mobs-1.0.5(beta)-forge-1.20.1.jar",
       "side": "server",
       "sha1": "2e2a45ec82eeb1d9c1af7fccf28c201f56d365b9",
+      "modrinth": null,
       "curseforge": {
         "projectId": 1566041,
         "fileId": 8280469
       }
     },
     {
+      "name": "3D Skin Layers",
+      "filename": "skinlayers3d-forge-1.11.2-mc1.20.1.jar",
+      "side": "client",
+      "sha1": "473b49e775f4c9dd746929f20c33f8132b86f235",
+      "modrinth": "zV5r3pPn",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "SmartBrainLib",
+      "filename": "SmartBrainLib-forge-1.20.1-1.15.jar",
+      "side": "server",
+      "sha1": "366e0f0c7ca746fee327392d3569b31aefd34b5a",
+      "modrinth": "PuyPazRT",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
       "name": "Create: Some Assembly Required",
       "filename": "some-assembly-required-1.20.1-4.2.3.jar",
       "side": "both",
-      "sha1": "536d4e07daacb744fe3821bd6d7b04bb9bf2b8efcaf6d6071aa2bd684d13276355fea529e01cfaa22e4d121bbe3f8034bbdaaf3f46388aaf27c4679c627317b7",
+      "sha1": "a0f4622694e47806aced4e890ddc6f90b90894eb",
+      "modrinth": "jZi8ogTA",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -1055,7 +1192,8 @@
       "name": "Sophisticated Backpacks",
       "filename": "sophisticatedbackpacks-1.20.1-3.24.59.1960.jar",
       "side": "both",
-      "sha1": "5005cfebabadba01176ead71c1d8487f413451bce85fde7f88a7635ecce87d5a0469b2cf8ed32811797ab931c53679e4e2f4524da21516e6f73597240fc6f400",
+      "sha1": "aadb5ff69bb1dcb342a0b1ab34b74e6c0570ce66",
+      "modrinth": "TyCTlI4b",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -1065,7 +1203,8 @@
       "name": "Sophisticated Backpacks Create Integration",
       "filename": "sophisticatedbackpackscreateintegration-1.20.1-0.1.8.116.jar",
       "side": "both",
-      "sha1": "07b2737d77b16b35055ef25f006121b775f9fe73c2f9f319b9ee3c8dcd83a5ae8b7b7a2af7931b2eb6f5aba187fa88f2ce801fbe036480b24edf1a72f8bf8d1a",
+      "sha1": "74a395a82925911eecc0a8055e082a7e01102eec",
+      "modrinth": "s85zLEDe",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -1075,7 +1214,8 @@
       "name": "Sophisticated Core",
       "filename": "sophisticatedcore-1.20.1-1.3.66.2138.jar",
       "side": "both",
-      "sha1": "47e9161cd5bcb3966a88166d87556cbdb24da117cc1f5472e928e708a083961f8c449cc3b91177b9f4de148e1f20fd84e0f3cc2c9795e2696ee6653392064f6f",
+      "sha1": "e66e253225bc995f86f0133ff475a584d40e836a",
+      "modrinth": "nmoqTijg",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -1085,7 +1225,8 @@
       "name": "Soul Fire'd",
       "filename": "soul-fire-d-forge-1.20.1-4.0.11.jar",
       "side": "both",
-      "sha1": "edb4deb4f8d337585359cb799d050d84ea2646725162915b1af703ea82771619a10dbb91e8376f70d3e851adff73ea62de7377b6ac6827a3278ceb816ff8fbd4",
+      "sha1": "d5073a142e0b5caf024cfbc812fe08bc14e9570b",
+      "modrinth": "d6MhxwRo",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -1096,6 +1237,7 @@
       "filename": "spark-1.10.53-forge.jar",
       "side": "both",
       "sha1": "231fb325368c0660954f47bfb03493f5246fa4d1",
+      "modrinth": "l6YH9Als",
       "curseforge": {
         "projectId": 361579,
         "fileId": 4738952
@@ -1105,7 +1247,8 @@
       "name": "stacc-api",
       "filename": "stacc-1.7.0.jar",
       "side": "both",
-      "sha1": "3a720c78ebff56e19b54971a14754ff6e74effff7a6127ab0e8dad46fda60eeb545e70a14f94a3db3beef9d6f0fdd4da46f9b026f117573831ff3cb28bfda0b5",
+      "sha1": "e644ef01d03ccb14e8097f2de71808b8e3ada5a7",
+      "modrinth": "fauLGdJR",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -1115,10 +1258,33 @@
       "name": "StateObserver",
       "filename": "stateobserver-forge-1.20.1-1.4.3.jar",
       "side": "both",
-      "sha1": "41dbbbe2d00d3e0f9620fcf5bec5bc98b893f74f5912da7e56e4647156aee266ae8ca34825ce5cc6f133f739e01d8750fc4598dc480613657618f2673a8d74a6",
+      "sha1": "d5f3d3a970bb2b79274c8805cb0f579e14859921",
+      "modrinth": "D1lhcTKz",
       "curseforge": {
         "projectId": null,
         "fileId": null
+      }
+    },
+    {
+      "name": "Tinkers' Construct",
+      "filename": "TConstruct-1.20.1-3.11.2.166.jar",
+      "side": "both",
+      "sha1": "94d07ec0ff45c49f5908beff7acb9fbec43fdde5",
+      "modrinth": "rxIIYO6c",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Terralith",
+      "filename": "Terralith_1.20.x_v2.5.4.jar",
+      "side": "both",
+      "sha1": "79e1409b8db4ce86df9d6d6730f09c4bd8860a30",
+      "modrinth": "8oi3bsk5",
+      "curseforge": {
+        "projectId": 513688,
+        "fileId": 5512076
       }
     },
     {
@@ -1126,6 +1292,7 @@
       "filename": "thoroughbred-1.0.1-1.20.1.jar",
       "side": "both",
       "sha1": "1e68ea867dd7ca208975077d40b4d41d5b5c7dad",
+      "modrinth": null,
       "curseforge": {
         "projectId": 1272534,
         "fileId": 7033126
@@ -1134,8 +1301,9 @@
     {
       "name": "Tidal Towns",
       "filename": "tidal-towns-1.3.4.jar",
-      "side": "server",
-      "sha1": "1992f0b4b9ec7d89a4ab9cd96b652f89171941b8c0baf8fa6d22d1d92b6fc5ca7088e04738beda8a93319f35ad5a0ea1ca9e304d0324dec28dc35e84b3592e51",
+      "side": "both",
+      "sha1": "a0a8db8df7a471e75b53e3fa8cafc7ca767f5506",
+      "modrinth": "EEIwvQVo",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -1146,9 +1314,32 @@
       "filename": "tinker_rapier-1.0.1-1.20.1.jar",
       "side": "both",
       "sha1": "1ca49cef230c3c7d3dc954c0eb25de85e1c1cead",
+      "modrinth": "6ZtdNJ9x",
       "curseforge": {
         "projectId": 518284,
         "fileId": 6950589
+      }
+    },
+    {
+      "name": "Tinkerborn",
+      "filename": "Tinkerborn-1.20.1-1.0.2.jar",
+      "side": "both",
+      "sha1": "881837e7c140bdb99bcd8476ac12c5613ec4db39",
+      "modrinth": null,
+      "curseforge": {
+        "projectId": 1514611,
+        "fileId": 7947881
+      }
+    },
+    {
+      "name": "Tinkers' Delight",
+      "filename": "Tinkers-Delight-1.20.1FORGE-2.0.3.jar",
+      "side": "both",
+      "sha1": "2a8899648e40ca978d02c24764312256d41da67d",
+      "modrinth": "Y4vhKn2h",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
       }
     },
     {
@@ -1156,6 +1347,7 @@
       "filename": "tinkersdiving-1.1.12.7.jar",
       "side": "both",
       "sha1": "4a682fe7bd303470974ecf656d81e2329515dfe7",
+      "modrinth": null,
       "curseforge": {
         "projectId": 1346627,
         "fileId": 8251171
@@ -1166,6 +1358,7 @@
       "filename": "tinkersweaponry-1.20.1-0.0.5.jar",
       "side": "both",
       "sha1": "d188eec9c5e41d7f73d8f0e7067bc57541d4d6dd",
+      "modrinth": "PT3SHD5y",
       "curseforge": {
         "projectId": 1422043,
         "fileId": 7775998
@@ -1174,8 +1367,9 @@
     {
       "name": "The Roads More Travelled [TRMT]",
       "filename": "trmt-0.5.1b-1.20.1-forge.jar",
-      "side": "server",
+      "side": "both",
       "sha1": "e7ee07397c502cfbc7c589db5fb5b88eb40982e6",
+      "modrinth": "74oZhrEe",
       "curseforge": {
         "projectId": 1512955,
         "fileId": 8176187
@@ -1185,17 +1379,30 @@
       "name": "Via Romana: Infrastructure-Driven Fast Travel",
       "filename": "via_romana-2.2.2+1.20.1-forge.jar",
       "side": "both",
-      "sha1": "ff43275784ad94fd7f6107be95cdf0a9709b6d815eb1758769beac905043f45a4ea2f668801785fbdf03c6908370d8b3d89d9be9a6b6e04bd628867d3452ef80",
+      "sha1": "2d96968a650213da21cd5bf6e3f74e72ff7b36b4",
+      "modrinth": "FVToiKwr",
       "curseforge": {
         "projectId": null,
         "fileId": null
       }
     },
     {
-      "name": "Villager Workers Mod",
+      "name": "Simple Voice Chat",
+      "filename": "voicechat-forge-1.20.1-2.6.21.jar",
+      "side": "both",
+      "sha1": "c569254af53e04f962f6eb5a2266cccde7909dde",
+      "modrinth": "9eGKb6K1",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Villager Workers",
       "filename": "workers-1.20.1-2.0.3.jar",
-      "side": "server",
+      "side": "both",
       "sha1": "1f68527132995485145433b07cd459fb4b602d06",
+      "modrinth": "Pqlv7VM3",
       "curseforge": {
         "projectId": 567450,
         "fileId": 8351157
@@ -1204,18 +1411,31 @@
     {
       "name": "WorldEdit",
       "filename": "worldedit-mod-7.2.15.jar",
-      "side": "server",
+      "side": "both",
       "sha1": "9c52765ca56f917ef8cbafc20e9a4f45c346508f",
+      "modrinth": "1u6JkXh5",
       "curseforge": {
         "projectId": 225608,
         "fileId": 4586218
       }
     },
     {
-      "name": "XXLPackets",
+      "name": "XXL Packets",
+      "filename": "xlpackets-fabric-1.20.1-1.0.5.jar",
+      "side": "both",
+      "sha1": "ea2e03d6e84e53ac46d16640f7dcade14ef64e8d",
+      "modrinth": "SeCuopwJ",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "XXL Packets",
       "filename": "xlpackets-forge-1.20.1-1.0.5.jar",
       "side": "both",
-      "sha1": "883209d58b178d9c3936fd1b16c0726c89970a62ea39536f2d32985c3c0d1c14e46d4a824db9cad7ea45201afa6b443e3120a8acbcec2e270b9220ae942bbf1b",
+      "sha1": "f35dd41709eae596bbc99bfa895489a4d8256a78",
+      "modrinth": "SeCuopwJ",
       "curseforge": {
         "projectId": null,
         "fileId": null

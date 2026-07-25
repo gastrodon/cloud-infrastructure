@@ -12,6 +12,15 @@ resource "aws_security_group_rule" "mc_java" {
   security_group_id = aws_security_group.mc.id
 }
 
+resource "aws_security_group_rule" "mc_voice" {
+  to_port           = 24454
+  from_port         = 24454
+  protocol          = "UDP"
+  type              = "ingress"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.mc.id
+}
+
 resource "aws_security_group_rule" "mc_ssh" {
   to_port           = 22
   from_port         = 22

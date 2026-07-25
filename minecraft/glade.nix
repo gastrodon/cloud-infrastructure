@@ -59,6 +59,12 @@ in
   # amazon-image.nix. Either way the daemon must be up.
   services.openssh.enable = true;
 
+  # Voice-chat UDP port. nix-minecraft's `openFirewall` only opens the TCP
+  # server-port (25565); the proximity voice mod runs its own UDP voice server
+  # on 24454, which nothing else opens. The cloud firewall/security group must
+  # open the same UDP port at the edge — both layers are required.
+  networking.firewall.allowedUDPPorts = [ 24454 ];
+
   services.minecraft-servers = {
     enable = true;
     eula = true;
