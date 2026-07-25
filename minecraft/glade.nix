@@ -38,9 +38,9 @@ let
   '';
 in
 {
-  # Platform-independent definition of the Glade server. Both the Hetzner and
-  # AWS systems import this module so they deploy the exact same server; each
-  # adds only its own platform module (boot/disk/network, or EFS/EIP/spot).
+  # Platform-independent definition of the Glade server. The AWS system imports
+  # this module and adds only its own platform module (EFS/EIP/spot). Kept
+  # platform-independent so a second deploy target could reuse it unchanged.
   system.stateVersion = "26.05";
 
   nixpkgs.config.allowUnfree = true; # minecraft/forge are unfree (EULA)
@@ -50,13 +50,12 @@ in
   # the JVM. swappiness=10 keeps the hot Java heap in RAM — swapping live heap
   # would stall the single-threaded tick loop. This is a safety net, NOT heap
   # capacity (see jvmOpts). Platform-independent: a swapfile needs no partition,
-  # so it lands the same on the AWS EBS root and the Hetzner disko root.
+  # so it lands the same on the AWS EBS root.
   swapDevices = [{ device = "/var/swapfile"; size = 4096; }];
   boot.kernel.sysctl."vm.swappiness" = 10;
 
-  # Deploy access. On Hetzner the shared key backs root's authorized_keys for
-  # nixos-anywhere (see ./hetzner.nix); on AWS the EC2 key pair is injected by
-  # amazon-image.nix. Either way the daemon must be up.
+  # Deploy access. On AWS the EC2 key pair is injected by amazon-image.nix;
+  # either way the daemon must be up.
   services.openssh.enable = true;
 
   # Voice-chat UDP port. nix-minecraft's `openFirewall` only opens the TCP
@@ -157,9 +156,9 @@ in
   # The config is recopied fresh from the store on every start, so the backup is
   # disposable: delete any stale `config.bak` before nix-minecraft's start-pre
   # runs. It's its own unit ordered *before* the server so it inherits the
-  # platform's world-storage ordering (aws.nix adds `after mount-minecraft`; on
-  # Hetzner the dir lives on the local root). `wantedBy` (not `requiredBy`) so a
-  # cleanup hiccup can never itself block the server from starting.
+  # platform's world-storage ordering (aws.nix adds `after mount-minecraft`).
+  # `wantedBy` (not `requiredBy`) so a cleanup hiccup can never itself block the
+  # server from starting.
   systemd.services."minecraft-glade-clear-stale-config-bak" =
     let
       serverDir = "${config.services.minecraft-servers.dataDir}/glade";

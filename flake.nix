@@ -5,17 +5,10 @@
     # Unstable backs only the devShell tooling.
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # Pinned release for the Minecraft NixOS systems. Kept separate from the
-    # unstable `nixpkgs` above; disko and nix-minecraft follow this one so the
-    # server closure is reproducible across both deploy targets.
+    # Pinned release for the Minecraft NixOS system. Kept separate from the
+    # unstable `nixpkgs` above; nix-minecraft follows this one so the server
+    # closure is reproducible.
     nixpkgs-mc.url = "github:NixOS/nixpkgs/nixos-26.05";
-
-    # Hetzner has no official NixOS image: nixos-anywhere kexecs and partitions
-    # via disko (./minecraft/disk-config.nix).
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs-mc";
-    };
 
     # nix-minecraft: declarative multi-server module + package overlay. We don't
     # use its loader packages (it has no Forge) — only the
@@ -28,7 +21,7 @@
   };
 
   outputs =
-    { self, nixpkgs, nixpkgs-mc, disko, nix-minecraft }:
+    { self, nixpkgs, nixpkgs-mc, nix-minecraft }:
     let
       systems = [
         "x86_64-linux"
@@ -48,10 +41,9 @@
           )
         );
 
-      # The Glade server, shared across platforms: the nix-minecraft module +
-      # overlay and ./minecraft/glade.nix (the platform-independent server
-      # definition). Each platform passes only its own extra modules, so both
-      # deploy the exact same server.
+      # The Glade server: the nix-minecraft module + overlay and
+      # ./minecraft/glade.nix (the platform-independent server definition). The
+      # platform passes its own extra modules on top.
       gladeSystem =
         extraModules:
         nixpkgs-mc.lib.nixosSystem {
@@ -70,7 +62,6 @@
           packages = [
             pkgs.opentofu
             pkgs.awscli2
-            pkgs.hcloud
             pkgs.jq
             pkgs.podman
             pkgs.nomad
@@ -84,14 +75,6 @@
       });
 
       nixosConfigurations = {
-        # Hetzner Cloud: disko partitioning + GRUB/DHCP, installed via
-        # nixos-anywhere. `hetzner/minecraft` terraform builds this.
-        glade-hetzner = gladeSystem [
-          disko.nixosModules.disko
-          ./minecraft/disk-config.nix
-          ./minecraft/hetzner.nix
-        ];
-
         # AWS: amazon-image + EFS/EIP/spot wiring, baked into an AMI. The image
         # builder lives at ...config.system.build.images.amazon, exposed as the
         # `amazonImage` package below and consumed by aws/minecraft/make-ami.sh.
