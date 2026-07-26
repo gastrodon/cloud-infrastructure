@@ -5,8 +5,16 @@ let
   # the server's data dir (/srv/minecraft/glade).
   forgeServer = pkgs.callPackage ./pack/forge-server.nix { };
 
-  # The Glade pack's server-side payload: mods/ (jars) and config/, extracted
-  # from the S3-hosted server artefact. See ./pack/glade-pack.nix.
+  # The Glade pack's server mod set: every jar whose side != "client", fetched
+  # individually from its authoritative Modrinth/CurseForge URL and verified by
+  # hash. See ./pack/glade-mods.nix (manifest-driven builder over
+  # ./pack/glade-mods.json). This replaces the old monolithic S3-zip mods source
+  # — the same manifest also drives the client pack that S3 now serves.
+  mods = (pkgs.callPackage ./pack/glade-mods.nix { }).server;
+
+  # The Glade pack's config/ tree, still extracted from the S3-hosted server
+  # artefact. Config packaging isn't manifest-driven yet (glade-mods.nix ships
+  # mods only), so glade-pack.nix is retained purely for its config output.
   pack = pkgs.callPackage ./pack/glade-pack.nix { };
 
   # Symlink each jar individually so `mods/` is a real, writable directory.
@@ -14,9 +22,9 @@ let
   # the jars — a single whole-dir symlink would be read-only and break it.
   # (Reading the dir forces the pack to build; the deploy builds it anyway.)
   modSymlinks = lib.mapAttrs'
-    (jar: _: lib.nameValuePair "mods/${jar}" "${pack}/mods/${jar}")
+    (jar: _: lib.nameValuePair "mods/${jar}" "${mods}/mods/${jar}")
     (lib.filterAttrs (n: t: t == "regular" && lib.hasSuffix ".jar" n)
-      (builtins.readDir "${pack}/mods"));
+      (builtins.readDir "${mods}/mods"));
 
   # The pack's config tree with a couple of server-admin overrides patched
   # directly into the pack's own files. We patch (rather than regenerate the
@@ -107,7 +115,7 @@ in
         # regenerated server.properties never carries a stray live value.
         player-idle-timeout = 0;
 
-        difficulty          = "hard";
+        difficulty          = "normal";
         # Anti-cheat permit, NOT a flight grant — leaving it false does not stop
         # anyone flying by legitimate means. Ability-based modded flight
         # (Origins, Icarus) is exempt; only momentum tricks (grappling hook) can
