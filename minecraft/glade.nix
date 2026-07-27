@@ -12,10 +12,11 @@ let
   # — the same manifest also drives the client pack that S3 now serves.
   mods = (pkgs.callPackage ./pack/glade-mods.nix { }).server;
 
-  # The Glade pack's config/ tree, still extracted from the S3-hosted server
-  # artefact. Config packaging isn't manifest-driven yet (glade-mods.nix ships
-  # mods only), so glade-pack.nix is retained purely for its config output.
-  pack = pkgs.callPackage ./pack/glade-pack.nix { };
+  # The Glade pack's config/ tree, vendored in-repo at ./pack/config — the exact
+  # desired server config. It's copied into the store and patched below (see
+  # packConfig). This is the source of truth now that the old S3 server-artefact
+  # zip is retired; the .bak backups and per-world jei/world caches from the
+  # export were dropped as they aren't config.
 
   # Symlink each jar individually so `mods/` is a real, writable directory.
   # This lets Sinytra Connector create its runtime `.connector` cache next to
@@ -33,7 +34,7 @@ let
   # makes the build error out if a pattern ever stops matching (e.g. the pack
   # renames a key), instead of silently dropping the override.
   packConfig = pkgs.runCommand "glade-config" { } ''
-    cp -r ${pack}/config $out
+    cp -r ${./pack/config} $out
     chmod -R +w $out
     # Disable land claiming for regular players: Private Area caps them at 0
     # regions so they can't register any claim. Ops keep unlimited claims via

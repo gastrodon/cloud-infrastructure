@@ -1,0 +1,62 @@
+{
+  "XP_MULTIPLIER": 0.1,
+  "MAX_CHI": 100,
+  "CHI_REGENERATION_RATE": 0.1,
+  "CHI_OVERLAY_THRESHOLD": 115,
+  "CHI_OVERLAY_TEXT": false,
+  "HIDE_TIMER": false,
+  "BENDING_DAMAGE_MULTIPLIER": 1.0,
+  "METAL_COST_VALUE": [
+    {
+      "ITEM": "minecraft:gold_ingot",
+      "VALUE": 9
+    },
+    {
+      "ITEM": "minecraft:raw_iron",
+      "VALUE": 6
+    },
+    {
+      "ITEM": "minecraft:raw_copper",
+      "VALUE": 6
+    },
+    {
+      "ITEM": "minecraft:iron_nugget",
+      "VALUE": 1
+    },
+    {
+      "ITEM": "minecraft:gold_nugget",
+      "VALUE": 1
+    },
+    {
+      "ITEM": "minecraft:copper_ingot",
+      "VALUE": 9
+    },
+    {
+      "ITEM": "minecraft:raw_gold",
+      "VALUE": 6
+    },
+    {
+      "ITEM": "minecraft:iron_ingot",
+      "VALUE": 9
+    }
+  ],
+  "METAL_LOWER_VALUE_STACK": [
+    {
+      "ITEM_BEFORE": "minecraft:gold_ingot",
+      "ITEM_AFTER": "minecraft:gold_nugget"
+    },
+    {
+      "ITEM_BEFORE": "minecraft:gold_ore",
+      "ITEM_AFTER": "minecraft:gold_nugget"
+    },
+    {
+      "ITEM_BEFORE": "minecraft:iron_ore",
+      "ITEM_AFTER": "minecraft:iron_nugget"
+    },
+    {
+      "ITEM_BEFORE": "minecraft:iron_ingot",
+      "ITEM_AFTER": "minecraft:iron_nugget"
+    }
+  ],
+  "CRAFTABLE_SCROLLS": false
+}

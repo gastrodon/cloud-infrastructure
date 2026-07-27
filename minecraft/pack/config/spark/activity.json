@@ -1,0 +1,28 @@
+[
+  {
+    "user": {
+      "type": "player",
+      "name": "Cyperus1215",
+      "uniqueId": "ba42a561-6e8f-43dd-aed6-680ae802901f"
+    },
+    "time": 1783404750769,
+    "type": "Profiler (live)",
+    "data": {
+      "type": "url",
+      "value": "https://spark.lucko.me/syeTWCDQBX"
+    }
+  },
+  {
+    "user": {
+      "type": "player",
+      "name": "Cyperus1215",
+      "uniqueId": "ba42a561-6e8f-43dd-aed6-680ae802901f"
+    },
+    "time": 1783404597151,
+    "type": "Profiler (live)",
+    "data": {
+      "type": "url",
+      "value": "https://spark.lucko.me/IjxhJltQU6"
+    }
+  }
+]

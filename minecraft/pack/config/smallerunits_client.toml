@@ -1,0 +1,7 @@
+
+#Debug options for SU
+[debug]
+	#Whether or not F3 should use a small sample or a full sample
+	#Setting this to true makes F3 perform better but not necessarily be as accurate
+	fast_f3 = true
+

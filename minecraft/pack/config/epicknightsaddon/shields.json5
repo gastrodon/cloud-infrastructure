@@ -1,0 +1,12 @@
+{
+	"shields": {
+		"duelingShield": {
+			"baseDurability": 480,
+			"materialFactor": 1.5,
+			"weight": 7.0,
+			"maxBlockDamage": 14.0,
+			"repairable": true,
+			"enabled": true
+		}
+	}
+}

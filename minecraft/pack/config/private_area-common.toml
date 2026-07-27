@@ -1,0 +1,36 @@
+
+[render]
+	#Default visibility of inner borders between neighboring selected/region chunks. Players can still change it with /privatearea inner_borders on/off.
+	showInnerBordersByDefault = false
+	#Default visibility mode for foreign red regions. Allowed values: when_approaching, always. Players can still change it with /privatearea foreign_region_visible_mode.
+	foreignRegionVisibleModeByDefault = "when_approaching"
+
+[limits]
+
+	#Use -1 for infinity/unlimited.
+	[limits.players]
+		#Total amount of chunks a regular player can own across all registered regions.
+		#Range: -1 ~ 1000000
+		maxTotalChunks = 150
+		#Maximum amount of regions a regular player can register.
+		#Range: -1 ~ 100000
+		maxRegions = 1
+		#Maximum size of one region for a regular player. -1 means it is limited only by maxTotalChunks.
+		#Range: -1 ~ 1000000
+		maxChunksPerRegion = -1
+		#If true, regular players can create regions whose chunks are not connected by shared sides.
+		allowDisconnectedRegions = false
+
+	[limits.admins]
+		#Total amount of chunks an operator/admin can own across all registered regions. -1 means infinity.
+		#Range: -1 ~ 1000000
+		maxTotalChunks = -1
+		#Maximum amount of regions an operator/admin can register. -1 means infinity.
+		#Range: -1 ~ 100000
+		maxRegions = -1
+		#Maximum size of one region for an operator/admin. -1 means infinity.
+		#Range: -1 ~ 1000000
+		maxChunksPerRegion = -1
+		#If true, operators/admins can create regions whose chunks are not connected by shared sides.
+		allowDisconnectedRegions = true
+

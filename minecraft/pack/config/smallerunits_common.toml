@@ -1,0 +1,8 @@
+#Disables network version checking. Turning this off allows fabric clients to join forge servers and vice versa, but also allows mismatches network versions, which will cause problems.
+disable_version_check = false
+
+#Options for debug
+[debug_options]
+	#If this option is on, SU will deliberately crash the game when a null interacting entity is added
+	crash_on_null_interacter = true
+

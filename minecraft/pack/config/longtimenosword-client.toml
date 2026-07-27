@@ -1,0 +1,28 @@
+#The animation to use when charging the lunge attack
+#Options: BLOCK, NONE, DRINK, CUSTOM, BOW, BRUSH, CROSSBOW, EAT, TRIDENT, SPYGLASS, HORN
+#Default/Old Tinkers': BOW
+charge_animation = "bow"
+#Sound to use for lunges that aren't fully charged
+#Requires 'play_lunge_sounds' to be true
+#Default = minecraft:entity.shulker.hurt_closed
+small_lunge = "minecraft:entity.shulker.hurt_closed"
+#Sound to use for fully charged lunges
+#Requires 'play_lunge_sounds' to be true
+#Default = minecraft:entity.shulker_bullet.hit
+big_lunge = "minecraft:entity.shulker_bullet.hit"
+#The sound to play when performing a riptide attack with a longsword
+#Requires 'play_riptide_sounds' to be true
+#Default = minecraft:item.trident.riptide_1
+riptide_sound = "minecraft:item.trident.riptide_1"
+#When to play the swing sound
+#Imitates vanilla behaviour by default ('sweeping attack' conditions)
+#Options: ALWAYS, NEVER, VANILLA
+play_swing_sound = "vanilla"
+#Sound to play when swinging
+#Default = minecraft:entity.player.attack.sweep
+swing_sound = "minecraft:entity.player.attack.sweep"
+#The type of scaling to use for the charge bar
+#Options: LINEAR, QUADRATIC, CUBIC, SQRT, QUADRATIC_EASE_OUT, EASE_IN_OUT, SINE, ELASTIC
+#Default: QUADRATIC
+charge_bar_scaling = "quadratic"
+

@@ -1,0 +1,9 @@
+
+[backtank]
+	#How much additional air is storable per extra backtank level. 300 for Create default, 1200 for mine.
+	#Range: 100 ~ 10000
+	airPerLevel = 1200
+	#How much air is stored for the initial level of backtank. 900 for Create default, 1200 for mine.
+	#Range: 100 ~ 10000
+	defaultModifierCapacity = 1200
+

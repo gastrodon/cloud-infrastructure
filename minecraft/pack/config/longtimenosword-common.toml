@@ -1,0 +1,79 @@
+#Should broken tools prevent you from using the lunge ability?
+#Default: false
+#Old Tinkers': false
+prevent_lunge = false
+#The minimum amount of time a player needs to hold right click to perform a lunge attack (in ticks)
+#Default: 5
+#Old Tinkers': 5
+#NOTE: Set no higher than 'lunge_max_hold' or 'riptide_threshold' (if using 'perform_riptide_attack')
+#Range: > 0
+lunge_min_hold = 5
+#How long the player can hold right click before the longsword resets (in ticks)
+#Default: 200
+#Old Tinkers': 200
+#Range: > 0
+lunge_max_hold = 200
+#Longsword lunge ability cooldown (in ticks)
+#Default: 3
+#Old Tinkers': 3
+#Range: > 0
+lunge_cooldown = 3
+#What modifier to use in lunge speed calculations (horizontal velocity)
+#Default: 0.05
+#Old Tinkers': 0.05
+#Range: 0.0 ~ 1.7976931348623157E308
+lunge_speed_mod = 0.05
+#The value to cap the lunging speed to
+#Default: 0.925
+#Old Tinkers': 0.925
+#Range: 0.0 ~ 1.7976931348623157E308
+lunge_speed_cap = 0.925
+#Vertical velocity modifier for the lunge attack
+#Default: 0.02
+#Old Tinkers': 0.02
+#Range: 0.0 ~ 1.7976931348623157E308
+lunge_jump_mod = 0.02
+#The value to cap the jump boost of the lunge attack to
+#Default: 0.56
+#Old Tinkers': 0.56
+#Range: 0.0 ~ 1.7976931348623157E308
+lunge_jump_cap = 0.56
+#Food exhaustion value to apply after using the lunge attack
+#Default: 0.2
+#Old Tinkers': 0.2
+#Range: 0.0 ~ 1.7976931348623157E308
+lunge_exhaustion = 0.2
+#Should the longsword allow the user to perform riptide attacks?
+#Default: true
+perform_riptide_attack = true
+#The cooldown applied to the longsword after executing a riptide attack (in ticks)
+#Default: 200
+#Only effective if 'perform_riptide_attack' is true
+#Range: > 0
+riptide_cooldown = 200
+#Defines the threshold (in ticks) past which charging the lunge attack will result in riptide
+#Default: 45
+#Only effective if 'perform_riptide_attack' is true
+#Range: > 0
+riptide_threshold = 45
+#Should the longsword take damage when the player uses its lunge ability?
+#Default: false
+damage_on_lunge = false
+#Defines the amount of damage the longsword receives when its lunge ability is used
+#Only effective if 'damage_on_lunge' is set to true
+#Range: > 0
+lunge_damage_amount = 1
+#Should the longsword also take damage when the player uses its riptide ability even if the attack misses?
+#Default: false
+damage_on_riptide = true
+#Defines the amount of damage the longsword takes when its riptide ability is used
+#Only effective if 'damage_on_riptide' is set to true
+#Range: > 0
+riptide_damage_amount = 1
+#Controls whether a sound should be played when lunging
+#Default: true
+play_lunge_sounds = true
+#Whether to play a sound when performing riptide attacks with the longsword
+#Default: true
+play_riptide_sounds = true
+

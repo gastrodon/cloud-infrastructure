@@ -1,0 +1,21 @@
+#
+#Forces vanilla rendering in first person view while not
+#holding a 'combat preferred' item (for non-combat motions).
+#
+#Default: true
+filter_animation_first_person = true
+#
+#If enabled the player cannot manually switch to vanilla mode while holding a
+#'combat preferred' item or to combat mode while not holding a 'combat preferred' item.
+#This option has no effect if the 'canSwitchPlayerMode' gamerule is disabled.
+#
+#Default: true
+enforce_mode = true
+#
+#If enabled the player will automatically switch to epic fight mode when switching to
+#a 'combat preferred' item and back to vanilla mode when switching to any other item.
+#This option has no effect if the 'canSwitchPlayerMode' gamerule is disabled.
+#
+#Default: true
+autoswitch_mode = true
+

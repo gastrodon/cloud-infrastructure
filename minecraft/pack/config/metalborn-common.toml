@@ -1,0 +1,17 @@
+
+[gameplay]
+	#Metal ID for the ferring type new players will spawn as. If empty, will randomize. Set to 'metalborn:none' to make players spawn without a power.
+	spawn_as_ferring = ""
+	#If true, ferring type is kept on death. If false, ferring type is reset to spawn type.
+	keep_ferring_on_death = false
+	#If true, spikes can be used to attack mobs in the offhand, allowing you to dual wield them with swords. False requires main hand kills.
+	offhand_spike_attack = true
+	#If true, on death metalminds and spikes will drop as a mist satchel if there is more than 1. If false, they will drop as individual items.
+	drop_as_satchel = true
+	#If true, satchels are limited to holding spikes and metalminds, as defined by the item tag `metalborn:satchel_items`. If false they can hold anything.
+	limited_satchels = false
+
+	[gameplay.debug]
+		#Enables all compat metals even if the conditions don't match. Used to test compat content.
+		force_integration = false
+

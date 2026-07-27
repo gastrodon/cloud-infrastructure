@@ -1,0 +1,91 @@
+{
+  "anubis_memories": {
+    "mem1": "",
+    "mem2": "",
+    "mem3": "",
+    "mem4": "",
+    "mem5": "",
+    "mem6": "",
+    "mem7": "",
+    "mem8": ""
+  },
+  "green_day_ally_list": {
+    "ally_list_u_u_i_d_s": ""
+  },
+  "general_settings": {
+    "only_stand_users_can_see_stands": true
+  },
+  "pressing_ability_keys_summons_stands": true,
+  "enable_picky_icon_rendering": false,
+  "max_mirror_renders_at_once_set_to_zero_to_disable": 50,
+  "mirror_flips_rendering": false,
+  "render_gas_splatter_overlay": false,
+  "vampire_o_s_t_change": true,
+  "show_creative_text_on_worthiness_arrow": true,
+  "justice_fog_brightness": 100,
+  "render_justice_hands_while_piloting": true,
+  "render_armor_on_player_clone_abilities": true,
+  "blink_with_camo": true,
+  "magicians_red_textures_make_it_emmissive": true,
+  "magicians_red_lashes_make_it_emmissive": false,
+  "magicians_red_render_on_fire_in_first_person": true,
+  "mandom_rewind_shows_visual_effects_to_non_mandom_users": true,
+  "mandom_rewind_attempts_to_skip_interpolation": true,
+  "tusk_uses_shoot_mode": true,
+  "invisible_block_depth_f": 0.44,
+  "invisible_blocks_distance_away_seen_i": 50,
+  "ability_icon_hud_is_animated": true,
+  "ability_icon_hud_x": 174,
+  "ability_icon_hud_y": 5,
+  "enable_bowler_hat_render": true,
+  "enable_road_roller_render": true,
+  "config_settings": {
+    "config_button_offset_x": 0,
+    "config_button_offset_y": 0,
+    "should_show_config_button": true
+  },
+  "particle_settings": {
+    "render_justice_particles_in_first_person": true,
+    "render_justice_particles_while_piloting_in_first_person": false,
+    "justice_fog_particles_per_tick": 5,
+    "justice_skin_flame_particles_per_tick": 3,
+    "cfh_ticks_per_flame_particle": 3,
+    "body_bag_holding_particles_per_five_ticks": 1,
+    "magicians_red_firestorm_embers_rate": 0.01,
+    "meteors_emit_particles": true,
+    "punch_impact_size": 0.46,
+    "punch_impact_opacity": 0.82
+  },
+  "opacity_settings": {
+    "opacity_of_stand": 75.6356,
+    "opacity_while_attacking": 100.0,
+    "opacity_of_others": 100.0,
+    "opacity_of_player_barrage_arms": 0.5
+  },
+  "dynamic_settings": {
+    "soft_and_wet_currently_selected_bubble": 1,
+    "tusk_act": 1,
+    "ratt_firing_mode": false,
+    "hide_g_u_i": false,
+    "vampire_vision_mode": true,
+    "current_power_inventory_tab": 2,
+    "killer_queen_current_bomb_config": 2
+  },
+  "vanilla_minecraft_tweaks": {
+    "named_s_b_r_horse_skins": true,
+    "only_stand_users_can_see_vanilla_ghost_mobs": false,
+    "disable_obvious_experimental_warning": true
+  },
+  "anubis_settings": {
+    "anubis_pogo_counter": false
+  },
+  "time_stop_settings": {
+    "time_stop_freezes_screen": false,
+    "ts_stands_see_t_s_teleport_and_dont_freeze": true,
+    "advanced_time_stop_shader": true,
+    "simple_time_stop_shader": true
+  },
+  "killer_queen_settings": {
+    "bomb_overlay_hide_on_f1": true
+  }
+}
