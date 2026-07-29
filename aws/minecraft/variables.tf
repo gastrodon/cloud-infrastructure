@@ -1,7 +1,7 @@
 variable "instance_type" {
-  description = "EC2 instance type. m7a.large (AMD, x86_64, 2 vCPU / 8GB) matches the shared 8GB hardware profile. m7a/c7a x86 keep the current AMI; arm64 (m8g/c8g) would need a rebuilt image."
+  description = "Server VM type"
   type        = string
-  default     = "m7a.large"
+  default     = "c7a.xlarge"
 }
 
 variable "spot_max_price" {
