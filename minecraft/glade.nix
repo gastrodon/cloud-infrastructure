@@ -54,7 +54,7 @@ in
 
   nixpkgs.config.allowUnfree = true; # minecraft/forge are unfree (EULA)
 
-  # A 4GB swapfile as an OOM backstop for the 8GB hardware profile: it catches
+  # A 4GB swapfile as an OOM backstop for the 16GB hardware profile: it catches
   # genuinely-cold pages under a spike so the kernel evicts instead of OOM-killing
   # the JVM. swappiness=10 keeps the hot Java heap in RAM — swapping live heap
   # would stall the single-threaded tick loop. This is a safety net, NOT heap
@@ -84,21 +84,21 @@ in
       enable  = true;
       package = forgeServer;
 
-      # Heap sized for the shared 8GB hardware profile (m7a.large on AWS): a 6GB
-      # heap leaves ~2GB for the OS + JVM off-heap/native (Forge direct buffers,
+      # Heap sized for the 16GB hardware profile (c7a.2xlarge on AWS): a 12GB
+      # heap leaves ~4GB for the OS + JVM off-heap/native (Forge direct buffers,
       # Metaspace). The swapfile (see swapDevices below) is an OOM backstop, NOT
-      # heap capacity. Aikar's G1GC flags (small-heap <12G variant) smooth GC
+      # heap capacity. Aikar's G1GC flags (large-heap >=12G variant) smooth GC
       # pauses on a modded server; AlwaysPreTouch is deliberately omitted so the
-      # tight box can leave unused heap uncommitted. nix-minecraft passes this as
+      # box can leave unused heap uncommitted. nix-minecraft passes this as
       # `getExe forgeServer <jvmOpts>`.
       jvmOpts = builtins.concatStringsSep " " [
-        "-Xms4G" "-Xmx6G"
+        "-Xms12G" "-Xmx12G"
         "-XX:+UseG1GC" "-XX:+ParallelRefProcEnabled" "-XX:MaxGCPauseMillis=200"
         "-XX:+UnlockExperimentalVMOptions" "-XX:+DisableExplicitGC"
-        "-XX:G1NewSizePercent=30" "-XX:G1MaxNewSizePercent=40"
-        "-XX:G1HeapRegionSize=8M" "-XX:G1ReservePercent=20"
+        "-XX:G1NewSizePercent=40" "-XX:G1MaxNewSizePercent=50"
+        "-XX:G1HeapRegionSize=16M" "-XX:G1ReservePercent=15"
         "-XX:G1HeapWastePercent=5" "-XX:G1MixedGCCountTarget=4"
-        "-XX:InitiatingHeapOccupancyPercent=15" "-XX:G1MixedGCLiveThresholdPercent=90"
+        "-XX:InitiatingHeapOccupancyPercent=20" "-XX:G1MixedGCLiveThresholdPercent=90"
         "-XX:G1RSetUpdatingPauseTimePercent=5" "-XX:SurvivorRatio=32"
         "-XX:+PerfDisableSharedMem" "-XX:MaxTenuringThreshold=1"
       ];
@@ -181,4 +181,70 @@ in
         ExecStart = "${pkgs.coreutils}/bin/rm -rf ${serverDir}/config.bak";
       };
     };
+
+  # --- Self-heal the zombie-JVM / stale-session.lock failure mode ----------
+  # After an ungraceful spot swap, a stale world/session.lock makes the fresh
+  # JVM crash on DirectoryLock$LockException early in server startup. Lingering
+  # non-daemon threads (Forge version-checkers, netty) then keep the JVM alive
+  # as a zombie, so systemd sees java-in-tmux still running and reports the unit
+  # active(running) indefinitely — nothing ever binds :25565, and the ASG's EC2
+  # health check stays Healthy, so the box never self-heals. This took Glade
+  # down on 2026-07-22 and again on 2026-08-06; the manual recovery is simply
+  # `systemctl restart minecraft-server-glade`.
+  #
+  # `Restart=on-failure` can't catch this: the unit never *fails* — that's the
+  # whole trap. So watch the actual symptom (unit active, but nothing listening
+  # on the game port) and, once past a generous world-load grace window,
+  # restart the unit. The restart kills the zombie, releasing the lock FD; the
+  # session.lock file persists but is no longer held, so the fresh JVM
+  # re-acquires it and boots. This is the documented manual runbook, automated.
+  #
+  # We do NOT rm session.lock: it's Minecraft's real mutual-exclusion guard on
+  # the shared EFS world, not a disposable backup like config.bak above. A
+  # restart converges safely in every case; deleting the lock would remove the
+  # only backstop against two writers. The probe is pure port-checking, so this
+  # stays platform-independent (it lives here, not in aws.nix). It only ever
+  # acts on the dead-but-reported-alive state, so it can't fight a healthy — or
+  # merely slow-loading — server.
+  systemd.services."minecraft-glade-liveness" = {
+    description = "Restart glade if its unit is active but never binds the game port (zombie-JVM self-heal)";
+    after = [ "minecraft-server-glade.service" ];
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.iproute2 pkgs.systemd ];
+    # Never let the watcher itself get start-rate-limited out of existence.
+    unitConfig.StartLimitIntervalSec = 0;
+    serviceConfig = {
+      Restart = "always";
+      RestartSec = 10;
+    };
+    script = ''
+      set -uo pipefail
+      # ~10 min of "active but not listening" before intervening. A warm
+      # restart binds :25565 in under 3 min, but the real trigger scenario is a
+      # *fresh* instance — cold EFS attribute cache + first Forge mod-load can
+      # run much longer, and killing a legit cold boot mid-load would loop
+      # forever (a worse, permanent down). False positives compound; true-
+      # positive latency doesn't — so err long: 40 misses x 15s = 600s.
+      threshold=40
+      misses=0
+      while true; do
+        if systemctl is-active --quiet minecraft-server-glade.service; then
+          if ss -Htln 'sport = :25565' | grep -q .; then
+            misses=0
+          else
+            misses=$((misses + 1))
+            if [ "$misses" -ge "$threshold" ]; then
+              echo "glade unit active but nothing on :25565 after $((threshold * 15))s — restarting (zombie-JVM self-heal)"
+              systemctl restart minecraft-server-glade.service
+              misses=0
+            fi
+          fi
+        else
+          # Unit intentionally stopped (e.g. spot-save shutdown) — don't count.
+          misses=0
+        fi
+        sleep 15
+      done
+    '';
+  };
 }
