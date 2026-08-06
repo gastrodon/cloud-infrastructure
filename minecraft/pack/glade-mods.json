@@ -222,20 +222,6 @@
       }
     },
     {
-      "name": "Callable Horses",
-      "filename": "callablehorses-1.20.1-1.3.0.1.jar",
-      "side": "both",
-      "source": "curseforge",
-      "url": "https://mediafilez.forgecdn.net/files/4730/35/callablehorses-1.20.1-1.3.0.1.jar",
-      "sha1": "66ea4e6802e357cfd82fc5f4edb1e10b1ef2c176",
-      "sha512": null,
-      "modrinth": null,
-      "curseforge": {
-        "projectId": 331746,
-        "fileId": 4730035
-      }
-    },
-    {
       "name": "Canary",
       "filename": "canary-mc1.20.1-0.3.3.jar",
       "side": "both",
@@ -726,20 +712,6 @@
       }
     },
     {
-      "name": "Grappling Hook - Reforged",
-      "filename": "grapplingHookMod-Reforged-1.2.jar",
-      "side": "server",
-      "source": "curseforge",
-      "url": "https://mediafilez.forgecdn.net/files/7087/90/grapplingHookMod-Reforged-1.2.jar",
-      "sha1": "aa53625ab5e145c6aa196645335b062b37ae82da",
-      "sha512": null,
-      "modrinth": null,
-      "curseforge": {
-        "projectId": 1166811,
-        "fileId": 7087090
-      }
-    },
-    {
       "name": "GraveStone Mod",
       "filename": "gravestone-forge-1.20.1-1.0.35.jar",
       "side": "both",
@@ -818,20 +790,6 @@
       "sha1": "f211261762ee49289ba4e62134dc28e0d266dc05",
       "sha512": "c09e211c07579b2b25efeea126a9adc4b44773c3023633955e32ec94bd039196135b2a3f8cbf0c57ae5ee38037ed6250e527769b4a4ce26dd53be9b27f1b53f8",
       "modrinth": "Dw7M6XKW",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
-      }
-    },
-    {
-      "name": "Immersive Portals for (Neo)Forge",
-      "filename": "immersive-portals-3.0.7-all.jar",
-      "side": "both",
-      "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/zf4Szzx2/versions/Q6Z7eOLL/immersive-portals-3.0.7-all.jar",
-      "sha1": "b4a6d71ca7dc07a1da33e7272befabc6ce95057b",
-      "sha512": "5dbbc097b5ee9a4fba5ed45e2ec5f4d5db18496e155d721840cfe286584df8191cefd56894156e9d327d40309a219665bf2fc812a60f2b83aa4a95fc40194003",
-      "modrinth": "zf4Szzx2",
       "curseforge": {
         "projectId": null,
         "fileId": null
@@ -1073,20 +1031,6 @@
       "curseforge": {
         "projectId": 1322511,
         "fileId": 8339429
-      }
-    },
-    {
-      "name": "Myths of The Sea",
-      "filename": "MOTS-Forge-1.20.1-1.3.0(1).jar",
-      "side": "both",
-      "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/WaCchT6K/versions/zThHoP9D/MOTS-Forge-1.20.1-1.3.0%281%29.jar",
-      "sha1": "3a36e72cb47f476df5530ac16f8aefcf030f8eef",
-      "sha512": "6c9f7ce13c227241d39d5c4c789cee0cd3fc3d5f034865167cc819a07a203c20ca1fa5f5987a6510352e1ef54f2f167c943ea4b08e1432eb569c454e097cdd02",
-      "modrinth": "WaCchT6K",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
       }
     },
     {
@@ -1413,12 +1357,12 @@
     },
     {
       "name": "Roundabout: The JoJo Mod",
-      "filename": "Roundabout-forge-1.20.1-3.0.4.jar",
+      "filename": "Roundabout-forge-1.20.1-3.1.7.jar",
       "side": "both",
       "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/IDI5Ie1o/versions/1GIe6ib3/Roundabout-forge-1.20.1-3.0.4.jar",
-      "sha1": "d6a707cefd09d1b1cbe77321f81d77be3403feb6",
-      "sha512": "0cce6015047870331c590ebfc8025cf4e7ba14b9f09862af57c1db742bed8d6a7ec116d2a36f15f5336614e9822adef54b7ad734004585fe711c11d52cd92518",
+      "url": "https://cdn.modrinth.com/data/IDI5Ie1o/versions/tisQyaV7/Roundabout-forge-1.20.1-3.1.7.jar",
+      "sha1": "bbecde06dd12057bd35b55e417156ffcdedfc2ca",
+      "sha512": "a5643effd101ef88bf344f9670e8b600e12b35fb17c68ec796bd9722a6727806c868dc6fe23c8d5ca42ddba9cfdbcc171b39da80c9149150da5d4fa20376cf88",
       "modrinth": "IDI5Ie1o",
       "curseforge": {
         "projectId": 1115305,
@@ -1832,17 +1776,213 @@
       }
     },
     {
-      "name": "Configured",
-      "filename": "configured-forge-1.20.1-2.2.3.jar",
+      "name": "Grappling Hook - Reforged",
+      "filename": "grapplingHookMod-Reforged-1.2.jar",
       "side": "client",
       "source": "curseforge",
-      "url": "https://mediafilez.forgecdn.net/files/5180/900/configured-forge-1.20.1-2.2.3.jar",
-      "sha1": "065c2d287a52f52fc8d33d780192325ee6f4b6ae",
+      "url": "https://mediafilez.forgecdn.net/files/7087/90/grapplingHookMod-Reforged-1.2.jar",
+      "sha1": "aa53625ab5e145c6aa196645335b062b37ae82da",
       "sha512": null,
       "modrinth": null,
       "curseforge": {
-        "projectId": 457570,
-        "fileId": 5180900
+        "projectId": 1166811,
+        "fileId": 7087090
+      }
+    },
+    {
+      "name": "Brewin'And Chewin'",
+      "filename": "BrewinAndChewin-1.20.1-3.2.1.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/hIu9KJTT/versions/9myDFPCD/BrewinAndChewin-1.20.1-3.2.1.jar",
+      "sha1": "b11a91386ef9da2569b69fd4c229b1c31dcc2eb9",
+      "sha512": "f784c2530f34e56e70a58ee7345e95abc79b312c39fbbef6339ab19dfd20e2842cd7414c5ef2395db2bfa0a9bb1036affc6a3be685b2b731ee3195b2d0d4eb5d",
+      "modrinth": "hIu9KJTT",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Female Gender Mod",
+      "filename": "Female-Gender-Mod-forge-1.20.1-3.1.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/bcOsQHnC/versions/R1d8TWqL/Female-Gender-Mod-forge-1.20.1-3.1.jar",
+      "sha1": "aa8a97d2ffafaa56e1813132073bac76db7535ca",
+      "sha512": "7b6b531e5e4966ce3fefbde17636a9d866c1d36b335450fbf5cf17918b882c337c02dabe2ace1e44614c09908426e6dff27c924c9958542670e312b960987a58",
+      "modrinth": "bcOsQHnC",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Controlling",
+      "filename": "Controlling-forge-1.20.1-12.0.2.jar",
+      "side": "client",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/xv94TkTM/versions/LH6Bi6Am/Controlling-forge-1.20.1-12.0.2.jar",
+      "sha1": "6195a3d1464f8fb641d7e165163aea1a857ce08e",
+      "sha512": "3945bf3f6d843957f13584dfc70bede253d1e48f0dcb96f647fbcc6fcd3d1748a0dd9c6ca5c882e07a41f98eb84057934f51e43ab6023ed0a19695de2e6fe9f5",
+      "modrinth": "xv94TkTM",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Create: Diesel Generators",
+      "filename": "createdieselgenerators-1.20.1-1.3.12.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/ZM3tt6p1/versions/DTQVvA5H/createdieselgenerators-1.20.1-1.3.12.jar",
+      "sha1": "416ea3d5c1190246369bbcfa32e5e86597402264",
+      "sha512": "fc9aebaa5b654078be4736e1c35cc34edda0986db75fc3ce1391a86a499df6dcb3958d9854d402f5479eeb38d0f9388223b0359a34d594589e75ed3a58dd45a1",
+      "modrinth": "ZM3tt6p1",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Handcrafted",
+      "filename": "handcrafted-forge-1.20.1-3.0.6.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/pJmCFF0p/versions/N7wZwOFy/handcrafted-forge-1.20.1-3.0.6.jar",
+      "sha1": "f1b9a009529134c736c59d6d192d53a4a25e5e5f",
+      "sha512": "d3c2eb6fad0c274d4ce9e121749252bcbc19a1b0ff5b619255a08f22e3aade51d3f3fd454712de5b1cb8242e78c2f320ab99d2c94f96f372b4089dbc66a8d78e",
+      "modrinth": "pJmCFF0p",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Horse Recall",
+      "filename": "horse_recall-1.0.0.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/UubE38SS/versions/yUhaElv2/horse_recall-1.0.0.jar",
+      "sha1": "36ea7989efb648cd3f3113de3324f0892c449afc",
+      "sha512": "0e010f8d183746cd19831b6d5e8f2562b0cd2b3c67b7c1619b397d4d657453e8d3b6ca8d1755b0194fdd4add85beabd44e79c7869bebf250cb6e5e57f39d77fe",
+      "modrinth": "UubE38SS",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Sound Physics Remastered",
+      "filename": "sound-physics-remastered-forge-1.20.1-1.5.1.jar",
+      "side": "client",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/qyVF9oeo/versions/x0sJ9PeR/sound-physics-remastered-forge-1.20.1-1.5.1.jar",
+      "sha1": "944b4673bcab118f411d050b2cd6b693262bb664",
+      "sha512": "5509a7b51ec1d57aae2af0a0200bda474539fcfe28303f3ff0158ba95b8e7a88ae023d8a9bd97d4626a6a8ce809506e19cdcb05b76e8be5bf8a0450c5d6a46b1",
+      "modrinth": "qyVF9oeo",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Whaleborne",
+      "filename": "whaleborne-1.20.1-1.2.3.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/dyFCSxic/versions/a5veoQ1k/whaleborne-1.20.1-1.2.3.jar",
+      "sha1": "a9f1776afb6c1819b1bf0bcaccb67ea5df7e1de0",
+      "sha512": "ed46604f6070013789998d60897ed18fdf84ff22f6562678a0c1cf80b62f060f81770782b5096bb861a354b4748c68abe08779af266ecc1e94c771dbd8573052",
+      "modrinth": "dyFCSxic",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Biodiverse",
+      "filename": "Biodiverse-2.1.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/iah6MV6u/versions/3R8ftmXs/Biodiverse-2.1.jar",
+      "sha1": "2c261e11c4141359f1b407229c9fb3945496ed3e",
+      "sha512": "0c6e75695afbdab000fc2d81f3486ecb11b5444a6de302b218972db01630ffe939829638bafc4563b514126262889338253b46012aef23d4090ab3a6b1e734a2",
+      "modrinth": "iah6MV6u",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Terrastorage",
+      "filename": "Terrastorage-1.2.7+1.20-1.20.1.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/QKXofFZC/versions/FxVh2rtt/Terrastorage-1.2.7%2B1.20-1.20.1.jar",
+      "sha1": "00d96189c2580a45251a09de29e979d1e7f44696",
+      "sha512": "db893a93af1405f4f206ac9026148745ed41d34b82cbb569bdbc6eee0bfcd3d1e135ac2a4c78267ac1038f83170881daaf4b033a08af7a03c292ce6093e82857",
+      "modrinth": "QKXofFZC",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Storage Drawers",
+      "filename": "StorageDrawers-forge-1.20.1-12.14.3.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/guitPqEi/versions/8raubcF4/StorageDrawers-forge-1.20.1-12.14.3.jar",
+      "sha1": "cc29c29286d2df67829af4af4821dfe7436b65a5",
+      "sha512": "074c9da64873ffaffc80f0abfbbc6decbed4cb5615a94b226344719728432312e7268ed8f088371466d7594813541fbb2a46dc7d08c9d1f3c1416f89dac2bdaf",
+      "modrinth": "guitPqEi",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Mobs Blocker",
+      "filename": "mobs_blocker-1.2.0-forge-1.20.1.jar",
+      "side": "server",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/W0JWCVNo/versions/Af1MgWby/mobs_blocker-1.2.0-forge-1.20.1.jar",
+      "sha1": "ec6962be5426652b478ce7194c2337477c176534",
+      "sha512": "347a8dfa9e5e3b6b1c56109d755d6271aedcf5801e1814e6b5b2bae3bf0f8eecbf56e73116ef50552fd3a149e4588e16e0468958b8907abfc9d9a58f4e5f96a8",
+      "modrinth": "W0JWCVNo",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Cosmetic Armor",
+      "filename": "cosmeticarmorreworked-1.20.1-v1a.jar",
+      "side": "both",
+      "source": "curseforge",
+      "url": "https://mediafilez.forgecdn.net/files/4600/191/cosmeticarmorreworked-1.20.1-v1a.jar",
+      "sha1": "afd9fa3fe95e8c086e8d439df403ed1e5ea5cbea",
+      "sha512": null,
+      "modrinth": null,
+      "curseforge": {
+        "projectId": 237307,
+        "fileId": 4600191
+      }
+    },
+    {
+      "name": "Searchables",
+      "filename": "Searchables-forge-1.20.1-1.0.3.jar",
+      "side": "client",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/fuuu3xnx/versions/PM9yAW1G/Searchables-forge-1.20.1-1.0.3.jar",
+      "sha1": "5b976f6e76ec74cdef21865e31f56bcb11558db7",
+      "sha512": "185617d6d446f3d4ef6c7d5c6ee4e2fb731a89f7495157313b21292ec6b8e3dbcc10c0379ab49ecb2d0c64d0a78df74750d7f7336d5e6c43516a7c92f278c0a2",
+      "modrinth": "fuuu3xnx",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
       }
     }
   ],

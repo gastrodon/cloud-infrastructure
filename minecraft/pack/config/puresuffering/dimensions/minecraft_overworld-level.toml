@@ -16,7 +16,7 @@ maxDayInvasions = 3
 dayTierIncreaseDelay = 50
 #How often should Night Invasions occur.
 #Range: > 1
-nightInvasionRarity = 3
+nightInvasionRarity = 8
 #Determines if night invasions can be canceled.
 cancelableNightInvasions = true
 #How often should night invasions be canceled.
@@ -29,16 +29,16 @@ nightCancelInvasionRarity = 12
 maxNightInvasions = 3
 #How many days should pass when the Night Invasion Tier increases.
 #Range: > 1
-nightTierIncreaseDelay = 30
+nightTierIncreaseDelay = 24
 #How often should Hyper Invasions occur.
 #NOTE: Changes will only take effect after the next Hyper invasion occurs or a new world is started.
 #Range: > 1
-hyperInvasionRarity = 12
+hyperInvasionRarity = 16
 #How often should Nightmare Invasions occur.
 #NOTE: Changes will only take effect after the next Nightmare invasion occurs or a new world is started.
 #Range: > 1
-nightmareInvasionRarity = 5
+nightmareInvasionRarity = 32
 #Sets the light level to zero during invasions in this dimension.
 #NOTE: Does not affect brightness.
-zeroLightLevelDuringInvasions = false
+zeroLightLevelDuringInvasions = true
 

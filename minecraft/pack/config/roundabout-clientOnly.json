@@ -57,13 +57,13 @@
     "punch_impact_opacity": 0.82
   },
   "opacity_settings": {
-    "opacity_of_stand": 75.6356,
-    "opacity_while_attacking": 100.0,
+    "opacity_of_stand": 60.593224,
+    "opacity_while_attacking": 75.42373,
     "opacity_of_others": 100.0,
     "opacity_of_player_barrage_arms": 0.5
   },
   "dynamic_settings": {
-    "soft_and_wet_currently_selected_bubble": 1,
+    "soft_and_wet_currently_selected_bubble": 6,
     "tusk_act": 1,
     "ratt_firing_mode": false,
     "hide_g_u_i": false,

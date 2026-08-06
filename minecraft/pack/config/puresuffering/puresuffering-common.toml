@@ -13,7 +13,7 @@
 		#Will disable explosions, fire, etc... from entities spawned by invasions.
 		invasionAntiGrief = false
 		#Rather than the invasion occuring once in every 'rarity' days, it will instead be set to occur every 'rarity' days.
-		consistentInvasions = false
+		consistentInvasions = true
 		#Tiers make certain invasions only able to occur after so many days, turning this off will make the world ignore the day count when selecting invasions.
 		tieredInvasions = true
 		#Hyper Aggression is what invasion mobs have to target the player from across the world, turning this off will make them use default targeting.
@@ -21,12 +21,12 @@
 		#Hyper Charge is what the buffed mobs spawned by invasions have, turning this off will disabled these buffed mobs from spawning (This also disables Hyper invasions).
 		hyperCharge = true
 		#This determines whether players will be unable to sleep during all invasions.
-		forceInvasionSleeplessness = false
+		forceInvasionSleeplessness = true
 		#This determines whether invasion mobs should have an xp boost per kill.
 		useXPMultiplier = true
 		#Determines if invasion mobs should die when the invasions are over.
 		#NOTE: Can be used to reduce server lag.
-		mobsDieAtEndOfInvasions = false
+		mobsDieAtEndOfInvasions = true
 		#Determines vexes in invasions have a limited lifespan.
 		weakenedInvasionVexes = true
 		#Determines if invasion ambience sounds should occur.
@@ -45,11 +45,11 @@
 		#The max amount of mobs that can spawn from Primary Invasions at once.
 		#NOTE: Reduce for increased performance!
 		#Range: > 0
-		primaryInvasionMobCap = 100
+		primaryInvasionMobCap = 150
 		#The max amount of mobs that can spawn from Secondary Invasions at once.
 		#NOTE: Reduce for increased performance!
 		#Range: > 0
-		secondaryInvasionMobCap = 25
+		secondaryInvasionMobCap = 50
 		#The mob kill limit for the invasion that would cause it to end after the player kills so many mobs from that invasion.
 		#NOTE: Setting to 0 will disable the limit, limits specified by a datapack will still apply.
 		#Range: > 0
@@ -110,11 +110,11 @@
 
 [text]
 	#Start message for default invasions, leave blank to for default message.
-	defaultInvasionStartMessage = ""
+	defaultInvasionStartMessage = "The Pages Shift, I Wonder What Happens Next..."
 	#Start message for hyper invasions, leave blank to for default message.
-	hyperInvasionStartMessage = ""
+	hyperInvasionStartMessage = "The Page Wrinkles, An Unintended Encounter..."
 	#Start message for nightmare invasions, leave blank to for default message.
-	nightmareInvasionStartMessage = ""
+	nightmareInvasionStartMessage = "The Page is Torn, May The Gods Have Mercy On Your Souls..."
 	#Cancel message for invasions, leave blank to for default message.
 	cancelInvasionStartMessage = ""
 
