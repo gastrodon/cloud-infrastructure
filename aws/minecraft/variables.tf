@@ -1,7 +1,7 @@
 variable "instance_type" {
   description = "Server VM type"
   type        = string
-  default     = "c7a.xlarge"
+  default     = "c7a.2xlarge"
 }
 
 variable "spot_max_price" {
