@@ -9,16 +9,16 @@
     "s3Object": "glade-pack.zip",
     "sha256": "sha256-5/AO3IwopCZ74x/YFx1oaplc8qZvytlK6/OBn1w0Kdk="
   },
-  "note": "Authoritative build manifest for The Glade. Each mod has a resolved, verified `url`, `source` (modrinth|curseforge), and hashes (Modrinth gives sha512; CurseForge pins on sha1). Two build sets derive from `side` (see .sides): client = all mods; server = side!=client. `side` here is the DISTRIBUTION decision (curated), not merely Modrinth’s declared env: e.g. Athena is a client-rendering lib but is marked `both` because Chipped hard-depends on it server-side; DistantHorizons/Oculus/Embeddium/MouseTweaks/3D-Skin-Layers are `client` (pure client, no server role); JEI is `both` (kept server-side for recipe sync). Modrinth URLs come from the v2 version_files bulk sha1 lookup; CurseForge URLs are the forgecdn path files/{fileId div 1000}/{fileId mod 1000}/{filename} (percent-encode filename metachars, e.g. [ ] as %5B %5D).",
+  "note": "Authoritative build manifest for The Glade. Each mod has a resolved, verified `url`, `source` (modrinth|curseforge), and hashes (Modrinth gives sha512; CurseForge pins on sha1). Two build sets derive from `side` (see .sides): client = all mods; server = side!=client. `side` here is the DISTRIBUTION decision (curated), not merely Modrinth’s declared env: e.g. Athena is a client-rendering lib but is marked `both` because Chipped hard-depends on it server-side; DistantHorizons/Oculus/Embeddium/MouseTweaks/3D-Skin-Layers are `client` (pure client, no server role); JEI is `both` (kept server-side for recipe sync). PINS: Icarus is deliberately held at 2.13.2 (2.14.0 exists — do not “fix” it on a routine bump). Forge 47.4.10 is a hard FLOOR: Fish 'N' Ships and Hybrid Blocks require [47.4.10,). Geckolib is pinned from both sides by Aquamirae (>=4.8.0) and Devourer of Gods ([4.8,5.0)); PAUCAL is pinned by Hexal/MoreIotas to [0.6.0,0.7.0). The Sophisticated Core/Backpacks/CreateIntegration trio must always move together. Modrinth URLs come from the v2 version_files bulk sha1 lookup; CurseForge URLs are the forgecdn path files/{fileId div 1000}/{fileId mod 1000}/{filename} (percent-encode filename metachars, e.g. [ ] as %5B %5D).",
   "mods": [
     {
       "name": "Hybrid Aquatic",
-      "filename": "[1.20.1-Forge] Hybrid Aquatic 1.6.7.jar",
+      "filename": "[1.20.1-Forge] Hybrid Aquatic 1.6.9.jar",
       "side": "both",
       "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/HH4FjUqN/versions/yd09jm7p/%5B1.20.1-Forge%5D%20Hybrid%20Aquatic%201.6.7.jar",
-      "sha1": "d35e6253144347301ee58180073779eecab2ef4e",
-      "sha512": "6313b0e94424fc19b378090a4daf341d8cf16ce2eae40c04ca329c8548c0bbc56d48031aa58a3400ed85fa1773267f160db5132e7006284d72e220542d8c1fea",
+      "url": "https://cdn.modrinth.com/data/HH4FjUqN/versions/Uz0jRbE8/%5B1.20.1-Forge%5D%20Hybrid%20Aquatic%201.6.9.jar",
+      "sha1": "22a0cf4bffd895dd66964a48bb2dbb46e91f8861",
+      "sha512": "86a7399161b276b54a70116ca4f1506671d913fa9f68e404f041f44bdb4053e7bb7f85b1f06aef12e8c67e05c949aaff730a0e7ba2457be836b40ee730131749",
       "modrinth": "HH4FjUqN",
       "curseforge": {
         "projectId": null,
@@ -111,16 +111,16 @@
     },
     {
       "name": "Aquamirae",
-      "filename": "aquamirae-forge-1.20.1-6.4.0.jar",
+      "filename": "aquamirae-forge-1.20.1-7.1.11.jar",
       "side": "both",
       "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/k23mNPhZ/versions/A6aIqoJZ/aquamirae-forge-1.20.1-6.4.0.jar",
-      "sha1": "f802327ab6c738ff3c29e4b39a28c224ee7b29fa",
-      "sha512": "d4f689e25f691cf4bafdf1eb26901c4b6d0548c73b136537b90ac649c4f6fa52b00557abf7c82dfbcedd57be5f6931dbfb577cb88f4f9fd4b4725f088200321d",
+      "url": "https://cdn.modrinth.com/data/k23mNPhZ/versions/22qc2xYZ/aquamirae-forge-1.20.1-7.1.11.jar",
+      "sha1": "be9239b04d688d5e69aa49fda0a51f93788c3696",
+      "sha512": "5edbf0a61b3dfe027d023185b465a09e6e83b1a9d6b02a797ac7581519b2de24208bc38f0c5dd94fa6a5f7ac1c5654917d2b32e85786b04c8182226ba402e808",
       "modrinth": "k23mNPhZ",
       "curseforge": {
-        "projectId": 536254,
-        "fileId": 7985699
+        "projectId": null,
+        "fileId": null
       }
     },
     {
@@ -135,20 +135,6 @@
       "curseforge": {
         "projectId": null,
         "fileId": null
-      }
-    },
-    {
-      "name": "AstikorCarts Redux",
-      "filename": "astikorcarts-1.20.1-1.1.8.jar",
-      "side": "both",
-      "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/mnLFouB0/versions/p3r1QBKd/astikorcarts-1.20.1-1.1.8.jar",
-      "sha1": "49a8ac1c23282fe86420f0b4527e522421f2f692",
-      "sha512": "b75bd70ba76b0f82ab4dd546594ff7121849b3c6a574afbfcdb1acc9596559230019628a6197c420e9b96233482780f896574d868f046ef1c61a61c8928d9888",
-      "modrinth": "mnLFouB0",
-      "curseforge": {
-        "projectId": 916493,
-        "fileId": 5574685
       }
     },
     {
@@ -335,12 +321,12 @@
     },
     {
       "name": "Companions!",
-      "filename": "companions-forge-1.20.1-1.2.3.jar",
+      "filename": "companions-forge-1.20.1-1.3.2.jar",
       "side": "both",
       "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/ArBFNu9T/versions/SnioeNZW/companions-forge-1.20.1-1.2.3.jar",
-      "sha1": "cc1460d8323af82c9c6087927dfd5e86d199f6c0",
-      "sha512": "27b7fc845ce5dc65312d6ea3effb7b82a3c12f6325f47df2aa16151ef61377f7b151531f412a4e369ba9d8dce7035ce0d15991ffe3189041f6f9b8cd5d213d0c",
+      "url": "https://cdn.modrinth.com/data/ArBFNu9T/versions/mJQe3orO/companions-forge-1.20.1-1.3.2.jar",
+      "sha1": "4d87be4c44bb9fbf14bd7a8df2e9c695640d621f",
+      "sha512": "cce2e6cd692bbd910168f3fbc6fad3627e3c30a71b64378977324fcfd95ab1e1cfcd9118f4359c30ba4347e9c2dd5915ab1ec707c70216e460ab69037606ae85",
       "modrinth": "ArBFNu9T",
       "curseforge": {
         "projectId": null,
@@ -475,12 +461,12 @@
     },
     {
       "name": "Data Anchor",
-      "filename": "Data_Anchor-forge-1.20.1-1.0.0.20.jar",
+      "filename": "Data_Anchor-forge-1.20.1-1.0.0.22.jar",
       "side": "both",
       "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/z2XEADmE/versions/hym6gwHe/Data_Anchor-forge-1.20.1-1.0.0.20.jar",
-      "sha1": "f16089cc8af8e5dca8f5a14dc7bab11840d9b9a8",
-      "sha512": "67bb96bba6fa5dee60bf3454c0a26335e17d3f99303ace3bd7835d0adc31c7c71b9d5ea3ac3e32ae178cb283bbbf9efbf7b840747f498e03f3f84cbd9fa692bd",
+      "url": "https://cdn.modrinth.com/data/z2XEADmE/versions/xPqKwuPT/Data_Anchor-forge-1.20.1-1.0.0.22.jar",
+      "sha1": "53d67aff56ed262abd45044758bf47967cd96948",
+      "sha512": "5af7f5c1511f9926ca482c2f885e84aa89d68e16a44f4a43fb9c2b8b070bdcecaebf554b839f460afbcc670d9930c8d2a6d7f1e16175fffdfecb49508868a315",
       "modrinth": "z2XEADmE",
       "curseforge": {
         "projectId": null,
@@ -615,16 +601,16 @@
     },
     {
       "name": "Forgified Fabric API",
-      "filename": "fabric-api-0.92.6+1.11.14+1.20.1.jar",
+      "filename": "fabric-api-0.92.6+1.11.15+1.20.1.jar",
       "side": "both",
       "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/Aqlf1Shp/versions/XweDEycJ/fabric-api-0.92.6%2B1.11.14%2B1.20.1.jar",
-      "sha1": "285c22b2567b9fdf98ef9808eceb5557de9611d3",
-      "sha512": "3b84ea415d9255861bcbf78cfda3987b78aa452361bf44ba6a0223501a25ab5c5c55cb0eac6f460c88b8cec958f2b59211e488277c26e3432a08196f62049e7c",
+      "url": "https://cdn.modrinth.com/data/Aqlf1Shp/versions/g0MxcWXy/fabric-api-0.92.6%2B1.11.15%2B1.20.1.jar",
+      "sha1": "a37689ff8da8a32f82304ea4a1011873bb4c7eca",
+      "sha512": "da1e59fa754edb24d8a3b6023ef648d6431a8297a9e873d18bfe866aca9384f491af1b438c2c4b75dbf9bd4b9a11daf717a8d1469e9efaed145e5c53f9cbcf37",
       "modrinth": "Aqlf1Shp",
       "curseforge": {
-        "projectId": 889079,
-        "fileId": 6885853
+        "projectId": null,
+        "fileId": null
       }
     },
     {
@@ -699,12 +685,12 @@
     },
     {
       "name": "Golem Overhaul",
-      "filename": "golemoverhaul-forge-1.20.1-1.1.0.jar",
+      "filename": "golemoverhaul-forge-1.20.1-1.1.1.jar",
       "side": "both",
       "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/qEYs2G9A/versions/cYcN89gd/golemoverhaul-forge-1.20.1-1.1.0.jar",
-      "sha1": "57a7c3c8b38744629ec491553625adb9a987530c",
-      "sha512": "ccbb43782906f5220ba825207840b66530a7f15b04c42b175677d532c432eeeac264a2dfaa884bc172f15a850be0a49a51c052f96e09923bfea57b5037d45622",
+      "url": "https://cdn.modrinth.com/data/qEYs2G9A/versions/gcr95KrR/golemoverhaul-forge-1.20.1-1.1.1.jar",
+      "sha1": "6a1cae93681c9ddba16143abef3238e0ead40475",
+      "sha512": "17be147982a6b48c14ba71c92d1880193a3287376d3b1ca3ccbb9df55927348fddc34a727b6c959b5f5f52b43b5e08752f0fc604c3f5faefeee16e34aaf28636",
       "modrinth": "qEYs2G9A",
       "curseforge": {
         "projectId": null,
@@ -825,12 +811,12 @@
     },
     {
       "name": "Just Enough Items (JEI)",
-      "filename": "jei-1.20.1-forge-15.20.0.134.jar",
+      "filename": "jei-1.20.1-forge-15.49.0.188.jar",
       "side": "both",
       "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/u6dRKJwZ/versions/ujE6Mlsq/jei-1.20.1-forge-15.20.0.134.jar",
-      "sha1": "1150671952108303b4b02d2b09f42877fe14b138",
-      "sha512": "2e4ee71c09b681ec4e9617b138ac2e27b7ad2efc780fee7e212754be8f71aa7774bb5e948ba404848844262bff658d8f0752f24c789b9c9d53c1be1e0a69fd78",
+      "url": "https://cdn.modrinth.com/data/u6dRKJwZ/versions/hVXQAD0D/jei-1.20.1-forge-15.49.0.188.jar",
+      "sha1": "21f781835beac0d638d8a27049e93c56d166b3dc",
+      "sha512": "7e7b26379f43a76c091697be92ba4ebd059be4c5fc8a60f1e93a2092002097ce47ad5245ef35fb37b123bb61a0e6d3a96ba4aac9ef3b013fc7a6954577d9a2e5",
       "modrinth": "u6dRKJwZ",
       "curseforge": {
         "projectId": null,
@@ -909,12 +895,12 @@
     },
     {
       "name": "Lost Trinkets Renewed",
-      "filename": "LostTrinkets-20.1.3-mc1.20.1-forge.jar",
+      "filename": "LostTrinkets-20.1.4-mc1.20.1-forge.jar",
       "side": "both",
       "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/YXvTD5Ha/versions/MTnTxC1g/LostTrinkets-20.1.3-mc1.20.1-forge.jar",
-      "sha1": "e052bc84e60460371236ad5f4302d01152a92159",
-      "sha512": "a357c400bc580c67e606b71b3b36144c2059b7e14778704600d78933ab19e1098f56a5336d2ff63a981045b76419087c17f9e3ff70954801c4aa80815607c96a",
+      "url": "https://cdn.modrinth.com/data/YXvTD5Ha/versions/kEAKzCsv/LostTrinkets-20.1.4-mc1.20.1-forge.jar",
+      "sha1": "9ca3cb0e80895234f21c3b7544bf30482dd5000e",
+      "sha512": "f5cc4cb363306f8dce051dd1b4d0e1107f17646836fc0e82707a04eab6b3d942662d0c8285097bffd6101b6d8c6a158bc9ce58da4c1d1fea0f5d5c093997c9fa",
       "modrinth": "YXvTD5Ha",
       "curseforge": {
         "projectId": null,
@@ -1021,16 +1007,16 @@
     },
     {
       "name": "More Critters",
-      "filename": "More Critters 1.4.3.jar",
+      "filename": "More Critters 1.4.5.jar",
       "side": "both",
       "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/iRZ6t3qQ/versions/hAFmcrl9/More%20Critters%201.4.3.jar",
-      "sha1": "cc578c961ee3fe5698a484698d902614e62e6648",
-      "sha512": "f876495a5e2a992845a6b5dfba64df7cfca3c184243de5806d6c601389bc0aa4b5ef2a45f58e95922dd49eb2a3c92f6ce8636595a347ab5ca2536e3cb3592a90",
+      "url": "https://cdn.modrinth.com/data/iRZ6t3qQ/versions/XVv1elXV/More%20Critters%201.4.5.jar",
+      "sha1": "dec60b76d2cfb70402048e87274699c724eea602",
+      "sha512": "b0281469d4f43d3b8080152a3046ac6e6a31e4b709d8b00f80e901afb3b7da7bf1f9ea1e6e37e370b785f6982dec2a825ce12cc52df3fcdd017b06ee5f50ab72",
       "modrinth": "iRZ6t3qQ",
       "curseforge": {
-        "projectId": 1322511,
-        "fileId": 8339429
+        "projectId": null,
+        "fileId": null
       }
     },
     {
@@ -1104,20 +1090,6 @@
       }
     },
     {
-      "name": "Obscure API",
-      "filename": "obscure_api-18.jar",
-      "side": "both",
-      "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/fU7jbFHc/versions/7sZmDObM/obscure_api-18.jar",
-      "sha1": "d395153341a9a732fc80463c475b202d78675e28",
-      "sha512": "c266efd30b8814166b457e421517c1afebdab1b3406d863acc894e778287482c2b0e63133d7fdf05c5758c480f65c008b70e6f67f82eac22c8dbb4dce5b369ce",
-      "modrinth": "fU7jbFHc",
-      "curseforge": {
-        "projectId": 638417,
-        "fileId": 7171906
-      }
-    },
-    {
       "name": "Oculus",
       "filename": "oculus-mc1.20.1-1.8.0.jar",
       "side": "client",
@@ -1133,16 +1105,16 @@
     },
     {
       "name": "OneKeyMiner",
-      "filename": "onekeyminer-1.6.6-1.20.1.jar",
+      "filename": "onekeyminer-forge-1.6.9-1.20.1.jar",
       "side": "both",
       "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/LZu4H9cp/versions/OByO1Rkl/onekeyminer-1.6.6-1.20.1.jar",
-      "sha1": "c9bd0b55fe01bd3e19cc70e14debfc06a34c2699",
-      "sha512": "065f68b8bd60d7b987c2e73adb85b6258aa1e02ed5263ee755e1d616f825cc1b46ed60edfad4c72248df43332231584d882fd51ecc7a528e68e56e4bd54c8880",
+      "url": "https://cdn.modrinth.com/data/LZu4H9cp/versions/sxJZNGBj/onekeyminer-forge-1.6.9-1.20.1.jar",
+      "sha1": "46b8833f5edfe0f06836c294d8e4fc9238a2a046",
+      "sha512": "0aa9a7c9051c1a2102430b1667c118a94f6b76d3e966942688a6b319e20938e136afd829b8d11a3083a6a7273dcea31a8202afec1eb37e86e877961be8d6ba7b",
       "modrinth": "LZu4H9cp",
       "curseforge": {
-        "projectId": 1078620,
-        "fileId": 8083058
+        "projectId": null,
+        "fileId": null
       }
     },
     {
@@ -1357,26 +1329,26 @@
     },
     {
       "name": "Roundabout: The JoJo Mod",
-      "filename": "Roundabout-forge-1.20.1-3.1.7.jar",
+      "filename": "Roundabout-forge-1.20.1-3.4.4.jar",
       "side": "both",
       "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/IDI5Ie1o/versions/tisQyaV7/Roundabout-forge-1.20.1-3.1.7.jar",
-      "sha1": "bbecde06dd12057bd35b55e417156ffcdedfc2ca",
-      "sha512": "a5643effd101ef88bf344f9670e8b600e12b35fb17c68ec796bd9722a6727806c868dc6fe23c8d5ca42ddba9cfdbcc171b39da80c9149150da5d4fa20376cf88",
+      "url": "https://cdn.modrinth.com/data/IDI5Ie1o/versions/nwDbeztS/Roundabout-forge-1.20.1-3.4.4.jar",
+      "sha1": "1040e04929cf6809470d7f87cff24b26f4ecd25e",
+      "sha512": "4b5dbfa724ba71fbc7fbef301549133458a55db704c1f9e7c4c972f534501424a54d5888fb667357b0ead277e26bf1a997784b99ae87a29f4ffddc40812fe5f3",
       "modrinth": "IDI5Ie1o",
       "curseforge": {
-        "projectId": 1115305,
-        "fileId": 8409910
+        "projectId": null,
+        "fileId": null
       }
     },
     {
       "name": "Saint's Dragons",
-      "filename": "saintsdragons-0.8.2+forge-1.20.1-alpha.jar",
+      "filename": "saintsdragons-0.9.3+forge-1.20.1.jar",
       "side": "both",
       "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/rjcsjwEU/versions/ELuYfNOb/saintsdragons-0.8.2%2Bforge-1.20.1-alpha.jar",
-      "sha1": "bf93d2c5be8380bd30ed7791b4d9f1a5a04125b2",
-      "sha512": "8529ba8a4536cdc68bd74ab422288c2172a078fced9fdecc669b4207a91f5e3be5b6e71c85ae75af6cd9d4c0d83914c505ead9a94d4257a7d18f3888dcc2b447",
+      "url": "https://cdn.modrinth.com/data/rjcsjwEU/versions/1Mjlec0M/saintsdragons-0.9.3%2Bforge-1.20.1.jar",
+      "sha1": "3ac113a6175173ef228caa71d60e34a29af84e53",
+      "sha512": "087feafe66274964aa545a2beb53678c17a7f08b04fb9e48783448f69878057423b6a06d661f5d413ad3a073ee4218fa7f7dd094df8e33a42061057f4e5ffe00",
       "modrinth": "rjcsjwEU",
       "curseforge": {
         "projectId": null,
@@ -1399,16 +1371,16 @@
     },
     {
       "name": "Skarrier Mobs",
-      "filename": "skarrier_mobs-1.0.5(beta)-forge-1.20.1.jar",
+      "filename": "skarrier_mobs-1.0.6-forge-1.20.1.jar",
       "side": "server",
       "source": "curseforge",
-      "url": "https://mediafilez.forgecdn.net/files/8280/469/skarrier_mobs-1.0.5(beta)-forge-1.20.1.jar",
-      "sha1": "2e2a45ec82eeb1d9c1af7fccf28c201f56d365b9",
+      "url": "https://mediafilez.forgecdn.net/files/8640/743/skarrier_mobs-1.0.6-forge-1.20.1.jar",
+      "sha1": "4b6ed1c7c8884a0e2370512909481af78c0bd1d5",
       "sha512": null,
       "modrinth": null,
       "curseforge": {
         "projectId": 1566041,
-        "fileId": 8280469
+        "fileId": 8640743
       }
     },
     {
@@ -1455,12 +1427,12 @@
     },
     {
       "name": "Sophisticated Backpacks",
-      "filename": "sophisticatedbackpacks-1.20.1-3.24.59.1960.jar",
+      "filename": "sophisticatedbackpacks-1.20.1-3.24.66.2095.jar",
       "side": "both",
       "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/TyCTlI4b/versions/o23v6yOo/sophisticatedbackpacks-1.20.1-3.24.59.1960.jar",
-      "sha1": "aadb5ff69bb1dcb342a0b1ab34b74e6c0570ce66",
-      "sha512": "5005cfebabadba01176ead71c1d8487f413451bce85fde7f88a7635ecce87d5a0469b2cf8ed32811797ab931c53679e4e2f4524da21516e6f73597240fc6f400",
+      "url": "https://cdn.modrinth.com/data/TyCTlI4b/versions/iwTlYTI7/sophisticatedbackpacks-1.20.1-3.24.66.2095.jar",
+      "sha1": "94b6fa551df12466f3ee5c8e38af0e31914e0e19",
+      "sha512": "00acd23c0170f7f6600840c3f1f04e5c8b72f49f768fb5f25121ac0f99d2e69a3a3ed1ca98976eb363f73d52c9796976b8eeecc8d4067e00160b6509a3d43123",
       "modrinth": "TyCTlI4b",
       "curseforge": {
         "projectId": null,
@@ -1469,12 +1441,12 @@
     },
     {
       "name": "Sophisticated Backpacks Create Integration",
-      "filename": "sophisticatedbackpackscreateintegration-1.20.1-0.1.8.116.jar",
+      "filename": "sophisticatedbackpackscreateintegration-1.20.1-0.1.9.151.jar",
       "side": "both",
       "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/s85zLEDe/versions/UEi0GetE/sophisticatedbackpackscreateintegration-1.20.1-0.1.8.116.jar",
-      "sha1": "74a395a82925911eecc0a8055e082a7e01102eec",
-      "sha512": "07b2737d77b16b35055ef25f006121b775f9fe73c2f9f319b9ee3c8dcd83a5ae8b7b7a2af7931b2eb6f5aba187fa88f2ce801fbe036480b24edf1a72f8bf8d1a",
+      "url": "https://cdn.modrinth.com/data/s85zLEDe/versions/iqMMWQF6/sophisticatedbackpackscreateintegration-1.20.1-0.1.9.151.jar",
+      "sha1": "b6e9a0ca28321f88c99c30b7e908a2354f9118d6",
+      "sha512": "721a3a1724deafe91fb308e9d4ecb0efb5074d211c0dc4024351037e6c3ade991c66fb5a8d799f1b3485ce6acc567698d020e573fb9d23247e691a7f30cf1aa5",
       "modrinth": "s85zLEDe",
       "curseforge": {
         "projectId": null,
@@ -1483,12 +1455,12 @@
     },
     {
       "name": "Sophisticated Core",
-      "filename": "sophisticatedcore-1.20.1-1.3.66.2138.jar",
+      "filename": "sophisticatedcore-1.20.1-1.3.80.2267.jar",
       "side": "both",
       "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/nmoqTijg/versions/dE5gWmUn/sophisticatedcore-1.20.1-1.3.66.2138.jar",
-      "sha1": "e66e253225bc995f86f0133ff475a584d40e836a",
-      "sha512": "47e9161cd5bcb3966a88166d87556cbdb24da117cc1f5472e928e708a083961f8c449cc3b91177b9f4de148e1f20fd84e0f3cc2c9795e2696ee6653392064f6f",
+      "url": "https://cdn.modrinth.com/data/nmoqTijg/versions/JKiEYolS/sophisticatedcore-1.20.1-1.3.80.2267.jar",
+      "sha1": "59a92facf993e4e9f8be1e6cdc20b1c91dd0fd6f",
+      "sha512": "da0530b033a15df7a9c3e4e465e6fa5466fbff529b939946414ec35584f303647dea55589d202c32635c8f78682207561d5c81bd3a775c064e5efc77e65e68e6",
       "modrinth": "nmoqTijg",
       "curseforge": {
         "projectId": null,
@@ -1693,12 +1665,12 @@
     },
     {
       "name": "Via Romana: Infrastructure-Driven Fast Travel",
-      "filename": "via_romana-2.2.2+1.20.1-forge.jar",
+      "filename": "via_romana-2.2.3+1.20.1-forge.jar",
       "side": "both",
       "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/FVToiKwr/versions/hPBpjlxa/via_romana-2.2.2%2B1.20.1-forge.jar",
-      "sha1": "2d96968a650213da21cd5bf6e3f74e72ff7b36b4",
-      "sha512": "ff43275784ad94fd7f6107be95cdf0a9709b6d815eb1758769beac905043f45a4ea2f668801785fbdf03c6908370d8b3d89d9be9a6b6e04bd628867d3452ef80",
+      "url": "https://cdn.modrinth.com/data/FVToiKwr/versions/vIdX4XS9/via_romana-2.2.3%2B1.20.1-forge.jar",
+      "sha1": "7a86fc66d23668a896e12468cae4a19c96e66291",
+      "sha512": "fe495c54efd40c09ebda10a889f7c677cc367f4330576e658e1a0993f68e94f3a2ffd9771e06a8d55373b08728dc87a3bb98a57318dea5513c8ef7f32a904ab9",
       "modrinth": "FVToiKwr",
       "curseforge": {
         "projectId": null,
@@ -1707,12 +1679,12 @@
     },
     {
       "name": "Simple Voice Chat",
-      "filename": "voicechat-forge-1.20.1-2.6.21.jar",
+      "filename": "voicechat-forge-1.20.1-2.6.22.jar",
       "side": "both",
       "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/9eGKb6K1/versions/3FOFOFRt/voicechat-forge-1.20.1-2.6.21.jar",
-      "sha1": "c569254af53e04f962f6eb5a2266cccde7909dde",
-      "sha512": "0335bcd0c2a91c01752d38bff7b66332153555cccdabfd7fd85bf24b40fbf7ad7e51bb7dfd1d11517dd5056f6a41edde8b86510a4559fb06bef7dc3d50dc83fd",
+      "url": "https://cdn.modrinth.com/data/9eGKb6K1/versions/S11m0QIb/voicechat-forge-1.20.1-2.6.22.jar",
+      "sha1": "ad9179e30cb7b3ffb42b3d9b8e2e9408b473d7fa",
+      "sha512": "23c8b3a593fe506af8d8e0edc0afb45349777d5cdea41ffc3fa99afc2e3b9bc7770bb9951f674017ea5b3c23e111b0c6031ebd61820c9a0b5191e3992d9c8798",
       "modrinth": "9eGKb6K1",
       "curseforge": {
         "projectId": null,
@@ -1889,12 +1861,12 @@
     },
     {
       "name": "Whaleborne",
-      "filename": "whaleborne-1.20.1-1.2.3.jar",
+      "filename": "whaleborne-1.20.1-1.2.4b.jar",
       "side": "both",
       "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/dyFCSxic/versions/a5veoQ1k/whaleborne-1.20.1-1.2.3.jar",
-      "sha1": "a9f1776afb6c1819b1bf0bcaccb67ea5df7e1de0",
-      "sha512": "ed46604f6070013789998d60897ed18fdf84ff22f6562678a0c1cf80b62f060f81770782b5096bb861a354b4748c68abe08779af266ecc1e94c771dbd8573052",
+      "url": "https://cdn.modrinth.com/data/dyFCSxic/versions/MsrkdChD/whaleborne-1.20.1-1.2.4b.jar",
+      "sha1": "9213bfac5891a3826d13d0ddfe383a366022674c",
+      "sha512": "5026ca58a75ed8bdc70bb2a6f6388f6071d96cef383efc534e0f53aa18b0aff02639a14d53e8597df7dcae9710051ec232989aae13f2717c09ca434f743774e6",
       "modrinth": "dyFCSxic",
       "curseforge": {
         "projectId": null,
@@ -1944,20 +1916,6 @@
       }
     },
     {
-      "name": "Mobs Blocker",
-      "filename": "mobs_blocker-1.2.0-forge-1.20.1.jar",
-      "side": "server",
-      "source": "modrinth",
-      "url": "https://cdn.modrinth.com/data/W0JWCVNo/versions/Af1MgWby/mobs_blocker-1.2.0-forge-1.20.1.jar",
-      "sha1": "ec6962be5426652b478ce7194c2337477c176534",
-      "sha512": "347a8dfa9e5e3b6b1c56109d755d6271aedcf5801e1814e6b5b2bae3bf0f8eecbf56e73116ef50552fd3a149e4588e16e0468958b8907abfc9d9a58f4e5f96a8",
-      "modrinth": "W0JWCVNo",
-      "curseforge": {
-        "projectId": null,
-        "fileId": null
-      }
-    },
-    {
       "name": "Cosmetic Armor",
       "filename": "cosmeticarmorreworked-1.20.1-v1a.jar",
       "side": "both",
@@ -1980,6 +1938,272 @@
       "sha1": "5b976f6e76ec74cdef21865e31f56bcb11558db7",
       "sha512": "185617d6d446f3d4ef6c7d5c6ee4e2fb731a89f7495157313b21292ec6b8e3dbcc10c0379ab49ecb2d0c64d0a78df74750d7f7336d5e6c43516a7c92f278c0a2",
       "modrinth": "fuuu3xnx",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Call From The Depths",
+      "filename": "callfromthedepth_-3.7.7.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/oeL19pc1/versions/yE3suphg/callfromthedepth_-3.7.7.jar",
+      "sha1": "a4f67b3068dcafbbabe9a4da6901ac98d128f2f4",
+      "sha512": "61f766c8748210496175f3223a79f9cbff19bec753e91a65d4f23124668bcb0171900915036069c87ba20d392e039e99f5acefca440b2b4d7d0e3a3a7bdcd88e",
+      "modrinth": "oeL19pc1",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Cozy's Improved Cats",
+      "filename": "cozys-improved-cats-1.3.0-forge-1.20.1.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/5MaZBjPT/versions/xeA7oZv5/cozys-improved-cats-1.3.0-forge-1.20.1.jar",
+      "sha1": "f1599d8c58db3e003aaa2dbb9f0ddfd52812976a",
+      "sha512": "25176bf03f470dab4ec716f846b7b4e2ebe44efdf8deb903336bed83af160f76603bfdf13c7d4d6219ad844f2645ed5569a1ddfa316e9ba251fbb23d51523a6b",
+      "modrinth": "5MaZBjPT",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Creator Comes Early (Even More Music Discs)",
+      "filename": "creatorcomesearly-1.0.1-forge-1.20.1.jar",
+      "side": "both",
+      "source": "curseforge",
+      "url": "https://mediafilez.forgecdn.net/files/5537/331/creatorcomesearly-1.0.1-forge-1.20.1.jar",
+      "sha1": "023a00c181ea34d679dfb4e78ae0d64c47ad6fce",
+      "sha512": null,
+      "modrinth": null,
+      "curseforge": {
+        "projectId": 1064936,
+        "fileId": 5537331
+      }
+    },
+    {
+      "name": "Devourer of Gods",
+      "filename": "dog-1.1.0.jar",
+      "side": "both",
+      "source": "curseforge",
+      "url": "https://mediafilez.forgecdn.net/files/8549/326/dog-1.1.0.jar",
+      "sha1": "8be9a8b2d5e1e0d14c40dec2eac9f4526d6e5aa8",
+      "sha512": null,
+      "modrinth": null,
+      "curseforge": {
+        "projectId": 1630975,
+        "fileId": 8549326
+      }
+    },
+    {
+      "name": "Easy Mob Spawn Control",
+      "filename": "easy_mob_spawn_control-1.5.6.jar",
+      "side": "server",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/pTXV6gwq/versions/I7m9NrGf/easy_mob_spawn_control-1.5.6.jar",
+      "sha1": "fa36e9092ad31ea45483a212936461bd0f75366a",
+      "sha512": "eec7d4a076b5b6cd5b474a083c9ff0d965d356fa55c19644c454f997b7de44f94a12f335146241ddd1dcc466cf6c1e08e8f9c1db7bfe8742cbc08e6cc9a36b4f",
+      "modrinth": "pTXV6gwq",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "End Remastered",
+      "filename": "endrem_forge-5.3.3-R-1.20.1.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/ZJTGwAND/versions/SQS2aSUl/endrem_forge-5.3.3-R-1.20.1.jar",
+      "sha1": "b4df41de8439e834a493fe59842709ef33ecfa82",
+      "sha512": "92aac4b5af4d69708ca2661cc628ab9a5f0f4b352601944451d3eaa1a46411b9dbfb312957a84a0b196550f9d9f1446acbc0c47e6d0a0279f1ff9df005f96438",
+      "modrinth": "ZJTGwAND",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Fish 'N' Ships",
+      "filename": "[1.20.1-Forge] Fish N' Ships 1.0.0.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/dBB5hLnG/versions/VGteEal1/%5B1.20.1-Forge%5D%20Fish%20N%27%20Ships%201.0.0.jar",
+      "sha1": "04ef2fb2ebd68f80bea74ccb855c5e25ab01c0f2",
+      "sha512": "04df3be9204909c2d81e4ef7adcd93f3a05eb6e85ba3d5ae2e7e05495eb490bc52dac0beb8022d82ac213f70731536a938f8cc514bbdd96e5dc4112ed43d9756",
+      "modrinth": "dBB5hLnG",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Fragmentum",
+      "filename": "fragmentum-forge-1.20.1-1.5.2.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/49C5QgTK/versions/1nysmgB4/fragmentum-forge-1.20.1-1.5.2.jar",
+      "sha1": "d90de61cab08194a606246f1ac7677cebfcb7c59",
+      "sha512": "23a0010ea6ebff893d5a8324fbe2d3be167d1263e6f84deadf7c4577132abb88b34fe88647d062acb0802468f5027f234e27a4b53c179cfb0f438f52a1942514",
+      "modrinth": "49C5QgTK",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Hexal",
+      "filename": "hexal-forge-1.20.1-0.3.1.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/aBVJ6Q36/versions/PmrRTYFS/hexal-forge-1.20.1-0.3.1.jar",
+      "sha1": "1e3f626f69c42af49080abe32fa5085f6e0cb661",
+      "sha512": "231c9d6f0acc0ce5067dbb50ead4a2d87bbc2bafb1385c051d6a4e6061e7651da78df48c6c875a035bbc9c46c0da6482e3ece1de883176b1b3517c8bbe9455ee",
+      "modrinth": "aBVJ6Q36",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Hybrid Blocks",
+      "filename": "[1.20 Forge] Hybrid Blocks 1.3.0.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/61Q9LmD0/versions/6Cs8Ft8Q/%5B1.20%20Forge%5D%20Hybrid%20Blocks%201.3.0.jar",
+      "sha1": "dd9b2d7dde2e58dc146308ddf59b32f915a327d4",
+      "sha512": "39f0b32b1cd56b2a853fa4b922836a00edc7cd1efc41e32f110b37fe8a73fb455179545812da0b951f6f72e2d53069c5115c9f39b8278f04532e30891d471a20",
+      "modrinth": "61Q9LmD0",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Hybrid Delights",
+      "filename": "[1.20.1-Forge] Hybrid Delights 1.2.1.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/WR49BBCu/versions/cAC1mkS5/%5B1.20.1-Forge%5D%20Hybrid%20Delights%201.2.1.jar",
+      "sha1": "ec941ff204efca70cce920fd10ab0c81b8e9b273",
+      "sha512": "c6b2868f01b9afa83af4a72747823b02c7157b097fa53e793b552fe22f13c605b366ba529c9150c6ff79d7f1c063e1f26d61c3c9d7262f053356594addec41e5",
+      "modrinth": "WR49BBCu",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "MoreIotas",
+      "filename": "moreiotas-forge-1.20.1-0.1.2.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/Jmt7p37B/versions/CEgmhGUx/moreiotas-forge-1.20.1-0.1.2.jar",
+      "sha1": "6bb7e6af2b46a9024872efefd382425ef20d0faa",
+      "sha512": "dd4b1ae29cb98492ac643ae92f5e2b0b578151b150cf7c30d3db9a913886752a1afb512fbc2ef6ca43c1e55788d78b0f6c8c1e4d5fe44c30dd5944e7acb50de4",
+      "modrinth": "Jmt7p37B",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Mystic Seas",
+      "filename": "mysticseas-1.1.0-forge-1.20.1.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/fmYbzjGG/versions/r9q7hVks/mysticseas-1.1.0-forge-1.20.1.jar",
+      "sha1": "3676bbe5f4ffd14bf87d69f5e71c4ce7229aa76a",
+      "sha512": "8917b715415450b019a9e8fd4505dbcce5a194c971f60512e70cce4d598430722dfefc66a27dd5a7d73feeec259bdacf5dfe6d228de4b0c6e119628d1bb8d21d",
+      "modrinth": "fmYbzjGG",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Nirvana",
+      "filename": "nirvana-forge-1.2.5.jar",
+      "side": "both",
+      "source": "curseforge",
+      "url": "https://mediafilez.forgecdn.net/files/7766/58/nirvana-forge-1.2.5.jar",
+      "sha1": "19137093cfdbb3bc71b74c39b6697c9ed5e1224e",
+      "sha512": null,
+      "modrinth": null,
+      "curseforge": {
+        "projectId": 1278909,
+        "fileId": 7766058
+      }
+    },
+    {
+      "name": "Ocean's Enhancements",
+      "filename": "oceans_enhancements-1.0.0-forge-1.20.1.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/guq90zGR/versions/OUHnfRgo/oceans_enhancements-1.0.0-forge-1.20.1.jar",
+      "sha1": "44c96aaeb62b2f4679d9d64d0090eea4b3ce8b94",
+      "sha512": "d2ab358be7aaa61151949ae7cb7b0ef3a267000031826429ad1e5a1f424b6e978498be6d0099a92b1e564ae733849cacacd10aaded2158fc3687eff223acc62c",
+      "modrinth": "guq90zGR",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Sketchy Books",
+      "filename": "sketchy_books-forge-1.20.1-1.1.0.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/Cuw1AXG3/versions/i1C8kfrh/sketchy_books-forge-1.20.1-1.1.0.jar",
+      "sha1": "d7c8e3ff367c373bd614dd2775e35a225132604c",
+      "sha512": "efce45d48a164d9cce6579a820e434d5a3994875b954087966971ec8d9bc9c3e3e3a6eb3fa91ada527ce6bc53a09c93ed86061db972794fc4be2a4034f7a556d",
+      "modrinth": "Cuw1AXG3",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "YUNG's Better End Island",
+      "filename": "YungsBetterEndIsland-1.20-Forge-2.0.6.jar",
+      "side": "server",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/2BwBOmBQ/versions/Izqhg3Va/YungsBetterEndIsland-1.20-Forge-2.0.6.jar",
+      "sha1": "4e7bf109981593061b8100bc8bf23e1c9bbcbb76",
+      "sha512": "a51b76fc41d19276bea2ebe081b153d3be53c502ef9de93593990f8b7bf644e3e4fd4cff17477abce16692f23aff3077be1762606f10ca1058771741ad652e2e",
+      "modrinth": "2BwBOmBQ",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "YUNG's API",
+      "filename": "YungsApi-1.20-Forge-4.0.6.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/Ua7DFN59/versions/PJOYAmAs/YungsApi-1.20-Forge-4.0.6.jar",
+      "sha1": "af584b690f5646c6032002b58abc4591beed3833",
+      "sha512": "7d83d94a90e55a712f6508485c044ff202916e9b9b9166b75177cb8f2eb919543bbbe1547d11c41cfd4763820f934235f47c0b26dd9e89bc1030954afa9fb889",
+      "modrinth": "Ua7DFN59",
+      "curseforge": {
+        "projectId": null,
+        "fileId": null
+      }
+    },
+    {
+      "name": "Kleiders Custom Renderer API",
+      "filename": "kleiders_custom_renderer-7.4.1-forge-1.20.1.jar",
+      "side": "both",
+      "source": "modrinth",
+      "url": "https://cdn.modrinth.com/data/oaG6aa1j/versions/u7GegV7U/kleiders_custom_renderer-7.4.1-forge-1.20.1.jar",
+      "sha1": "9f0f94ed3dd661b542e92d10aa40c8426117b36c",
+      "sha512": "9151ff1a299cbc459452f3d48a8856898293a8276edaae8582c0fb9c3127153ad9af06d8843102167fcb2a468e132da71ae1dbebc38c3c300337f7e8b027fc48",
+      "modrinth": "oaG6aa1j",
       "curseforge": {
         "projectId": null,
         "fileId": null
