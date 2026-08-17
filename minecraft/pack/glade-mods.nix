@@ -124,6 +124,22 @@ let
       mkdir -p "$inst/.minecraft/mods"
       cp -a ${client}/mods/. "$inst/.minecraft/mods/"
 
+      # `mods/` MUST be writable in the extracted instance. Store paths are
+      # read-only (0555 dirs / 0444 files), `cp -a` preserves that, zip records
+      # the modes in its external attributes, and Prism restores them faithfully
+      # — handing the player a read-only mods/. Sinytra Connector then cannot
+      # create its `.connector` transform cache next to the jars: its early
+      # loader throws, the exception is SWALLOWED (only "Skipping early mod setup
+      # due to previous error" is logged), every Fabric mod is silently dropped,
+      # and the client dies later on the first Fabric-dependent mixin with a
+      # completely unrelated-looking stack trace. This is the same requirement
+      # glade.nix documents for the server's per-jar symlinked mods dir; the
+      # Prism pack needs it too. Normalise to explicit, deterministic modes
+      # rather than just u+w so the zip is reproducible.
+      chmod -R u+w "$inst"
+      find "$inst" -type d -exec chmod 755 {} +
+      find "$inst" -type f -exec chmod 644 {} +
+
       cat > "$inst/instance.cfg" <<EOF
       InstanceType=OneSix
       name=${manifest.pack}
