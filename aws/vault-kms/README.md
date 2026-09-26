@@ -9,25 +9,32 @@ with it rather than paying a cross-region hop on every unseal.
 
 ## Minting the credential
 
-The access key is deliberately **not** managed by tofu — `aws_iam_access_key`
-would write a live secret into state, and this repo's state bucket has no
-versioning configured. Mint it out-of-band, at the moment Vault is deployed:
+`tofu apply` mints the access key (`aws_iam_access_key.vault_unseal`) and
+writes it straight into a Nomad Variable (`nomad_variable.openbao_unseal`,
+`nomad/jobs/openbao`) — no manual `aws iam create-access-key` step, no
+jobspec literal, no host-level sops secret.
 
 ```sh
-aws iam create-access-key --user-name vault-unseal --profile gas
+export NOMAD_TOKEN=…   # a Nomad token that can write Variables
+tofu apply
 ```
 
-Put the pair straight into a Nomad Variable and hand it to the Vault job through
-a `template` stanza reading that variable — the pattern `mysql.nomad.hcl`,
-`rabbitmq.nomad.hcl` and `traefik.nomad.hcl` already use. Never a jobspec
-literal, never a host-level sops secret (that is the thing netboot is trying to
-stop needing).
+Rotate with:
 
-If the Nomad cluster is rebootstrapped the variable is lost with the keyring.
-That is fine and expected: delete the old access key and mint a new one. Nothing
-about the KMS key changes, and Vault's own data is unaffected.
+```sh
+tofu apply -replace=aws_iam_access_key.vault_unseal
+```
 
-## Vault config this produces
+This mints a new key and rewrites the Variable in one step. Nothing about the
+KMS key changes, and Bao's own data is unaffected.
+
+Note: Vault itself (the original consumer this stack was designed for) is
+decommissioned — dead Nomad job, zero consumers, confirmed and repo-cleaned.
+The key and IAM user are now Bao's; the Variable is `nomad/jobs/openbao`, not
+`nomad/jobs/vault`, since Nomad workload identity scopes a task to its own
+job name.
+
+## Seal config this produces
 
 ```hcl
 seal "awskms" {}   # block must be present; values come from the environment
@@ -36,7 +43,7 @@ seal "awskms" {}   # block must be present; values come from the environment
 | env | value |
 | --- | --- |
 | `AWS_REGION` | `us-east-2` |
-| `VAULT_AWSKMS_SEAL_KEY_ID` | `tofu output -raw kms_key_id` |
+| `VAULT_AWSKMS_SEAL_KEY_ID` | `aws_kms_key.vault_unseal.key_id` (via the Nomad Variable) |
 | `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` | from the Nomad Variable |
 
 ## Verified 2026-09-09, against the live key

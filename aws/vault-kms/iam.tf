@@ -32,18 +32,28 @@ resource "aws_iam_user_policy" "vault_unseal" {
   })
 }
 
-# NOTE: the access key is deliberately NOT managed here.
+# The access key IS managed here (revised from the original design, which
+# kept it out of tofu state over this same bucket's lack of versioning/
+# explicit encryption -- see git history for that reasoning if reviving it).
+# Accepted knowingly: the alternative was a second, hand-run stack whose
+# state lived in the exact same bucket anyway, buying no real isolation for
+# an extra moving part. `tofu apply -replace=aws_iam_access_key.vault_unseal`
+# is the entire rotation procedure regardless of where the state lives.
 #
-# `aws_iam_access_key` would write the secret into tofu state, and this repo's
-# state bucket (aws/state-bucket) has no versioning and no explicit encryption
-# configured — it relies on S3's default SSE-S3. Putting a live credential there
-# widens its footprint for no benefit, when sops already exists precisely to
-# hold it.
-#
-# So: tofu owns the user and the policy (declarative, reviewable, diffable), and
-# the key itself is minted out-of-band straight into sops. Mint with:
-#
-#   aws iam create-access-key --user-name vault-unseal --profile gas
-#
-# then put the pair in secrets.claude.yaml under aws/vault_unseal_{key,secret}
-# and hand it to the Vault job as a Nomad Variable — never as a jobspec literal.
+# Bao's job reads this via a Nomad Variable, not Vault's own -- Nomad
+# workload identity scopes a task to nomad/jobs/<its own job name>, and
+# Vault itself is being decommissioned (dead job, zero consumers), so this
+# is nomad/jobs/openbao, not nomad/jobs/vault, even though it's the same
+# underlying key.
+resource "aws_iam_access_key" "vault_unseal" {
+  user = aws_iam_user.vault_unseal.name
+}
+
+resource "nomad_variable" "openbao_unseal" {
+  path = "nomad/jobs/openbao"
+  items = {
+    aws_access_key_id     = aws_iam_access_key.vault_unseal.id
+    aws_secret_access_key = aws_iam_access_key.vault_unseal.secret
+    kms_key_id            = aws_kms_key.vault_unseal.key_id
+  }
+}
