@@ -21,7 +21,19 @@ terraform {
   # encrypted client-side before it ever reaches the bucket, independent
   # of that bucket's own (lack of) versioning/SSE config. Needed now that
   # this stack's state holds a live AWS credential (iam.tf).
+  #
+  # MIGRATION IN PROGRESS: this stack's existing state predates this block
+  # and is unencrypted. `method.unencrypted.migrate` + the `fallback` below
+  # let one `tofu apply` read the old unencrypted state and rewrite it
+  # encrypted. `enforced` deliberately left off `state` during this step
+  # (not just unset -- OpenTofu's own migration docs omit it here too,
+  # presumably because it doesn't make sense alongside a fallback that
+  # explicitly permits an unencrypted read). Once that apply succeeds:
+  # delete `method "unencrypted" "migrate" {}` and the `fallback` block,
+  # and add `enforced = true` to `state` to match `plan` below.
   encryption {
+    method "unencrypted" "migrate" {}
+
     key_provider "pbkdf2" "passphrase" {
       passphrase = var.state_passphrase
     }
@@ -29,8 +41,10 @@ terraform {
       keys = key_provider.pbkdf2.passphrase
     }
     state {
-      method   = method.aes_gcm.passphrase
-      enforced = true
+      method = method.aes_gcm.passphrase
+      fallback {
+        method = method.unencrypted.migrate
+      }
     }
     plan {
       method   = method.aes_gcm.passphrase
