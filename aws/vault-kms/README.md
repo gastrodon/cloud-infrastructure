@@ -20,14 +20,32 @@ export NOMAD_TOKEN=…                # a Nomad token that can write Variables
 tofu apply
 ```
 
+**`TF_VAR_state_passphrase` must be an exported env var (or `-var`), not typed
+at an interactive prompt** — state has to decrypt before the normal
+variable-prompt phase of a run even starts, so a bare `tofu apply` without
+the env var set fails outright rather than pausing to ask. This applies even
+with no saved plan file involved.
+
+**IAM hard-limits 2 access keys per user.** If `aws_iam_access_key.vault_unseal`
+fails with `LimitExceeded: Cannot exceed quota for AccessKeysPerUser: 2`,
+`vault-unseal` already has two keys and a slot needs freeing first — AWS never
+re-exposes a `SecretAccessKey` after creation, so an old key can't be reused,
+only deleted:
+```sh
+aws iam list-access-keys --user-name vault-unseal --profile gas   # non-secret: id, status, create date
+aws iam delete-access-key --user-name vault-unseal --access-key-id <the stale one> --profile gas
+tofu apply   # mints the replacement into the now-open slot
+```
+
 Rotate with:
 
 ```sh
 tofu apply -replace=aws_iam_access_key.vault_unseal
 ```
 
-This mints a new key and rewrites the Variable in one step. Nothing about the
-KMS key changes, and Bao's own data is unaffected.
+This mints a new key and rewrites the Variable in one step (subject to the
+same 2-key quota above — free a slot first if needed). Nothing about the KMS
+key changes, and Bao's own data is unaffected.
 
 Note: Vault itself (the original consumer this stack was designed for) is
 decommissioned — dead Nomad job, zero consumers, confirmed and repo-cleaned.
