@@ -15,7 +15,8 @@ writes it straight into a Nomad Variable (`nomad_variable.openbao_unseal`,
 jobspec literal, no host-level sops secret.
 
 ```sh
-export NOMAD_TOKEN=…   # a Nomad token that can write Variables
+export TF_VAR_state_passphrase=…   # from the password manager -- this stack's state now holds a live AWS credential
+export NOMAD_TOKEN=…                # a Nomad token that can write Variables
 tofu apply
 ```
 

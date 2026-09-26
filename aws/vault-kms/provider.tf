@@ -16,6 +16,27 @@ terraform {
     region  = "us-east-1"
     profile = "gas"
   }
+
+  # Wraps the S3 backend above, not a replacement for it -- state is
+  # encrypted client-side before it ever reaches the bucket, independent
+  # of that bucket's own (lack of) versioning/SSE config. Needed now that
+  # this stack's state holds a live AWS credential (iam.tf).
+  encryption {
+    key_provider "pbkdf2" "passphrase" {
+      passphrase = var.state_passphrase
+    }
+    method "aes_gcm" "passphrase" {
+      keys = key_provider.pbkdf2.passphrase
+    }
+    state {
+      method   = method.aes_gcm.passphrase
+      enforced = true
+    }
+    plan {
+      method   = method.aes_gcm.passphrase
+      enforced = true
+    }
+  }
 }
 
 # us-east-2 gives us cheaper spot cap

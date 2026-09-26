@@ -33,12 +33,13 @@ resource "aws_iam_user_policy" "vault_unseal" {
 }
 
 # The access key IS managed here (revised from the original design, which
-# kept it out of tofu state over this same bucket's lack of versioning/
-# explicit encryption -- see git history for that reasoning if reviving it).
-# Accepted knowingly: the alternative was a second, hand-run stack whose
-# state lived in the exact same bucket anyway, buying no real isolation for
-# an extra moving part. `tofu apply -replace=aws_iam_access_key.vault_unseal`
-# is the entire rotation procedure regardless of where the state lives.
+# kept it out of tofu state entirely over this bucket's lack of versioning/
+# explicit encryption -- see git history if reviving that reasoning). What
+# actually resolved it: provider.tf's `encryption {}` block wraps the S3
+# backend with client-side pbkdf2/aes_gcm encryption, so the live secret
+# below is protected independent of the bucket's own config.
+# `tofu apply -replace=aws_iam_access_key.vault_unseal` is the rotation
+# procedure.
 #
 # Bao's job reads this via a Nomad Variable, not Vault's own -- Nomad
 # workload identity scopes a task to nomad/jobs/<its own job name>, and
