@@ -10,9 +10,9 @@ variable "home_peers" {
 }
 
 variable "instance_types" {
-  description = "Spot pools the ASG may draw from, all >= 1 GiB and x86_64."
+  description = "Spot pools the ASG may draw from: Nitro only (the AMI has no Xen blkfront), >= 1 GiB, x86_64."
   type        = list(string)
-  default     = ["t3.micro", "t2.micro", "t3a.micro"]
+  default     = ["t3.micro", "t3a.micro"]
 }
 
 variable "ssh_cidrs" {

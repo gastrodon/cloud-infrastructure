@@ -17,7 +17,7 @@ resource "aws_security_group" "edge" {
 }
 
 resource "aws_vpc_security_group_ingress_rule" "edge_tcp" {
-  for_each          = toset(["80", "443"])
+  for_each          = toset(["25", "80", "443"])
   security_group_id = aws_security_group.edge.id
   ip_protocol       = "tcp"
   from_port         = tonumber(each.value)
