@@ -58,3 +58,12 @@ resource "porkbun_dns_record" "lab_spf" {
   content   = "v=spf1 -all"
   ttl       = 600
 }
+
+# *.lab makes lab an empty non-terminal, so the apex wildcard no longer answers for it.
+resource "porkbun_dns_record" "lab" {
+  domain    = var.domain
+  subdomain = "lab"
+  type      = "A"
+  content   = module.edge1.eip
+  ttl       = 600
+}
