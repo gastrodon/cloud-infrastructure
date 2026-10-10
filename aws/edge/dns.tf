@@ -24,3 +24,11 @@ resource "porkbun_dns_record" "caa" {
   content   = "0 issue \"${each.value}\""
   ttl       = 600
 }
+
+resource "porkbun_dns_record" "lab_wildcard" {
+  domain    = var.domain
+  subdomain = "*.lab"
+  type      = "A"
+  content   = module.edge1.eip
+  ttl       = 600
+}
