@@ -28,6 +28,12 @@ variable "efs_id" {
   type = string
 }
 
+variable "public_tcp_ports" {
+  description = "Public TCP ports beyond 80/443 the box opens in its own firewall."
+  type        = list(string)
+  default     = []
+}
+
 variable "home_peers" {
   type = map(string)
 }
@@ -117,6 +123,7 @@ resource "aws_launch_template" "this" {
     SSM_WG_KEY=${local.ssm_prefix}/wg-key
     SSM_WG_PUB=${local.ssm_prefix}/wg-pub
     TUNNEL_IP=${var.tunnel_ip}
+    PUBLIC_TCP_PORTS="${join(" ", var.public_tcp_ports)}"
     HOME_PEERS="${local.home_peers}"
   EOT
   )

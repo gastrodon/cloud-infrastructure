@@ -85,6 +85,7 @@ module "edge1" {
   security_group_id = aws_security_group.edge.id
   efs_id            = aws_efs_file_system.edge.id
   home_peers        = var.home_peers
+  public_tcp_ports  = ["25"]
 
   depends_on = [aws_efs_mount_target.edge]
 }
