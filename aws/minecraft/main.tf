@@ -84,9 +84,10 @@ resource "aws_launch_template" "mc" {
 # EFS only ever has one writer (Minecraft's session.lock is the backstop).
 resource "aws_autoscaling_group" "mc" {
   name                = "minecraft"
-  min_size            = 1
+  # Scaled to 0 2026-10-10 - see commit message for why.
+  min_size            = 0
   max_size            = 1
-  desired_capacity    = 1
+  desired_capacity    = 0
   vpc_zone_identifier = data.aws_subnets.default.ids
   capacity_rebalance  = true
   health_check_type   = "EC2"
