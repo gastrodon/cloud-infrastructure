@@ -16,9 +16,13 @@ variable "instance_types" {
 }
 
 variable "ssh_cidrs" {
-  description = "Public SSH sources; empty means SSH only over the tunnel."
+  description = "Public SSH sources (the home IP); passed with -var so it stays out of the repo."
   type        = list(string)
-  default     = []
+
+  validation {
+    condition     = length(var.ssh_cidrs) > 0
+    error_message = "ssh_cidrs needs at least one CIDR; an apply without it would delete the SSH rule."
+  }
 }
 
 variable "domain" {
@@ -27,9 +31,9 @@ variable "domain" {
 }
 
 variable "caa_issuers" {
-  description = "CAA issue values for the domain; empty until the cert source is settled."
+  description = "CAs allowed to issue for the domain (CAA issue values)."
   type        = list(string)
-  default     = []
+  default     = ["letsencrypt.org"]
 }
 
 variable "ami_bucket" {

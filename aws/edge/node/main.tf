@@ -73,8 +73,17 @@ resource "aws_iam_role_policy" "this" {
     Version = "2012-10-17"
     Statement = [
       {
+        Effect = "Allow"
+        Action = "ec2:AssociateAddress"
+        Resource = [
+          aws_eip.this.arn,
+          "arn:aws:ec2:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:instance/*",
+          "arn:aws:ec2:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:network-interface/*",
+        ]
+      },
+      {
         Effect   = "Allow"
-        Action   = ["ec2:AssociateAddress", "ec2:DescribeAddresses"]
+        Action   = "ec2:DescribeAddresses"
         Resource = "*"
       },
       {
