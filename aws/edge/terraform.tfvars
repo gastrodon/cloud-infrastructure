@@ -1,4 +1,4 @@
-nix_modules_rev = "00ef80f6fc19ff9dca06bb5e52c6863a4f095546"
+nix_modules_rev = "c3e90b60a515dfb1a5125e14c1f05e7f9f4597a4"
 
 home_peers = {
   "192.168.0.58" = "pnn3xNKjnNBKAq/Tffy+Ev/L+zqDcVlXMLo3PkXk6ko="
